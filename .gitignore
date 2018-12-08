@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/slnx.sqlite-journal
+/CafeOnline/CafeOnline/obj/Release/CafeOnline.csproj.CoreCompileInputs.cache
+/CafeOnline/CafeOnline/obj/Release/CafeOnline.csprojAssemblyReference.cache
+/CafeOnline/Model/obj/Release/Model.csproj.CoreCompileInputs.cache
+/.vs/CafeOnline/v15/.suo
