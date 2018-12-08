@@ -50,6 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\Encode\Decrypt.cs" />
+    <Compile Include="Common\Encode\Encrypt.cs" />
+    <Compile Include="DAO\ProductDao.cs" />
     <Compile Include="EF\Bill.cs" />
     <Compile Include="EF\Category.cs" />
     <Compile Include="EF\Grant.cs" />
@@ -63,8 +67,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

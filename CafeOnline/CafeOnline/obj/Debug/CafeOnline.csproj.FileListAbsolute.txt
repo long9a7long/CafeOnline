@@ -198,3 +198,8 @@ D:\CafeShop\CafeOnline\CafeOnline\obj\Debug\CafeOnline.csproj.CoreCompileInputs.
 D:\CafeShop\CafeOnline\CafeOnline\obj\Debug\CafeOnline.csproj.CopyComplete
 D:\CafeShop\CafeOnline\CafeOnline\obj\Debug\CafeOnline.dll
 D:\CafeShop\CafeOnline\CafeOnline\obj\Debug\CafeOnline.pdb
+E:\CafeOnline\CafeOnline\CafeOnline\bin\Model.dll
+E:\CafeOnline\CafeOnline\CafeOnline\bin\Model.pdb
+E:\CafeOnline\CafeOnline\CafeOnline\bin\Model.dll.config
+E:\CafeOnline\CafeOnline\CafeOnline\bin\CKFinder.dll
+E:\CafeOnline\CafeOnline\CafeOnline\bin\CKFinder.pdb

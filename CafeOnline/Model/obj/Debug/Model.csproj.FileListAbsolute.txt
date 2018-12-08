@@ -1,0 +1,12 @@
+E:\CafeOnline\CafeOnline\Model\bin\Debug\Model.dll.config
+E:\CafeOnline\CafeOnline\Model\bin\Debug\Model.dll
+E:\CafeOnline\CafeOnline\Model\bin\Debug\Model.pdb
+E:\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.dll
+E:\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.SqlServer.dll
+E:\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.xml
+E:\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.SqlServer.xml
+E:\CafeOnline\CafeOnline\Model\obj\Debug\Model.csprojAssemblyReference.cache
+E:\CafeOnline\CafeOnline\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+E:\CafeOnline\CafeOnline\Model\obj\Debug\Model.csproj.CopyComplete
+E:\CafeOnline\CafeOnline\Model\obj\Debug\Model.dll
+E:\CafeOnline\CafeOnline\Model\obj\Debug\Model.pdb

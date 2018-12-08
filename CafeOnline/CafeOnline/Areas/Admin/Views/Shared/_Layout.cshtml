@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Collapsed Sidebar Layout</title>
+    <title>@ViewBag.Title | Coffee Shop Admin </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -180,7 +180,7 @@
                             </ul>
                         </li>
                         <!-- Control Sidebar Toggle Button -->
-                        
+
                     </ul>
                 </div>
             </nav>
@@ -188,17 +188,23 @@
         <!-- =============================================== -->
         <!-- Left side column. contains the sidebar -->
         <aside class="main-sidebar">
-           @RenderPage("_LeftMenu.cshtml")
+            @RenderPage("_LeftMenu.cshtml")
         </aside>
         <!-- =============================================== -->
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            @RenderBody()
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                @RenderSection("header", false)
+            </section>
+            <!-- Main content -->
+            <section class="content">
+                @RenderBody()
+            </section>
+            <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            
-        </footer>
+        <footer class="main-footer"></footer>
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Create the tabs -->
@@ -380,9 +386,13 @@
     <script src="~/Assets/admin/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="~/Assets/admin/dist/js/adminlte.min.js"></script>
+    <script src="/Assets/admin/plugins/ckfinder/ckfinder.js"></script>
+    <script src="/Assets/admin/plugins/ckeditor/ckeditor.js"></script>
+    <!--twbs-pagination-->
+    
     <!-- AdminLTE for demo purposes -->
     <script src="~/Assets/admin/dist/js/demo.js"></script>
-    @RenderSection("Script_footer",false)
+    @RenderSection("Script_footer", false)
 </body>
 </html>
 

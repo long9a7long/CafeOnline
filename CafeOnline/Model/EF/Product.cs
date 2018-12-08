@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -16,27 +16,36 @@ namespace Model.EF
         }
 
         [Key]
+        [Display(Name ="Mã sản phẩm")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ProdID { get; set; }
 
         [Required]
+        [Display(Name = "Tên sản phẩm")]
         [StringLength(200)]
         public string ProdName { get; set; }
 
         [StringLength(4000)]
+        [Display(Name = "Ảnh sản phẩm")]
         public string ImageUrl { get; set; }
 
         [Column(TypeName = "ntext")]
+        [Display(Name = "Mô tả")]
         public string Decription { get; set; }
 
+        [Display(Name = "Giá")]
         public int Cost { get; set; }
 
+        [Display(Name = "Trạng thái")]
         public bool isActive { get; set; }
 
+        [Display(Name = "Danh mục sản phẩm")]
         public byte CateID { get; set; }
 
+        [Display(Name = "Ngày tạo")]
         public DateTime? CreatedAt { get; set; }
 
+        [Display(Name = "Ngày sửa gần nhất")]
         public DateTime? UpdatedAt { get; set; }
 
         public virtual Category Category { get; set; }
