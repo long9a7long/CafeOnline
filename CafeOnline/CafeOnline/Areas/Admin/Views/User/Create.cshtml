@@ -1,0 +1,103 @@
+﻿@model Model.EF.User
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Script_footer{
+    <script src="~/bundles/jqueryval"></script>
+}
+<div class="row">
+    <!-- left column -->
+    <div class="col-md-6 col-md-offset-3">
+        <!-- general form elements -->
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title" style="padding-top:50px; ">Đăng Kí Khách Hàng</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            @using (Html.BeginForm("Create", "User", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="box-body">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserID)
+                    @Html.TextBoxFor(model => model.UserID, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password)
+
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FullName)
+
+                    @Html.TextBoxFor(model => model.FullName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Address)
+
+                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Phone)
+
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email)
+
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.isActive)
+                    <div class="checkbox">
+                        <label>
+                            @Html.CheckBoxFor(model => model.isActive)
+                            Kích hoạt
+                        </label>
+                        @Html.ValidationMessageFor(model => model.isActive, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.GrantID, "Quyền")
+
+                    @Html.DropDownListFor(model => model.GrantID, null, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.GrantID, "", new { @class = "text-danger" })
+
+                </div>
+
+            </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                    @Html.ActionLink("Hủy", "Index", new object { }, new { @class = "btn btn-default col-md-offset-1" })
+                </div>
+            }
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+

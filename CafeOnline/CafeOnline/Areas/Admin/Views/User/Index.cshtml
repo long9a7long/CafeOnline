@@ -1,0 +1,75 @@
+﻿
+@model PagedList.IPagedList<Model.EF.User>
+
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản Lý Người Dùng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh Sách Thành Viên</h2>
+
+<p>
+    @Html.ActionLink("Tạo Mới", "Create")
+</p>
+<div>
+    <table class="table">
+        <tr>
+            <th>
+                Tên Đăng Nhập
+            </th>
+            <th>
+                Tên Hiện Thị
+            </th>
+            <th>
+                Địa Chỉ
+            </th>
+            <th>
+                Số Điện Thoại
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Quyền
+            </th>
+            <th>
+                Trạng Thái
+            </th>
+            <th>Công Cụ</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grant.GrantName)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.isActive)
+            </td>
+            <td>
+                @Html.ActionLink("Xóa", "Delete", new { id = item.UserID })
+            </td>
+        </tr>
+        }
+
+    </table>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }));
+</div>
