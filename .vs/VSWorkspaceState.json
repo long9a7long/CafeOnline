@@ -1,14 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CafeOnline",
-    "\\CafeOnline\\CafeOnline",
-    "\\CafeOnline\\CafeOnline\\Areas",
-    "\\CafeOnline\\CafeOnline\\Areas\\Admin",
-    "\\CafeOnline\\CafeOnline\\Areas\\Admin\\Views",
-    "\\CafeOnline\\Model",
-    "\\CafeOnline\\Model\\DAO",
-    "\\CafeOnline\\Model\\EF"
+    "\\CafeOnline"
   ],
   "SelectedNode": "\\CafeOnline\\CafeOnline.sln",
   "PreviewInSolutionExplorer": false
