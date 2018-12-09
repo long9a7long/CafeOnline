@@ -13,19 +13,14 @@ namespace Model.EF
         }
 
         public virtual DbSet<Bill> Bill { get; set; }
-        public virtual DbSet<Category> Category { get; set; }
+        public virtual DbSet<Category> Categorie { get; set; }
         public virtual DbSet<Grant> Grant { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<Product> Product { get; set; }
-        
         public virtual DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Bill>()
-                .Property(e => e.BillID)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Bill>()
                 .Property(e => e.Phone)
                 .IsUnicode(false);
@@ -35,21 +30,17 @@ namespace Model.EF
                 .IsUnicode(false);
 
             modelBuilder.Entity<Bill>()
-                .HasMany(e => e.Order)
+                .HasMany(e => e.Orders)
                 .WithRequired(e => e.Bill)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Category>()
-                .HasMany(e => e.Product)
+                .HasMany(e => e.Products)
                 .WithRequired(e => e.Category)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Order>()
-                .Property(e => e.BillID)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Product>()
-                .HasMany(e => e.Order)
+                .HasMany(e => e.Orders)
                 .WithRequired(e => e.Product)
                 .WillCascadeOnDelete(false);
 

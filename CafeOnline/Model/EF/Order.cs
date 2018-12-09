@@ -11,8 +11,7 @@ namespace Model.EF
     {
         [Key]
         [Column(Order = 0)]
-        [StringLength(10)]
-        public string BillID { get; set; }
+        public int BillID { get; set; }
 
         [Key]
         [Column(Order = 1)]

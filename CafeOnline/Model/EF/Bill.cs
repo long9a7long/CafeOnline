@@ -12,11 +12,10 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Bill()
         {
-            Order = new HashSet<Order>();
+            Orders = new HashSet<Order>();
         }
 
-        [StringLength(10)]
-        public string BillID { get; set; }
+        public int BillID { get; set; }
 
         [StringLength(250)]
         public string CustomerName { get; set; }
@@ -44,6 +43,6 @@ namespace Model.EF
         public virtual User User { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

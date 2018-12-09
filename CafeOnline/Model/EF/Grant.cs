@@ -12,10 +12,10 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Grant()
         {
-            User = new HashSet<User>();
+            Users = new HashSet<User>();
         }
 
-        public byte GrantID { get; set; }
+        public int GrantID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -28,6 +28,6 @@ namespace Model.EF
         public DateTime? UpdatedAt { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> User { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

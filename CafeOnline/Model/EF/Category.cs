@@ -12,11 +12,11 @@ namespace Model.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Category()
         {
-            Product = new HashSet<Product>();
+            Products = new HashSet<Product>();
         }
 
         [Key]
-        public byte CateID { get; set; }
+        public int CateID { get; set; }
 
         [Required]
         [StringLength(150)]
@@ -29,6 +29,6 @@ namespace Model.EF
         public DateTime? UpdatedAt { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

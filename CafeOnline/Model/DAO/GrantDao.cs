@@ -31,7 +31,7 @@ namespace Model.DAO
         }
         public List<Grant> ListAll()
         {
-            return db.Grant.ToList();
+            return db.Grant.Where(x=>x.isActive==true).ToList();
         }
     }
 }
