@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace CafeOnline.Areas.Admin.Controllers
 {
-    public class BaseController : Controller
+    public class Controller : System.Web.Mvc.Controller
     {
         // GET: Admin/Base
         public ActionResult Index()
