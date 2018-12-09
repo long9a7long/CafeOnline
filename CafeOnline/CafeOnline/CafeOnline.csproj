@@ -6517,6 +6517,7 @@
     <Content Include="Assets\admin\dist\js\demo.js" />
     <Content Include="Assets\admin\dist\js\pages\dashboard.js" />
     <Content Include="Assets\admin\dist\js\pages\dashboard2.js" />
+    <Content Include="Assets\admin\js\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Assets\admin\js\JSProductController.js" />
     <Content Include="Assets\admin\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="Assets\admin\plugins\bootstrap-slider\slider.css" />
@@ -8360,12 +8361,16 @@
     <Content Include="Assets\admin\plugins\ckfinder\userfiles\.htaccess" />
     <Content Include="Areas\Admin\Views\User\Create.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -8412,7 +8417,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Areas\Admin\Views\Category\" />
     <Folder Include="Areas\Admin\Views\Grant\" />
     <Folder Include="Areas\Admin\Views\Login\" />
     <Folder Include="Assets\Data\Images\" />

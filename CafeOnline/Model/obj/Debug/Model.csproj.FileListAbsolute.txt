@@ -17,16 +17,12 @@ D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.dll
 D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.SqlServer.dll
 D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\PagedList.dll
 D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\PagedList.Mvc.dll
-D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.WebPages.dll
-D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\Microsoft.Web.Infrastructure.dll
-D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.Razor.dll
-D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.WebPages.Deployment.dll
 D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.xml
 D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.SqlServer.xml
 D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\PagedList.xml
 D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\PagedList.Mvc.xml
-D:\CafeShop\CafeOnline\CafeOnline\Model\obj\Debug\Model.csprojAssemblyReference.cache
 D:\CafeShop\CafeOnline\CafeOnline\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 D:\CafeShop\CafeOnline\CafeOnline\Model\obj\Debug\Model.csproj.CopyComplete
 D:\CafeShop\CafeOnline\CafeOnline\Model\obj\Debug\Model.dll
 D:\CafeShop\CafeOnline\CafeOnline\Model\obj\Debug\Model.pdb
+D:\CafeShop\CafeOnline\CafeOnline\Model\obj\Debug\Model.csprojAssemblyReference.cache

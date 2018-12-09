@@ -21,27 +21,26 @@ namespace CafeOnline.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(User user)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                if(dao.GetByName(user.UserID) == null)
+                if (dao.GetByName(user.UserID) == null)
+                {
+                    string id = dao.Insert(user);
+                    if (id != null)
                     {
-                        string id = dao.Insert(user);
-                        if (id!=null)
-                        {
-                            return RedirectToAction("Index", "User");
-                        }
-                        else
-                        {
-                            ModelState.AddModelError("", "Thêm Người Dùng Không Thành Công !");
-                        }
+                        return RedirectToAction("Index", "User");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Thêm Người Dùng Không Thành Công !");
                     }
                 }
                 else
                 {
                     ModelState.AddModelError("", "Người Dùng Đã Tồn Tại !");
                 }
-
+            }
             return View("Index");
             
         }
