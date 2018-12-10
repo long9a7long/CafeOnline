@@ -3,8 +3,7 @@ using Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PagedList;
 
 namespace Model.DAO
 {
@@ -123,20 +122,11 @@ namespace Model.DAO
         }
 
 
-        public IEnumerable<Product> getObjectList(string _search, int page, out int totalRows, out int totalPages)
+        public IEnumerable<Product> ListAllPaging(int page)
         {
-            var model = db.Product.OrderBy(p => p.CreatedAt).ToList();
+            IQueryable<Product> model = db.Product;
+            return model.OrderByDescending(x => x.CreatedAt).ToPagedList(page, Constants.PageSize);
 
-            if (_search != null)
-            {
-                model = model.Where(obj => obj.ProdName.Contains(_search)).ToList();
-            }
-
-            totalRows = model.Count();
-            totalPages = (int)Math.Ceiling((double)(totalRows / Constants.PageSize));
-
-            return model.Skip((page - 1) * Constants.PageSize)
-                        .Take(Constants.PageSize);
         }
 
         /**

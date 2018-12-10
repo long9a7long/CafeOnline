@@ -11,11 +11,10 @@ namespace CafeOnline.Areas.Admin.Controllers
     public class ProductController : System.Web.Mvc.Controller
     {
         // GET: Admin/Product
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
             var dao = new ProductDao();
-            int totalpage, totalrow;
-            var model = dao.getObjectList(null, 1, out totalrow,out totalpage);
+            var model = dao.ListAllPaging(page);
             return View(model);
         }
         public ActionResult Create()

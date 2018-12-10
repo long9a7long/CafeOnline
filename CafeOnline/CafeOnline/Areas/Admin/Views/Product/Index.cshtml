@@ -1,7 +1,8 @@
-﻿@model IEnumerable<Model.EF.Product>
+﻿@model PagedList.IPagedList<Model.EF.Product>
+@using PagedList.Mvc;
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Quản lý sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 @section Script_footer{
@@ -39,67 +40,65 @@
                 <table class="table table-hover table-bordered">
                     <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.Category.CateName)
+                            Tên Danh mục
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.ProdName)
+                            Tên Sản phẩm
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.ImageUrl)
+                            Ảnh sản phẩm
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Cost)
+                            Giá
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.CreatedAt)
+                            Ngày tạo
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.UpdatedAt)
+                            Ngày chỉnh sửa
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.isActive)
+                            Trạng thái
                         </th>
 
                         <th>Công cụ</th>
                     </tr>
 
                     @foreach (var item in Model)
-                    {
-                        @{ 
-                            string classkh = "";
-                            if (item.isActive) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
-                            string stringkh = "";
-                            if (item.isActive) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
-                        }
-                    <tr id="row_@item.ProdID">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Category.CateName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ProdName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ImageUrl)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Cost)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CreatedAt)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.UpdatedAt)
-                        </td>
-                        <td> <a href="#" data-id="@item.ProdID " class="btn-status @classkh">@stringkh</a> </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ProdID }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ProdID }) |
-                            <a href="#" data-id="@item.ProdID " class="btn-delete">Xóa</a>
-                        </td>
-                    </tr>
+                    {    string classkh = "";
+                         if (item.isActive) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
+                         string stringkh = "";
+                         if (item.isActive) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
+                        <tr id="row_@item.ProdID">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Category.CateName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ProdName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ImageUrl)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cost)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedAt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UpdatedAt)
+                            </td>
+                            <td> <a href="#" data-id="@item.ProdID " class="btn-status @classkh">@stringkh</a> </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ProdID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ProdID }) |
+                                <a href="#" data-id="@item.ProdID " class="btn-delete">Xóa</a>
+                            </td>
+                        </tr>
                     }
 
                 </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
             </div>
             <!-- /.box-body -->
             <div class="box-footer clearfix">
