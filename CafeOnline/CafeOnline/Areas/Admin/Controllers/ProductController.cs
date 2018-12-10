@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace CafeOnline.Areas.Admin.Controllers
 {
-    public class ProductController : System.Web.Mvc.Controller
+    public class ProductController : BaseController
     {
         #region ActionResult
         // GET: Admin/Product

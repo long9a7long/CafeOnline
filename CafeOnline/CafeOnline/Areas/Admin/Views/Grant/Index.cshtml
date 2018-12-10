@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Model.EF.Grant>
+
+@{
+    ViewBag.Title = "Phân quyền";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    <h1>Quản lý phân quyền</h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+        <li><a href="/Admin/Category">Phân quyền</a></li>
+        <li class="active">Danh sách</li>
+    </ol>
+}
+
+@section Script_footer{
+    <script src="~/assets/admin/js/JSGrantController.js"></script>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                    <h3 class="box-title">Danh sách phân quyền</h3>
+                    <div class="box-tools pull-right">
+                        <div class="pull-right">
+                            <a href="/Admin/Grant/Create" class="btn btn-info btn-sm"> <i class="fa  fa-plus"></i> Thêm mới</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.GrantName)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedAt)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UpdatedAt)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.isActive)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        string classkh = "";
+                        if (item.isActive) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
+                        string stringkh = "";
+                        if (item.isActive) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
+
+                    <tr id="row_@item.GrantID">
+                        <td>
+                            <input type="text" class='edit' data-id="@item.GrantID" value="@Html.DisplayFor(modelItem => item.GrantName)" />
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreatedAt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UpdatedAt)
+                        </td>
+
+                        <td> 
+                            <a href="#" data-id="@item.GrantID " class="btn-status @classkh">@stringkh</a> 
+                        </td>
+
+                        <td>
+                            <a href="#" data-id="@item.GrantID " class="btn-delete">Xóa</a>
+                        </td>
+                    </tr>
+                    }
+
+                </table>
+            </div>
+            <!-- /.box-body -->
+            <!-- /.box-footer -->
+        </div>
+        <!-- /.box -->
+    </div>
+</div>
+
+
+

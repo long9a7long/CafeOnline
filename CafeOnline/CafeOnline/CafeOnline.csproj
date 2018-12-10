@@ -214,6 +214,7 @@
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -6518,6 +6519,7 @@
     <Content Include="Assets\admin\dist\js\pages\dashboard.js" />
     <Content Include="Assets\admin\dist\js\pages\dashboard2.js" />
     <Content Include="Assets\admin\js\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Assets\admin\js\JSGrantController.js" />
     <Content Include="Assets\admin\js\JSProductController.js" />
     <Content Include="Assets\admin\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="Assets\admin\plugins\bootstrap-slider\slider.css" />
@@ -8364,6 +8366,9 @@
     <Content Include="Areas\Admin\Views\Category\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Category\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Grant\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Grant\Create.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -8416,10 +8421,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Areas\Admin\Views\Grant\" />
-    <Folder Include="Areas\Admin\Views\Login\" />
     <Folder Include="Assets\Data\Images\" />
   </ItemGroup>
   <ItemGroup>

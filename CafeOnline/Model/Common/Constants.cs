@@ -17,6 +17,9 @@
         public static string ENCODE_MD5 = "ENCODE_MD5";
         public static string USER_SESSION = "USER_SESSION";
         public static int PageSize = 5;
+        public static string MEMBER_GROUP = "User";
+        public static string ADMIN_GROUP = "Admin";
+        public static string MOD_GROUP = "MOD";
 
         public static string Grant = "Grant";
         public enum LoginState

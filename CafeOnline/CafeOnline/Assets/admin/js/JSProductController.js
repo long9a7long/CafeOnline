@@ -63,21 +63,5 @@ var productController = {
             };
         });
     },
-    paging: function (totalPages, totalRows, callback) {
-        $('#pagination').twbsPagination({
-            first: 'Đầu',
-            prev: 'Trước',
-            last: 'Cuối',
-            next: 'Tiếp',
-            totalPages: totalPages,
-            visiblePages: 5,
-            onPageClick: function (event, page) {
-                config.page = page;
-                setTimeout(callback, 200);
-            }
-        });
-
-        $('#totalRows').text(totalRows);
-    }
 };
 productController.init();
