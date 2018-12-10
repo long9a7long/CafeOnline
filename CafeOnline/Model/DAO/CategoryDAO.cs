@@ -57,5 +57,10 @@ namespace Model.DAO
                 return false;
             }
         }
+
+        public List<Category> GetListAll()
+        {
+            return db.Category.OrderByDescending(x => x.CateID).ToList();
+        }
     }
 }

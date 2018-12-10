@@ -16,7 +16,7 @@
         public static bool falseValue = false;
         public static string ENCODE_MD5 = "ENCODE_MD5";
         public static string USER_SESSION = "USER_SESSION";
-        public static int PageSize = 10;
+        public static int PageSize = 5;
 
         public static string Grant = "Grant";
         public enum LoginState

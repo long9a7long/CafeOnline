@@ -4,7 +4,6 @@
 };
 var productController = {
     init: function () {
-        productController.loadData();
         productController.registerEvent();
     },
     registerEvent: function () {
@@ -15,36 +14,28 @@ var productController = {
 
             var id = btn.data('id');
             var text = btn.text() === "Kích hoạt" ? "khóa" : "kích hoạt";
-            bootbox.confirm({
-                message: 'Bạn muốn ' + text + ' sản phẩm này?',
-                size: 'small',
-                title: 'Thông báo',
-                callback: function (result) {
-                    if (result) {
-                        $.ajax({
-                            type: 'POST',
-                            url: '/Admin/Product/ChangeStatus',
-                            data: { id: config.page },
-                            dataType: 'json',
-                            success: function (response) {
-                                if (response) {
-                                    btn.attr('class', 'label label-success');
-                                    btn.text('Kích hoạt');
-                                } else {
-                                    btn.attr('class', 'label label-danger');
-                                    btn.text('Khóa');
-                                }
-                            },
-                            error: function (response) {
-                                bootbox.alert({
-                                    message: response.message,
-                                    size: 'small'
-                                });
-                            }
-                        });
+            if (confirm("Bạn muốn "+text+" sản phẩm này?")) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/Admin/Product/ChangeStatus',
+                    data: { id: id },
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response) {
+                            btn.attr('class', 'label label-success');
+                            btn.text('Kích hoạt');
+                        } else {
+                            btn.attr('class', 'label label-danger');
+                            btn.text('Khóa');
+                        }
+                    },
+                    error: function (response) {
+                        alert(response.message);
                     }
-                }
-            });
+                });
+            }
+
+
         });
 
         //delete
@@ -54,35 +45,24 @@ var productController = {
 
             var id = btn.data('id');
 
-            bootbox.confirm({
-                message: 'Bạn muốn xóa sản phẩm này?',
-                size: 'small',
-                title: 'Thông báo',
-                callback: function (result) {
-                    if (result) {
-                        $.ajax({
-                            type: 'POST',
-                            url: '/Admin/Product/Delete',
-                            data: { id: id },
-                            dataType: 'json',
-                            success: function (response) {
-                                if (response) {
-                                    $('#row_' + id).remove();
-                                }
-                            },
-                            error: function (response) {
-                                bootbox.alert({
-                                    message: response.message,
-                                    size: 'small'
-                                });
-                            }
-                        });
+            if (confirm("Bạn thực sự muốn xóa sản phẩm này?")) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/Admin/Product/Delete',
+                    data: { id: id },
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response) {
+                            $('#row_' + id).remove();
+                        }
+                    },
+                    error: function (response) {
+                        alert(response.message);
                     }
-                }
-            });
+                });
+            };
         });
-
-
+    },
     paging: function (totalPages, totalRows, callback) {
         $('#pagination').twbsPagination({
             first: 'Đầu',
@@ -100,5 +80,4 @@ var productController = {
         $('#totalRows').text(totalRows);
     }
 };
-
 productController.init();

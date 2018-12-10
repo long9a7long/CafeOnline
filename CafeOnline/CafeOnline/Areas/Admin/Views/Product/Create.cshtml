@@ -1,7 +1,7 @@
 ﻿@model Model.EF.Product
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Product";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 @section header{
@@ -69,11 +69,11 @@
                         @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
                     </div>
 
-                    @*<div class="form-group">
+                    <div class="form-group">
                             @Html.LabelFor(model => model.CateID)
                             @Html.DropDownListFor(model => model.CateID, ViewBag.CategoryID as SelectList, new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.CateID, "", new { @class = "text-danger" })
-                        </div>*@
+                        </div>
 
                     <div class="form-group">
                         @Html.LabelFor(model => model.isActive)

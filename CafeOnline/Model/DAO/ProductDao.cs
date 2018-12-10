@@ -108,7 +108,7 @@ namespace Model.DAO
          * @param _request: ProductRequestDto -- is the data transmitted down from the display screen
          */
 
-        public bool update(Product _request)
+        public bool Update(Product _request)
         {
                 var product = getByID(_request.ProdID);
                 product.ProdName = _request.ProdName;
@@ -122,9 +122,13 @@ namespace Model.DAO
         }
 
 
-        public IEnumerable<Product> ListAllPaging(int page)
+        public IEnumerable<Product> ListAllPaging(string searchString, int page)
         {
             IQueryable<Product> model = db.Product;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.ProdName.Contains(searchString) || x.ProdName.Contains(searchString));
+            }
             return model.OrderByDescending(x => x.CreatedAt).ToPagedList(page, Constants.PageSize);
 
         }
@@ -134,15 +138,20 @@ namespace Model.DAO
          * @param _search: string -- is search key
          */
 
-        public IEnumerable<Product> getObjectList(string _search)
+        public IEnumerable<Product> getObjectList(string _search, int page, out int totalRows, out int totalPages)
         {
-            var model = db.Product.ToList();
+            var model = db.Product.OrderBy(p => p.CreatedAt).ToList();
+
             if (_search != null)
             {
                 model = model.Where(obj => obj.ProdName.Contains(_search)).ToList();
             }
 
-            return model;
+            totalRows = model.Count();
+            totalPages = (int)Math.Ceiling((double)(totalRows / Constants.PageSize));
+
+            return model.Skip((page - 1) * Constants.PageSize)
+                        .Take(Constants.PageSize);
         }
 
         /**

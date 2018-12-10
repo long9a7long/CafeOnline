@@ -1,25 +1,24 @@
 ﻿using Model.DAO;
 using Model.EF;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CafeOnline.Areas.Admin.Controllers
 {
     public class ProductController : System.Web.Mvc.Controller
     {
+        #region ActionResult
         // GET: Admin/Product
-        public ActionResult Index(int page = 1)
+        public ActionResult Index(string searchString, int page = 1)
         {
             var dao = new ProductDao();
-            var model = dao.ListAllPaging(page);
+            var model = dao.ListAllPaging(searchString,page);
+            ViewBag.SearchString = searchString;
             return View(model);
         }
         public ActionResult Create()
         {
-            //SetCategoryViewBag();
+            SetCategoryViewBag();
             return View();
         }
 
@@ -37,14 +36,45 @@ namespace CafeOnline.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Thêm sản phẩm thất bại!");
                 }
             }
-            //SetCategoryViewBag();
+            SetCategoryViewBag();
             return View();
         }
+
+        public ActionResult Edit(int id)
+        {
+            var product = ProductDao.Instance.getByID(id);
+            SetCategoryViewBag(product.CateID);
+            return View(product);
+        }
+
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Edit(Product model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (ProductDao.Instance.Update(model))
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Sửa sản phẩm thất bại!");
+                }
+            }
+            SetCategoryViewBag(model.CateID);
+            return View(model);
+        }
+
         public void SetCategoryViewBag(int? selectedID = null)
         {
-            //var listCategory = CategoryDao.Instance.GetListCategory();
-            //ViewBag.CategoryID = new SelectList(listCategory, "CateID", "CateName", selectedID);
+            var dao = new CategoryDAO();
+            var listCategory = dao.GetListAll();
+            ViewBag.CategoryID = new SelectList(listCategory, "CateID", "CateName", selectedID);
         }
+
+        #endregion
+
+        #region JsonResult
 
         public JsonResult ChangeStatus(int id)
         {
@@ -66,5 +96,8 @@ namespace CafeOnline.Areas.Admin.Controllers
             var result = ProductDao.Instance.delete(id);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
+        
+        #endregion
     }
 }
