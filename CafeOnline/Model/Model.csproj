@@ -59,6 +59,7 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Encode\Decrypt.cs" />
     <Compile Include="Common\Encode\Encrypt.cs" />
+    <Compile Include="DAO\CategoryDAO.cs" />
     <Compile Include="DAO\GrantDao.cs" />
     <Compile Include="DAO\ProductDao.cs" />
     <Compile Include="DAO\UserDao.cs" />
