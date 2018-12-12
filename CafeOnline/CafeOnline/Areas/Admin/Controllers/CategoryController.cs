@@ -8,13 +8,14 @@ using System.Web.Mvc;
 
 namespace CafeOnline.Areas.Admin.Controllers
 {
-    public class CategoryController : System.Web.Mvc.Controller
+    public class CategoryController : BaseController
     {
         // GET: Admin/Category
-        public ActionResult Index(int page=1, int pageSize=10)
+        public ActionResult Index(string searchString, int page = 1)
         {
             var catedao = new CategoryDAO();
-            var model = catedao.ListAllPaging(page, pageSize);
+            var model = catedao.ListAllPaging(searchString,page);
+            ViewBag.SearchString = searchString;
             return View(model);
         }
         public ActionResult Create()
@@ -27,7 +28,7 @@ namespace CafeOnline.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new CategoryDAO();
-                if (dao.GetByName(category.CateID) == null)
+                if (dao.GetByID(category.CateID) == null)
                 {
                     int id = dao.Insert(category);
                     if (id >0)
@@ -47,12 +48,30 @@ namespace CafeOnline.Areas.Admin.Controllers
 
             return View("Index");
         }
-        [HttpDelete]
-       
-        public ActionResult Delete (int cateID)
+
+        public JsonResult ChangeStatus(int id)
         {
-            new CategoryDAO().Delete(cateID);
-            return RedirectToAction("Index");
+            bool result = false;
+            try
+            {
+                result = CategoryDAO.Instance.changeStatus(id);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { message = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Delete(int id)
+        {
+            var result = CategoryDAO.Instance.Delete(id);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult EditName(int cateID, string cateName)
+        {
+            var result = CategoryDAO.Instance.UpdateName(cateID, cateName);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }
