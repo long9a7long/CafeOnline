@@ -530,3 +530,12 @@ D:\CafeOnline\long9a7long\CafeOnline\CafeOnline\CafeOnline\obj\Debug\CafeOnline.
 D:\CafeOnline\long9a7long\CafeOnline\CafeOnline\CafeOnline\obj\Debug\CafeOnline.csproj.CopyComplete
 D:\CafeOnline\long9a7long\CafeOnline\CafeOnline\CafeOnline\obj\Debug\CafeOnline.dll
 D:\CafeOnline\long9a7long\CafeOnline\CafeOnline\CafeOnline\obj\Debug\CafeOnline.pdb
+D:\CafeShop\CafeOnline\CafeOnline\bin\CKFinder.dll
+D:\CafeShop\CafeOnline\CafeOnline\bin\Model.dll
+D:\CafeShop\CafeOnline\CafeOnline\bin\PagedList.dll
+D:\CafeShop\CafeOnline\CafeOnline\bin\PagedList.Mvc.dll
+D:\CafeShop\CafeOnline\CafeOnline\bin\Model.pdb
+D:\CafeShop\CafeOnline\CafeOnline\bin\Model.dll.config
+D:\CafeShop\CafeOnline\CafeOnline\bin\CKFinder.pdb
+D:\CafeShop\CafeOnline\CafeOnline\bin\PagedList.xml
+D:\CafeShop\CafeOnline\CafeOnline\bin\PagedList.Mvc.xml
