@@ -6521,6 +6521,7 @@
     <Content Include="Assets\admin\js\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Assets\admin\js\JSGrantController.js" />
     <Content Include="Assets\admin\js\JSProductController.js" />
+    <Content Include="Assets\admin\js\JSUserController.js" />
     <Content Include="Assets\admin\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="Assets\admin\plugins\bootstrap-slider\slider.css" />
     <Content Include="Assets\admin\plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.js" />

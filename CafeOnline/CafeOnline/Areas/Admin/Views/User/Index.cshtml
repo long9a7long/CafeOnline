@@ -7,69 +7,118 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Danh Sách Thành Viên</h2>
 
-<p>
-    @Html.ActionLink("Tạo Mới", "Create")
-</p>
-<div>
-    <table class="table">
-        <tr>
-            <th>
-                Tên Đăng Nhập
-            </th>
-            <th>
-                Tên Hiện Thị
-            </th>
-            <th>
-                Địa Chỉ
-            </th>
-            <th>
-                Số Điện Thoại
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Quyền
-            </th>
-            <th>
-                Trạng Thái
-            </th>
-            <th>Công Cụ</th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Grant.GrantName)
-            </td>
-            <td>
+@section header{
+    <h1>Quản lý thành viên</h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+        <li><a href="/Admin/User">Thành viên</a></li>
+        <li class="active">Danh sách thành viên</li>
+    </ol>
+}
+@section Script_footer{
+    <script src="~/Assets/admin/js/JSUserController.js"></script>
+}
 
-                @Html.DisplayFor(modelItem => item.isActive)
-            </td>
-            <td>
-                @Html.ActionLink("Xóa", "Delete", new { id = item.UserID })
-            </td>
-        </tr>
-        }
 
-    </table>
-    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }));
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách thành viên</h3>
+                @using (Html.BeginForm("Index", "User", FormMethod.Post))
+                {
+                    <div class="box-tools pull-right">
+                        <div class="input-group input-group-sm col-md-4 pull-right col-xs-offset-1">
+                            <input type="text" class="form-control pull-right" value="@ViewBag.SearchString" name="searchString" placeholder="Tìm kiếm" />
+                            <div class="input-group-btn">
+                                <button type="submit" id="btn-search" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <a href="/Admin/User/Create" class="btn btn-info btn-sm"> <i class="fa  fa-plus"></i> Thêm mới</a>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <th>
+                            Tên Đăng Nhập
+                        </th>
+                        <th>
+                            Tên Hiện Thị
+                        </th>
+                        <th>
+                            Địa Chỉ
+                        </th>
+                        <th>
+                            Số Điện Thoại
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Ngày Tạo
+                        </th>
+                        <th>
+                            Ngày Cập Nhật
+                        </th>
+                        <th>
+                            Quyền
+                        </th>
+                        <th>
+                            Trạng Thái
+                        </th>
+                        <th>Công Cụ</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        string classkh = "";
+                        if (item.isActive) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
+                        string stringkh = "";
+                        if (item.isActive) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
+                        <tr ID="row_@item.UserID">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UserID)
+                            </td>
+                            <td>
+                                <input type="text" class='edit' data-id="@item.UserID" value="@Html.DisplayFor(modelItem => item.FullName)" />
+                            </td>
+                            <td>
+                                <input type="text" class='edit' data-id="@item.UserID" value="@Html.DisplayFor(modelItem => item.Address)" />
+                            </td>
+                            <td>
+                                <input type="text" class='edit' data-id="@item.UserID" value="@Html.DisplayFor(modelItem => item.Phone)" />
+                            </td>
+                            <td>
+                                <input type="text" class='edit' data-id="@item.UserID" value="@Html.DisplayFor(modelItem => item.Email)" />
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedAt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UpdatedAt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Grant.GrantName)
+                            </td>
+                            <td>
+                                <a href="#" data-id="@item.UserID" class="btn-status @classkh">@stringkh</a>
+                            </td>
+                            <td>
+                                <a href="#" data-id="@item.UserID" class="btn-delete">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </div>
+        </div>
+    </div>
 </div>

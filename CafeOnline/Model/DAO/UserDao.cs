@@ -10,31 +10,44 @@ using System.Data.SqlClient;
 
 namespace Model.DAO
 {
-    
+
     public class UserDao
     {
+
+
         ShopDbContext db = null;
-        private const string paramOne = "@uname";
-        private const string paramTwo = "@passwd";
-        private const string MP_UserLogin = "MP_UserLogin " + paramOne + ", " + paramTwo;
+
+        private static UserDao instance;
+
+        public static UserDao Instance
+        {
+            get { if (instance == null) instance = new UserDao(); return UserDao.instance; }
+            set { UserDao.instance = value; }
+        }
 
         public UserDao()
         {
             db = new ShopDbContext();
         }
 
-        public string Insert (User entity )
+        public string Insert(User entity)
         {
             entity.Password = Encrypt.Encrypt_Code(entity.Password);
+            entity.CreatedAt = DateTime.Now;
             db.User.Add(entity);
             db.SaveChanges();
             return entity.UserID;
         }
-        public IEnumerable<User> ListAllPaging(int page, int pageSize)
+        public IEnumerable<User> ListAllPaging(string searchString, int page)
         {
+
             IQueryable<User> model = db.User;
-            //return db.User.ToPagedList(page,pageSize);
-            return model.OrderByDescending(x => x.CreatedAt).ToPagedList(page, pageSize);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.UserID.Contains(searchString) || x.FullName.Contains(searchString));
+            }
+            return model.OrderByDescending(x => x.CreatedAt).ToPagedList(page, Constants.PageSize);
+
 
         }
 
@@ -53,19 +66,19 @@ namespace Model.DAO
             {
                 if (isLoginAdmin == true)
                 {
-                   
-                        if (result.isActive == false)
-                        {
-                            return -1; //tài khoản bị khóa
-                        }
+
+                    if (result.isActive == false)
+                    {
+                        return -1; //tài khoản bị khóa
+                    }
+                    else
+                    {
+                        if (result.Password == passWord)
+                            return 1; //đăng nhập thành công
                         else
-                        {
-                            if (result.Password == passWord)
-                                return 1; //đăng nhập thành công
-                            else
-                                return -2; //mk ko đúng
-                        }
-                   
+                            return -2; //mk ko đúng
+                    }
+
                 }
                 else
                 {
@@ -83,6 +96,37 @@ namespace Model.DAO
                 }
             }
         }
+        public bool changeStatus(string userID)
+        {
+            var user = GetByName(userID);
+            user.isActive = !user.isActive;
+            user.UpdatedAt = DateTime.Now;
+            db.SaveChanges();
+            return user.isActive;
+        }
+        public bool Delete(string userID)
+        {
+            try
+            {
+                var user = db.User.Find(userID);
+                db.User.Remove(user);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool UpdateName(string userID, string name)
+        {
+            var user = GetByName(userID);
+            user.FullName = name;
+            user.UpdatedAt = DateTime.Now;
+            db.SaveChanges();
+            return true;
+        }
+
 
     }
 }

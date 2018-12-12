@@ -1,15 +1,18 @@
 ﻿using System.Web.Mvc;
 using Model.EF;
 using Model.DAO;
+using System;
+
 namespace CafeOnline.Areas.Admin.Controllers
 {
-    public class UserController : System.Web.Mvc.Controller
+    public class UserController : BaseController
     {
         // GET: Admin/User
-        public ActionResult Index(int page=1,int pageSize=10)
+        public ActionResult Index(string searchString,int page =1 )
         {
             var dao = new UserDao();
-            var model = dao.ListAllPaging(page, pageSize);
+            var model = dao.ListAllPaging(searchString, page);
+            ViewBag.SearchString = searchString;
             return View(model);
         }
         
@@ -50,5 +53,30 @@ namespace CafeOnline.Areas.Admin.Controllers
             ViewBag.GrantID = new SelectList(dao.ListAll(), "GrantID", "GrantName", selectedID);
         }
 
+        public JsonResult ChangeStatus(string userID)
+        {
+            bool result = false;
+            try
+            {
+                result = UserDao.Instance.changeStatus(userID);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { message = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Delete(string userID)
+        {
+            var result = UserDao.Instance.Delete(userID);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult EditName(string userID, string name)
+        {
+            var result = UserDao.Instance.UpdateName(userID, name);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
     }
 }
