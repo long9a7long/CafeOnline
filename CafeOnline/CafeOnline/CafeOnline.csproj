@@ -208,6 +208,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BillController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\GrantController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -6519,6 +6520,7 @@
     <Content Include="Assets\admin\dist\js\pages\dashboard.js" />
     <Content Include="Assets\admin\dist\js\pages\dashboard2.js" />
     <Content Include="Assets\admin\js\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Assets\admin\js\JSBillController.js" />
     <Content Include="Assets\admin\js\JSGrantController.js" />
     <Content Include="Assets\admin\js\JSProductController.js" />
     <Content Include="Assets\admin\plugins\bootstrap-slider\bootstrap-slider.js" />
@@ -8369,6 +8371,7 @@
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Grant\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Grant\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
