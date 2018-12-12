@@ -96,7 +96,7 @@ html {
 
 body {
 	background-color: #ffffff;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	font-weight: 400;
 	color: #a5a5a5;
@@ -204,7 +204,7 @@ h4,
 h5,
 h6 {
 	color: #222222;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 700;
 	margin: 0 0 28px;
 	line-height: 1;
@@ -332,11 +332,11 @@ p {
 }
 
 .font-heading {
-	font-family: 'Poppins', sans-serif !important;
+    font-family: 'Open Sans', sans-serif  !important;
 }
 
 .font-body {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 .font-18 {
@@ -1080,7 +1080,7 @@ section {
 .blockquote,
 blockquot {
 	font-size: 20px;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #a5a5a5;
 	font-style: italic;
 	line-height: 28px;
@@ -1090,7 +1090,7 @@ blockquot {
 }
 
 .quote-author {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	display: block;
 	font-size: 14px;
 	font-style: normal;
@@ -1188,10 +1188,6 @@ blockquot {
 	position: relative;
 	overflow: hidden;
 	z-index: 1;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-ms-background-size: cover;
-	-o-background-size: cover;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -1239,7 +1235,7 @@ blockquot {
 	background-color: rgba(27, 26, 26, 0.75);
 	background-image: -webkit-linear-gradient(180deg, rgba(27, 26, 26, 0.75) 0%, rgba(27, 26, 26, 0) 34%, rgba(27, 26, 26, 0) 82%, rgba(27, 26, 26, 0) 100%);
 	background-image: -moz-linear-gradient(180deg, rgba(27, 26, 26, 0.75) 0%, rgba(27, 26, 26, 0) 34%, rgba(27, 26, 26, 0) 82%, rgba(27, 26, 26, 0) 100%);
-	background-image: -ms-linear-gradient(180deg, rgba(27, 26, 26, 0.75) 0%, rgba(27, 26, 26, 0) 34%, rgba(27, 26, 26, 0) 82%, rgba(27, 26, 26, 0) 100%);
+	
 	background-image: -o-linear-gradient(180deg, rgba(27, 26, 26, 0.75) 0%, rgba(27, 26, 26, 0) 34%, rgba(27, 26, 26, 0) 82%, rgba(27, 26, 26, 0) 100%);
 	background-image: linear-gradient(180deg, rgba(27, 26, 26, 0.75) 0%, rgba(27, 26, 26, 0) 34%, rgba(27, 26, 26, 0) 82%, rgba(27, 26, 26, 0) 100%);
 }
@@ -1317,7 +1313,7 @@ blockquot {
     #BUTTONS
 \*------------------------------------*/
 .btn {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	position: relative;
 	z-index: 2;
 	font-size: 14px;
@@ -1539,7 +1535,6 @@ blockquot {
 	background-color: rgba(255, 255, 255, 0.2);
 	-webkit-transition: all .4s;
 	-moz-transition: all .4s;
-	-ms-transition: all .4s;
 	-o-transition: all .4s;
 	transition: all .4s;
 }
@@ -1648,7 +1643,6 @@ blockquot {
 	color: #bb9356;
 	background: -webkit-linear-gradient(150deg, #1da4cb 0%, #1da4cb 2%, #1dcb84 27%, #7bcb1d 58%, #efd631 100%);
 	background: linear-gradient(150deg, #1da4cb 0%, #1da4cb 2%, #1dcb84 27%, #7bcb1d 58%, #efd631 100%);
-	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -1690,7 +1684,7 @@ blockquot {
     #FORMS
 \*------------------------------------*/
 .form-control {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	font-weight: 400;
 	line-height: 49px;
@@ -1723,10 +1717,7 @@ blockquot {
  color: #a5a5a5;
  text-transform: capitalize;
 }
-.form-control::-ms-input-placeholder {
- color: #a5a5a5;
- text-transform: capitalize;
-}
+
 
 .reservation-form {
 	background-color: #ffffff;
@@ -1772,7 +1763,6 @@ blockquot {
 	cursor: pointer;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	appearance: none;
 }
 
 /* Custom, iPhone Retina */
@@ -1884,7 +1874,6 @@ ul.dot-list li i {
 	width: 100%;
 	height: 100%;
 	background-color: rgba(255, 255, 255, 0.5);
-	webkit-transition: all 0.4s ease-in-out;
 	-moz-transition: all 0.4s ease-in-out;
 	-o-transition: all 0.4s ease-in-out;
 	transition: all 0.4s ease-in-out;
@@ -1897,7 +1886,6 @@ ul.dot-list li i {
 	left: 50%;
 	margin-top: -22px;
 	margin-left: -90px;
-	webkit-transition: all 0.4s 0.4s ease-in-out;
 	-moz-transition: all 0.4s 0.4s ease-in-out;
 	-o-transition: all 0.4s 0.4s ease-in-out;
 	transition: all 0.4s 0.4s ease-in-out;
@@ -1928,7 +1916,7 @@ ul.dot-list li i {
 }
 
 .tabs .nav-tabs > li > a {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #333333;
 	font-size: 16px;
 	font-weight: 600;
@@ -2058,9 +2046,6 @@ ul.dot-list li i {
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
-	-moz-border-radius: none;
-	-webkit-border-radius: none;
-	border-radius: none;
 	background-color: transparent;
 }
 
@@ -2074,7 +2059,7 @@ ul.dot-list li i {
 }
 
 .accordion .panel .panel--heading a {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	color: #282828;
 	font-weight: 600;
@@ -2205,7 +2190,7 @@ ul.dot-list li i {
 	font-size: 16px;
 	font-weight: 600;
 	border-color: #333333;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	text-transform: uppercase;
 	padding: 0;
 	width: 51px;
@@ -2263,7 +2248,7 @@ ul.dot-list li i {
 }
 
 .alerts .alert-content h4 {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #bb9356;
 	font-size: 15px;
 	font-weight: 700;
@@ -2849,7 +2834,7 @@ table tbody tr td {
 }
 
 .heading .heading--desc {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #a5a5a5;
 	font-size: 14px;
 	font-weight: 400;
@@ -3271,7 +3256,7 @@ table tbody tr td {
 
 .module--search-box .form-control {
 	color: #f9f9f9;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 25px;
 	font-weight: 600;
 	line-height: 70px;
@@ -3386,7 +3371,7 @@ table tbody tr td {
 }
 
 .cart-box .cart-overview p {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #bb9356;
 	font-size: 14px;
 	line-height: 20px;
@@ -3547,7 +3532,7 @@ table tbody tr td {
 	background-color: transparent;
 	margin-top: 37px;
 	text-align: center;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	font-weight: 700;
 	line-height: 22px;
@@ -4103,7 +4088,6 @@ Header Customaztion
 	background-color: #ffffff;
 	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
 	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
-	-ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
 }
 
@@ -5296,19 +5280,19 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 	text-transform: capitalize;
 }
 
-.slider .slide--headline {
-	color: #ffffff;
-	font-family: 'Abril Fatface', cursive;
-	font-size: 85px;
-	font-weight: 400;
-	line-height: 100px;
-	margin-bottom: 20px;
-	text-transform: capitalize;
-}
+    .slider .slide--headline {
+        color: #ffffff;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 85px;
+        font-weight: 400;
+        line-height: 100px;
+        margin-bottom: 20px;
+        text-transform: capitalize;
+    }
 
 .slider .slide--bio {
 	color: #f9f9f9;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 26px;
@@ -5394,8 +5378,6 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 	top: 0;
 	pointer-events: none;
 	background-color: #1b1a1a;
-	background-image: -webkit- linear-gradient(to bottom, rgba(27, 26, 26, 0.55) 0%, rgba(27, 26, 26, 0) 34%, rgba(27, 26, 26, 0) 82%);
-	background-image: -moz- linear-gradient(to bottom, rgba(27, 26, 26, 0.55) 0%, rgba(27, 26, 26, 0) 34%, rgba(27, 26, 26, 0) 82%);
 	background-image: linear-gradient(to bottom, rgba(27, 26, 26, 0.55) 0%, rgba(27, 26, 26, 0) 34%, rgba(27, 26, 26, 0) 82%);
 	opacity: .8;
 }
@@ -5530,7 +5512,7 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 .team-shadow .member {
 	-webkit-box-shadow: 0 0 18px rgba(40, 40, 40, 0.12);
 	-moz-box-shadow: 0 0 18px rgba(40, 40, 40, 0.12);
-	-ms-box-shadow: 0 0 18px rgba(40, 40, 40, 0.12);
+	
 	box-shadow: 0 0 18px rgba(40, 40, 40, 0.12);
 	border-radius: 2px;
 }
@@ -5771,7 +5753,7 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 
 .testimonial .testimonial-panel p {
 	font-size: 14px;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	color: #a5a5a5;
 	line-height: 25px;
@@ -5850,10 +5832,10 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 }
 
 .testimonial-3 .testimonial-panel p {
-	font-size: 47px;
-	font-family: 'Ruthie', cursive;
-	color: #333333;
-	line-height: 50px;
+    font-size: 47px;
+    font-family: 'Open Sans', sans-serif;
+    color: #333333;
+    line-height: 50px;
 }
 
 /* Testimonial #4 */
@@ -5862,9 +5844,9 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 }
 
 .testimonial-4 .testimonial-panel p {
-	font-size: 47px;
-	font-family: 'Ruthie', cursive;
-	line-height: 50px;
+    font-size: 47px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 50px;
 }
 
 /* Testimonial #5 */
@@ -5887,14 +5869,14 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 	color: #bb9356;
 }
 
-.testimonial-5 .testimonial-panel p {
-	font-size: 44px;
-	font-family: 'Ruthie', cursive;
-	font-weight: 400;
-	color: #ffffff;
-	line-height: 39px;
-	margin-bottom: 23px;
-}
+    .testimonial-5 .testimonial-panel p {
+        font-size: 44px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        color: #ffffff;
+        line-height: 39px;
+        margin-bottom: 23px;
+    }
 
 .testimonial-5 .testimonial--quote img {
 	width: 40px;
@@ -5929,7 +5911,7 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 
 .portfolio-filter li a {
 	color: #333333;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 1;
@@ -6073,7 +6055,7 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 }
 
 .feature-panel .feature--content h3 {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 28px;
 	font-weight: 400;
 	line-height: 1;
@@ -6133,28 +6115,28 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
     #Call To Action
 \*------------------------------------*/
 .cta h3 {
-	color: #ffffff;
-	font-size: 44px;
-	font-family: 'Ruthie', cursive;
-	font-weight: 400;
-	margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 44px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    margin-bottom: 30px;
 }
 
 /*------------------------------------*\
     #Counters
 \*------------------------------------*/
 .counter .count-box .counting {
-	font-family: 'Abril Fatface', cursive;
-	color: #ffffff;
-	font-size: 70px;
-	font-weight: 400;
-	line-height: 1;
-	margin-bottom: 16px;
-	position: relative;
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
+    font-size: 70px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 16px;
+    position: relative;
 }
 
 .counter .count-box .count-title {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #f9f9f9;
 	font-size: 16px;
 	font-weight: 600;
@@ -6218,7 +6200,7 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 }
 
 .pricing .pricing--heading p {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #ffffff;
 	font-size: 70px;
 	font-weight: 600;
@@ -6345,7 +6327,7 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 
 .blog-entry .entry--meta {
 	color: #616161;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 11px;
 	font-weight: 600;
 	text-transform: capitalize;
@@ -6391,7 +6373,7 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 
 .blog-entry .entry--date {
 	color: #686868;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 12px;
 	font-weight: 500;
 	line-height: 1;
@@ -6551,7 +6533,7 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 }
 
 .entry-prev-next p {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #686868;
 	font-size: 11px;
 	font-weight: 600;
@@ -6668,7 +6650,7 @@ li.dropdown-submenu > ul.dropdown-menu > li.has-dropdown > ul.dropdown-menu.left
 
 .entry-related .entry--meta {
 	color: #616161;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	font-weight: 400;
 	line-height: 1;
@@ -6708,7 +6690,7 @@ ul.comments-list .comment-body .comment {
 ul.comments-list .comment-body .comment h6 {
 	font-size: 14px;
 	font-weight: 700;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	text-transform: capitalize;
 	margin-bottom: 0;
 	color: #333333;
@@ -6717,7 +6699,7 @@ ul.comments-list .comment-body .comment h6 {
 
 ul.comments-list .comment-body .comment .date {
 	color: #616161;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 12px;
 	font-weight: 600;
 	line-height: 24px;
@@ -6930,7 +6912,7 @@ ul.comments-list ul.comment-children {
 
 .cart-table tbody tr td.cart-product-price,
 .cart-table tbody tr td.cart-product-total {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
 	font-weight: 600;
 	line-height: 26px;
@@ -7057,7 +7039,7 @@ td.cart-product-quantity {
 }
 
 .cart-total-amount ul li {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #bb9356;
 	font-size: 13px;
 	font-weight: 600;
@@ -7085,7 +7067,6 @@ td.cart-product-quantity {
 	cursor: pointer;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	appearance: none;
 	text-transform: capitalize;
 }
 .cart-shiping .form-control::-webkit-input-placeholder {
@@ -7144,7 +7125,7 @@ td.cart-product-quantity {
 
 .shop-filter li a {
 	color: #333333;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	font-weight: 600;
 	line-height: 1;
@@ -7259,13 +7240,13 @@ td.cart-product-quantity {
 	padding: 30px 0;
 }
 
-.product-item .product--content .product--cat {
-	font-family: 'Ruthie', cursive;
-	font-size: 13px;
-	font-style: italic;
-	line-height: 1;
-	margin-bottom: 12px;
-}
+    .product-item .product--content .product--cat {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 13px;
+        font-style: italic;
+        line-height: 1;
+        margin-bottom: 12px;
+    }
 
 .product-item .product--content .product--cat a {
 	color: #3d3c3c;
@@ -7304,7 +7285,7 @@ td.cart-product-quantity {
 	color: #bb9356;
 	font-size: 16px;
 	font-weight: 600;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	line-height: 1;
 }
 
@@ -7371,7 +7352,6 @@ td.cart-product-quantity {
 	cursor: pointer;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	appearance: none;
 }
 
 .shop-options .product-view-mode {
@@ -7429,7 +7409,7 @@ td.cart-product-quantity {
 }
 
 .shop-product .product-price {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #bb9356;
 	font-size: 16px;
 	font-weight: 600;
@@ -7505,7 +7485,7 @@ td.cart-product-quantity {
 }
 
 .shop-product .product-quantity .qua {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #333333;
 	font-size: 14px;
 	font-weight: 600;
@@ -7624,7 +7604,7 @@ td.cart-product-quantity {
 	color: #282828 !important;
 	font-size: 15px;
 	font-weight: 600;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	text-transform: capitalize;
 	-moz-border-radius: 0;
 	-webkit-border-radius: 0;
@@ -7706,7 +7686,7 @@ td.cart-product-quantity {
 }
 
 .product-num h2 {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 35px;
@@ -7740,7 +7720,7 @@ td.cart-product-quantity {
 	border: 1px solid #eeeeee;
 	border-radius: 1px;
 	color: #9b9b9b;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	font-weight: 400;
 	line-height: 35px;
@@ -7748,7 +7728,6 @@ td.cart-product-quantity {
 	cursor: pointer;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	appearance: none;
 }
 
 /* shop Item */
@@ -7793,7 +7772,7 @@ td.cart-product-quantity {
 
 .shop-item .shop--price {
 	color: #9b9b9b;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 22px;
 	font-weight: 700;
 	line-height: 1;
@@ -7802,7 +7781,7 @@ td.cart-product-quantity {
 
 .shop-item .shop--title h4 {
 	color: #ffffff;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 24px;
 	font-weight: 700;
 	line-height: 1;
@@ -8093,7 +8072,7 @@ td.cart-product-quantity {
 }
 
 .widget-recent-posts .entry .entry-desc .entry-meta a {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 12px;
 	font-weight: 500;
 	line-height: 1;
@@ -8338,7 +8317,7 @@ td.cart-product-quantity {
 }
 
 .widget-recent-products .product .product-desc .product-meta {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #bb9356;
 	font-size: 13px;
 	font-weight: 600;
@@ -8354,15 +8333,15 @@ td.cart-product-quantity {
 	position: relative;
 }
 
-.widget-info .info--title {
-	color: #ffffff;
-	font-family: 'Abril Fatface', cursive;
-	font-size: 25px;
-	font-weight: 400;
-	line-height: 1;
-	margin-bottom: 20px;
-	position: relative;
-}
+    .widget-info .info--title {
+        color: #ffffff;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 25px;
+        font-weight: 400;
+        line-height: 1;
+        margin-bottom: 20px;
+        position: relative;
+    }
 
 .widget-info .info--content {
 	color: #9b9b9b;
@@ -8566,7 +8545,7 @@ footer {
 
 footer .footer--widget-content h3 {
 	color: #ffffff;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
 	font-weight: 600;
 	margin-bottom: 30px;
@@ -8651,9 +8630,7 @@ footer .footer--social-newsletter .form-control::-webkit-input-placeholder {
 footer .footer--social-newsletter .form-control::-moz-placeholder {
  color: #474747;
 }
-footer .footer--social-newsletter .form-control::-ms-input-placeholder {
- color: #474747;
-}
+
 
 footer .footer--social-newsletter button {
 	background-color: transparent;
@@ -8845,12 +8822,12 @@ footer .footer--copyright {
     #404
 \*------------------------------------*/
 .page-404 h3 {
-	color: #ffffff;
-	font-family: 'Abril Fatface', cursive;
-	font-size: 250px;
-	font-weight: 400;
-	line-height: 1.1;
-	margin-bottom: 0;
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 250px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 0;
 }
 
 .page-404 p {
@@ -8900,14 +8877,14 @@ footer .footer--copyright {
 	padding-bottom: 120px;
 }
 
-.page-soon h3 {
-	font-family: 'Abril Fatface', cursive;
-	color: #222222;
-	font-size: 120px;
-	font-weight: 400;
-	line-height: 1.1;
-	margin-bottom: 30px;
-}
+    .page-soon h3 {
+        font-family: 'Open Sans', sans-serif;
+        color: #222222;
+        font-size: 120px;
+        font-weight: 400;
+        line-height: 1.1;
+        margin-bottom: 30px;
+    }
 
 .page-soon p {
 	font-size: 14px;
@@ -8942,16 +8919,16 @@ footer .footer--copyright {
 }
 
 .countdown-amount {
-	font-family: 'Abril Fatface', cursive;
-	color: #ffffff;
-	font-size: 70px;
-	font-weight: 400;
-	line-height: 1;
-	margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
+    font-size: 70px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 20px;
 }
 
 .countdown-period {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	display: block;
 	color: #f9f9f9;
 	font-size: 16px;
@@ -9027,14 +9004,14 @@ footer .footer--copyright {
 	padding-bottom: 150px;
 }
 
-.page-maintenance h3 {
-	font-family: 'Abril Fatface', cursive;
-	color: #222222;
-	font-size: 120px;
-	font-weight: 400;
-	line-height: 1.1;
-	margin-bottom: 40px;
-}
+    .page-maintenance h3 {
+        font-family: 'Open Sans', sans-serif;
+        color: #222222;
+        font-size: 120px;
+        font-weight: 400;
+        line-height: 1.1;
+        margin-bottom: 40px;
+    }
 
 .page-maintenance p {
 	color: #f9f9f9;
@@ -9101,7 +9078,6 @@ footer .footer--copyright {
 	opacity: .8;
 	-webkit-transition: all .3s linear;
 	-moz-transition: all .3s linear;
-	-ms-transition: all .3s linear;
 	-o-transition: all .3s linear;
 	transition: all .3s linear;
 }
@@ -9225,12 +9201,12 @@ footer .footer--copyright {
 	#Video
 \*------------------------------------*/
 .video-button .heading--title {
-	font-family: 'Ruthie', cursive;
-	font-size: 40px;
-	font-weight: 400;
-	line-height: 1;
-	margin-top: 30px;
-	margin-bottom: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1;
+    margin-top: 30px;
+    margin-bottom: 0;
 }
 
 .video--content .video--player {
@@ -9238,7 +9214,7 @@ footer .footer--copyright {
 	height: 68px;
 	line-height: 65px;
 	color: #ffffff;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
 	font-weight: 700;
 	text-align: center;
@@ -9365,7 +9341,7 @@ footer .footer--copyright {
 }
 
 .carousel-navs .owl-controls .owl-nav .owl-prev:before {
-	font-family: 'Linearicons-Free';
+	font-family: 'Open Sans', sans-serif;
 	content: "\e875";
 	font-size: 40px;
 }
@@ -9893,16 +9869,16 @@ footer .footer--copyright {
 	height: auto;
 }
 
-.number-panel .number--content h6 {
-	color: #bb9356;
-	font-family: 'Ruthie', cursive;
-	font-size: 13px;
-	font-style: italic;
-	line-height: 1;
-	margin-bottom: 14px;
-	position: relative;
-	z-index: 2;
-}
+    .number-panel .number--content h6 {
+        color: #bb9356;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 13px;
+        font-style: italic;
+        line-height: 1;
+        margin-bottom: 14px;
+        position: relative;
+        z-index: 2;
+    }
 
 .number-panel .number--content h3 {
 	font-size: 18px;
@@ -10057,7 +10033,6 @@ footer .footer--copyright {
 	left: 0;
 	top: 0;
 	background-color: #ffffff;
-	webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 	text-align: center;
@@ -10101,7 +10076,7 @@ footer .footer--copyright {
 .header-fixed-side .navbar-nav a {
 	font-size: 13px;
 	font-weight: 800;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	line-height: 39px;
 	text-transform: uppercase;
 	color: #333333;
@@ -10250,27 +10225,27 @@ footer .footer--copyright {
 	padding-top: 200px;
 }
 
-.landing-hero h6 {
-	color: #bb9356;
-	font-family: 'Ruthie', cursive;
-	font-size: 45px;
-	font-weight: 400;
-	letter-spacing: 0.54px;
-	margin-bottom: 5px;
-}
+    .landing-hero h6 {
+        color: #bb9356;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 45px;
+        font-weight: 400;
+        letter-spacing: 0.54px;
+        margin-bottom: 5px;
+    }
 
-.landing-hero h1 {
-	font-family: 'Abril Fatface', cursive;
-	font-size: 85px;
-	font-weight: 400;
-	line-height: 90px;
-	font-style: italic;
-	letter-spacing: 1.35px;
-	margin-bottom: 50px;
-}
+    .landing-hero h1 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 85px;
+        font-weight: 400;
+        line-height: 90px;
+        font-style: italic;
+        letter-spacing: 1.35px;
+        margin-bottom: 50px;
+    }
 
 .landing-hero p {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #f9f9f9;
 	font-size: 17px;
 	font-weight: 700;
@@ -10288,7 +10263,7 @@ footer .footer--copyright {
 }
 
 .landing-demos .portfolio-title h4 {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #222222;
 	text-align: center;
 	font-size: 16px;
@@ -10352,13 +10327,13 @@ footer .footer--copyright {
 	margin-bottom: 50px;
 }
 
-.landing-action h2 {
-	font-size: 85px;
-	font-weight: 400;
-	line-height: 95px;
-	letter-spacing: 1.35px;
-	font-family: 'Abril Fatface', cursive;
-}
+    .landing-action h2 {
+        font-size: 85px;
+        font-weight: 400;
+        line-height: 95px;
+        letter-spacing: 1.35px;
+        font-family: 'Open Sans', sans-serif;
+    }
 
 .landing-action p {
 	color: #f9f9f9;
@@ -10473,7 +10448,7 @@ footer .footer--copyright {
 }
 
 .menu-simple .dish-panel .dish--price {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
 	font-weight: 600;
 	line-height: 29px;
@@ -10906,7 +10881,7 @@ footer .footer--copyright {
 }
 
 .menu-8 .dish-panel .dish--title {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 24px;
 	font-weight: 400;
 	margin-bottom: 10px;
@@ -10944,7 +10919,7 @@ footer .footer--copyright {
 	color: #ffffff;
 	font-size: 45px;
 	font-weight: 400;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	position: relative;
 	margin-bottom: 15px;
 	-webkit-transition: all .3s linear;
@@ -10973,7 +10948,6 @@ footer .footer--copyright {
 	border-radius: 2px;
 	-webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.26);
 	-moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.26);
-	-ms-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.26);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.26);
 	padding: 10px;
 }
@@ -11147,7 +11121,7 @@ footer .footer--copyright {
 }
 
 #dishPopup .modal-body .img-popup .img-popup-overlay .popup--price {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 25px;
 	font-weight: 400;
 	line-height: 1;
@@ -11155,14 +11129,14 @@ footer .footer--copyright {
 	margin-bottom: 18px;
 }
 
-#dishPopup .modal-body .img-popup .img-popup-overlay h3 {
-	font-family: 'Ruthie', cursive;
-	font-size: 34px;
-	font-weight: 400;
-	line-height: 1;
-	color: #ffffff;
-	margin-bottom: 0;
-}
+    #dishPopup .modal-body .img-popup .img-popup-overlay h3 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 34px;
+        font-weight: 400;
+        line-height: 1;
+        color: #ffffff;
+        margin-bottom: 0;
+    }
 
 #dishPopup .modal-body .content-popup {
 	padding: 50px 60px;
@@ -11198,7 +11172,6 @@ footer .footer--copyright {
 	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(#000));
 	background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), #000);
 	background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), #000);
-	background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), #000);
 	background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), #000);
 	background-image: linear-gradient(top, rgba(0, 0, 0, 0), #000);
  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='rgba(0, 0, 0, 0)', endColorStr='#000');
@@ -11220,7 +11193,7 @@ footer .footer--copyright {
 }
 
 .modal-body .popup--img .img-popup-overlay .popup--price {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 25px;
 	font-weight: 400;
 	line-height: 1;
@@ -11312,20 +11285,20 @@ footer .footer--copyright {
 	padding: 0 10px;
 }
 
-.banner .banner-panel .banner--content h3 {
-	color: #bb9356;
-	font-size: 30px;
-	font-family: 'Ruthie', cursive;
-	font-weight: 400;
-	margin-bottom: 15px;
-}
+    .banner .banner-panel .banner--content h3 {
+        color: #bb9356;
+        font-size: 30px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        margin-bottom: 15px;
+    }
 
-.banner .banner-panel .banner--content h4 {
-	font-family: 'Abril Fatface', cursive;
-	font-size: 25px;
-	font-weight: 400;
-	margin-bottom: 20px;
-}
+    .banner .banner-panel .banner--content h4 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 25px;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
 
 .banner .banner-panel .banner--content p {
 	font-size: 13px;
@@ -11335,7 +11308,7 @@ footer .footer--copyright {
 	font-size: 20px;
 	font-weight: 400;
 	color: #bb9356;
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	text-transform: none;
 	margin-right: 30px;
 }
@@ -11368,22 +11341,22 @@ footer .footer--copyright {
 
 /* Banner #5 */
 .banner-5 .banner--desc {
-	color: #333333;
-	font-family: 'Ruthie', cursive;
-	font-size: 40px;
-	font-weight: 400;
-	line-height: 42px;
-	padding: 0 15px;
-	margin-bottom: 55px;
+    color: #333333;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 42px;
+    padding: 0 15px;
+    margin-bottom: 55px;
 }
 
 .history-panel h6 {
-	color: #bb9356;
-	font-family: 'Ruthie', cursive;
-	font-size: 35px;
-	font-weight: 400;
-	line-height: 29px;
-	margin-bottom: 15px;
+    color: #bb9356;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 29px;
+    margin-bottom: 15px;
 }
 
 .history-panel h3 {
@@ -11412,12 +11385,12 @@ footer .footer--copyright {
 }
 
 .banner-6 .panel--heading {
-	font-size: 47px;
-	font-family: 'Ruthie', cursive;
-	color: #333333;
-	font-weight: 400;
-	line-height: 40px;
-	margin-bottom: 39px;
+    font-size: 47px;
+    font-family: 'Open Sans', sans-serif;
+    color: #333333;
+    font-weight: 400;
+    line-height: 40px;
+    margin-bottom: 39px;
 }
 
 .banner-6 .panel--details {
@@ -11705,4 +11678,11 @@ footer .footer--copyright {
 
 .nav-split li:last-child a {
 	margin-bottom: 0;
+}
+
+
+/*them css*/
+
+.slide--headline{
+    font-size:20px;
 }

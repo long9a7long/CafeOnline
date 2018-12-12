@@ -44,17 +44,10 @@ namespace Model.DAO
         }
         public bool Delete(int ID)
         {
-            try
-            {
                 var bill = db.Bill.Find(ID);
                 db.Bill.Remove(bill);
                 db.SaveChanges();
                 return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
         }
 
         public List<Bill> GetListAll()
