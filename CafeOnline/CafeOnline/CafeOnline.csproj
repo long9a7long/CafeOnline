@@ -6519,6 +6519,7 @@
     <Content Include="Assets\admin\dist\js\pages\dashboard.js" />
     <Content Include="Assets\admin\dist\js\pages\dashboard2.js" />
     <Content Include="Assets\admin\js\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Assets\admin\js\jsCategoryController.js" />
     <Content Include="Assets\admin\js\JSGrantController.js" />
     <Content Include="Assets\admin\js\JSProductController.js" />
     <Content Include="Assets\admin\plugins\bootstrap-slider\bootstrap-slider.js" />

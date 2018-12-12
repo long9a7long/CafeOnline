@@ -7,57 +7,96 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Danh mục</h2>
+@section Script_footer{
+    <script src="~/Assets/admin/js/jsCategoryController.js"></script>
+}
 
-<p>
-    @Html.ActionLink("Tạo mới", "Create")
-</p>
-<div>
-    <table class="table">
-        <tr>
-            <th>
-                Tên danh mục
-            </th>
-            <th>
-                Trạng thái
-            </th>
-            <th>
-                Ngày tạo
-            </th>
-            <th>
-                Ngày cập nhật
-            </th>
-            <th>
-                Công cụ
-            </th>
-        </tr>
+@section header{
+    <h1>Quản lý danh mục</h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+        <li><a href="/Admin/Category">Danh mục</a></li>
+        <li class="active">Danh sách danh mục</li>
+    </ol>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách sản phẩm</h3>
+                @using (Html.BeginForm("Index", "Category", FormMethod.Get))
+                {
+                    <div class="box-tools pull-right">
+                        <div class="input-group input-group-sm col-md-4 pull-right col-xs-offset-1">
+                            <input type="text" class="form-control pull-right" value="@ViewBag.SearchString" name="searchString" placeholder="Tìm kiếm" />
+                            <div class="input-group-btn">
+                                <button type="submit" id="btn-search" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <a href="/Admin/Product/Create" class="btn btn-info btn-sm"> <i class="fa  fa-plus"></i> Thêm mới</a>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <th>
+                            Tên danh mục
+                        </th>
 
-        @foreach (var item in Model)
-        {
-            <tr id="row_@item.CateID">
-                <td>
-                    @Html.DisplayFor(modelItem => item.CateName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.isActive)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreatedAt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UpdatedAt)
-                </td>
-                <td>
-                    @Ajax.ActionLink("Xóa", "Delete",new { @id=item.CateID},new AjaxOptions
-               {
-                   Confirm="Bạn có muốn xóa bản ghi này?",
-                   OnComplete= "$('row_"+@item.CateID+"').remove()",
-                   HttpMethod="Delete"
-               })
-                </td>
-            </tr>
-        }
+                        <th>
+                            Ngày tạo
+                        </th>
+                        <th>
+                            Ngày cập nhật
+                        </th>
+                        <th>
+                            Trạng thái
+                        </th>
+                        <th>
+                            Công cụ
+                        </th>
+                    </tr>
 
-    </table>
-    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                    @foreach (var item in Model)
+                    {
+                        string classkh = "";
+                        if (item.isActive) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
+                        string stringkh = "";
+                        if (item.isActive) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
+                        <tr id="row_@item.CateID">
+                            <td>
+                                <input type="text" class='edit' data-id="@item.CateID" value="@Html.DisplayFor(modelItem => item.CateName)" />
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedAt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UpdatedAt)
+                            </td>
+                            <td>
+                                <a href="#" data-id="@item.CateID" class="btn-status @classkh">@stringkh</a>
+                            </td>
+                            <td>
+                                <a href="#" data-id="@item.CateID" class="btn-delete">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = ViewBag.SearchString }))
+            </div>
+            <div class="box-footer clearfix">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <!--<p>Tổng sản phẩm: <span id="totalRows">@Model.Count()</span></p>-->
+                    </div>
+                    <div class="col-xs-6"><ul id="pagination" class=" pagination-sm no-margin pull-right"></ul></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.box -->
 </div>

@@ -1,4 +1,5 @@
 ﻿using Model.EF;
+using Models.Common;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -28,20 +29,29 @@ namespace Model.DAO
                 return instance;
             }
         }
-        public IEnumerable<Category> ListAllPaging(int page, int pageSize)
-        {   
-            return db.Category.OrderByDescending(x => x.CreatedAt).ToPagedList(page, pageSize);
+        public IEnumerable<Category> ListAllPaging(string searchString, int page)
+        {
+            IQueryable<Category> model = db.Category;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                model = model.Where(x => x.CateName.Contains(searchString));
+            }
+            return model.OrderByDescending(x => x.CreatedAt).ToPagedList(page, Constants.PageSize);
         }
-        public int Insert(Category entity)
+        public int Insert(Category entity) 
         {
             entity.CreatedAt = DateTime.Now;
             db.Category.Add(entity);
             db.SaveChanges();
             return entity.CateID;
         }
-        public Category GetByName(int cateID)
+        public Category GetByID(int cateID)
         {
             return db.Category.SingleOrDefault(x => x.CateID == cateID);
+        }
+        public Category GetByName(string cateName)
+        {
+            return db.Category.SingleOrDefault(x => x.CateName == cateName);
         }
         public bool Delete(int cateID)
         {
@@ -62,5 +72,40 @@ namespace Model.DAO
         {
             return db.Category.OrderByDescending(x => x.CateID).ToList();
         }
+        public bool changeStatus(int _key)
+        {
+            var category = GetByID(_key);
+            category.isActive = !category.isActive;
+            category.UpdatedAt = DateTime.Now;
+            db.SaveChanges();
+            return category.isActive;
+        }
+        public bool delete(int _key)
+        {
+            if (hasReference(_key))
+                return false;
+            db.Category.Remove(GetByID(_key));
+            db.SaveChanges();
+            return true;
+        }
+        private bool hasReference(int _key)
+        {
+            var category = GetByID(_key);
+            if (category != default(Category))
+            {
+                var count_one = db.Category.Where(obj => obj.CateID == _key).ToList().Count;
+                return count_one > 0;
+            }
+            return false;
+        }
+        public bool UpdateName(int cateID, string cateName)
+        {
+            var category = GetByID(cateID);
+            category.CateName = cateName;
+            category.UpdatedAt = DateTime.Now;
+            db.SaveChanges();
+            return true;
+        }
+
     }
 }
