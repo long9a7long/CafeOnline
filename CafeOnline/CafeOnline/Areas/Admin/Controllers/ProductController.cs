@@ -68,7 +68,7 @@ namespace CafeOnline.Areas.Admin.Controllers
         public void SetCategoryViewBag(int? selectedID = null)
         {
             var dao = new CategoryDAO();
-            var listCategory = dao.GetListAll();
+            var listCategory = dao.GetListActive();
             ViewBag.CategoryID = new SelectList(listCategory, "CateID", "CateName", selectedID);
         }
 

@@ -72,6 +72,12 @@ namespace Model.DAO
         {
             return db.Category.OrderByDescending(x => x.CateID).ToList();
         }
+
+        public List<Category> GetListActive()
+        {
+            return db.Category.Where(x => x.isActive==true).OrderByDescending(x => x.CateID).ToList();
+        }
+
         public bool changeStatus(int _key)
         {
             var category = GetByID(_key);
