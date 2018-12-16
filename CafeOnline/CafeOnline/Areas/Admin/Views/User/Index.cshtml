@@ -87,16 +87,16 @@
                                 @Html.DisplayFor(modelItem => item.UserID)
                             </td>
                             <td>
-                                <input type="text" class='edit' data-id="@item.UserID" value="@Html.DisplayFor(modelItem => item.FullName)" />
+                                <input type="text" class='edit' data-id="@item.UserID" data-column='FullName' value="@Html.DisplayFor(modelItem => item.FullName)" />
                             </td>
                             <td>
-                                <input type="text" class='edit' data-id="@item.UserID" value="@Html.DisplayFor(modelItem => item.Address)" />
+                                <input type="text" class='edit' data-id="@item.UserID" data-column='Address' value="@Html.DisplayFor(modelItem => item.Address)" />
                             </td>
                             <td>
-                                <input type="text" class='edit' data-id="@item.UserID" value="@Html.DisplayFor(modelItem => item.Phone)" />
+                                <input type="text" class='edit' data-id="@item.UserID" data-column='Phone' value="@Html.DisplayFor(modelItem => item.Phone)" />
                             </td>
                             <td>
-                                <input type="text" class='edit' data-id="@item.UserID" value="@Html.DisplayFor(modelItem => item.Email)" />
+                                <input type="text" class='edit' data-id="@item.UserID" data-column='Email' value="@Html.DisplayFor(modelItem => item.Email)" />
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.CreatedAt)

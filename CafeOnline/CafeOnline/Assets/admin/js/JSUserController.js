@@ -42,37 +42,42 @@ var userController = {
         $('.btn-delete').off('click').on('click', function (e) {
             e.preventDefault();
             var btn = $(this);
-
             var id = btn.data('id');
-
             if (confirm("Bạn thực sự muốn xóa thành viên này?")) {
                 $.ajax({
                     type: 'POST',
                     url: '/Admin/User/Delete',
                     data: { userID: id },
                     dataType: 'json',
-                    success: function (response) {
+                    success: function(response) {
                         if (response) {
                             $('#row_' + id).remove();
-                        }
+                        } else {
+                            alert("Không thể xóa vì bạn đang đăng nhập");
+                            
+                        } 
                     },
                     error: function (response) {
                         alert(response.message);
                     }
+                   
                 });
-            };
+            }
         });
+        
 
         //sửa dữ liệu
         $('.edit').off('keypress').on('keypress', function (e) {
             if (e.which == 13) {
                 var id = $(this).data("id");
+                var column = $(this).data("column");
                 var value = $(this).val();
                 $.ajax({
                     url: "/Admin/User/EditName",
                     type: "POST",
                     data: {
                         userID: id,
+                        column: column,
                         name: value,
                     },
                     success: function (data) {
@@ -83,6 +88,8 @@ var userController = {
                 });
             }
         });
+
+
     },
 };
 userController.init();

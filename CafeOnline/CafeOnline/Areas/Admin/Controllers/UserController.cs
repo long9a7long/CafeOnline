@@ -2,6 +2,8 @@
 using Model.EF;
 using Model.DAO;
 using System;
+using Models.Common;
+using Model.DTO;
 
 namespace CafeOnline.Areas.Admin.Controllers
 {
@@ -69,13 +71,30 @@ namespace CafeOnline.Areas.Admin.Controllers
         }
         public JsonResult Delete(string userID)
         {
-            var result = UserDao.Instance.Delete(userID);
-            return Json(result, JsonRequestBehavior.AllowGet);
+            var sess = (Model.DTO.UserSession)Session[Constants.USER_SESSION];
+            string session = sess.UserName;
+            bool result = false;
+            if (string.Compare(session, userID,true)==0)
+            {
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                try
+                {
+                    result = UserDao.Instance.Delete(userID);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { message = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
+                return Json(result, JsonRequestBehavior.AllowGet);
+            }    
         }
 
-        public JsonResult EditName(string userID, string name)
+        public JsonResult EditName(string userID,string column, string name)
         {
-            var result = UserDao.Instance.UpdateName(userID, name);
+            var result = UserDao.Instance.UpdateName(userID, column, name);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }

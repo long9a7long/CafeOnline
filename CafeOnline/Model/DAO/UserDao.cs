@@ -118,10 +118,24 @@ namespace Model.DAO
                 return false;
             }
         }
-        public bool UpdateName(string userID, string name)
+        public bool UpdateName(string userID,string column, string name)
         {
             var user = GetByName(userID);
-            user.FullName = name;
+            switch (column)
+            {
+                case "FullName":
+                    user.FullName = name;
+                    break;
+                case "Address":
+                    user.Address = name;
+                    break;
+                case "Phone":
+                    user.Phone = name;
+                    break;
+                case "Email":
+                    user.Email = name;
+                    break;
+            }
             user.UpdatedAt = DateTime.Now;
             db.SaveChanges();
             return true;

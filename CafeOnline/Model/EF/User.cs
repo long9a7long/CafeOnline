@@ -27,7 +27,7 @@
 
         [Required]
         [StringLength(250)]
-        [Display(Name = "Tên hiện thị")]
+        [Display(Name = "Tên hiển thị")]
         public string FullName { get; set; }
 
         [Column(TypeName = "ntext")]
@@ -41,7 +41,7 @@
         public string Phone { get; set; }
 
         [StringLength(50)]
-        [Display(Name = "Tên đăng nhập")]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         public int GrantID { get; set; }
