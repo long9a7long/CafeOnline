@@ -1,0 +1,135 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section id="shopcart" class="shop shop-cart bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="cart-table table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="cart-product">
+                                <th class="cart-product-item">Sản Phẩm</th>
+                                <th class="cart-product-price">Giá</th>
+                                <th class="cart-product-quantity">Số Lượng</th>
+                                <th class="cart-product-total">Tổng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="cart-product">
+                                <td class="cart-product-item">
+                                    <div class="cart-product-remove">
+                                        <i class="fa fa-close"></i>
+                                    </div>
+                                    <div class="cart-product-img">
+                                        <img src="assets/images/shop/thumb/1.jpg" alt="product" />
+                                    </div>
+                                    <div class="cart-product-name">
+                                        <h6>Mexican Cheese Burger</h6>
+                                    </div>
+                                </td>
+                                <td class="cart-product-price">$34.95</td>
+                                <td class="cart-product-quantity">
+                                    <div class="product-quantity">
+                                        <a href="#"><i class="fa fa-minus"></i></a>
+                                        <input type="text" value="1" id="pro1-qunt" readonly>
+                                        <a href="#"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                                <td class="cart-product-total">$34.95</td>
+                            </tr>
+                            <tr class="cart-product">
+                                <td class="cart-product-item">
+                                    <div class="cart-product-remove">
+                                        <i class="fa fa-close"></i>
+                                    </div>
+                                    <div class="cart-product-img">
+                                        <img src="assets/images/shop/thumb/2.jpg" alt="product" />
+                                    </div>
+                                    <div class="cart-product-name">
+                                        <h6>Sweet Fruits Toast</h6>
+                                    </div>
+                                </td>
+                                <td class="cart-product-price">$54.95</td>
+                                <td class="cart-product-quantity">
+                                    <div class="product-quantity">
+                                        <a href="#"><i class="fa fa-minus"></i></a>
+                                        <input type="text" value="1" id="pro2-qunt" readonly>
+                                        <a href="#"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                </td>
+                                <td class="cart-product-total">$54.95</td>
+                            </tr>
+                            <tr class="cart-product-action">
+                                <td colspan="4">
+                                    <div class="row clearfix">
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <form class="form-inline">
+                                                <input type="text" class="form-control" id="coupon" placeholder="Mã Giảm Giá" />
+                                                <button type="submit" class="btn btn--primary btn--rounded">Sử Dụng Mã</button>
+                                            </form>
+                                        </div><!-- .col-md-6 end -->
+                                        <div class="col-xs-12 col-sm-6 col-md-6 text-right">
+                                            <a class="btn btn--secondary btn--rounded" href="#">Cập NhậT Món</a>
+                                            <a class="btn btn--primary btn--rounded" href="Home/Checkout">Thanh Toán</a>
+
+                                        </div><!-- .col-md-6 end -->
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- .cart-table end -->
+            </div>
+            <!-- .col-md-12 end -->
+            <div class="col-xs-12 col-sm-12  col-md-6 mb-30-xs mb-30-sm">
+                <div class="cart-shiping">
+                    <h6>Phí Vận Chuyển :</h6>
+                    <div class="row">
+                        <form>
+                            <div class="col-xs-12 col-md-12">
+                                <i class="fa fa-angle-down"></i>
+                                <select class="form-control">
+                                    <option value="WLF">Phường Ngô Mây</option>
+                                    <option value="ESH">Phường Nguyễn Văn Cừ</option>
+                                    <option value="YEM">Phường Lê Lợi </option>
+                                    <option value="ZMB">Phường Quang Trung</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <i class="fa fa-angle-down"></i>
+                                <select class="form-control">
+                                    <option value="VA">Đường Ngô Mây</option>
+                                    <option value="WA">Đường An Dương Vương</option>
+                                    <option value="WV">Đường Hoàng Văn Thụ</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="postal-code" placeholder="Mã Phí Vận Chuyển / ZIP">
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn--primary btn--rounded pull-right pull-none-xs">Cập Nhật Phí Vận Chuyển</button>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- .cart-shiping end -->
+            </div><!-- .col-md-6 end -->
+            <div class="col-xs-12 col-sm-12  col-md-6">
+                <div class="cart-total-amount">
+                    <h6>Tổng Trong Giỏ Hàng:</h6>
+                    <ul class="list-unstyled">
+                        <li>Tổng :<span class="pull-right text-right">$ 189.00</span></li>
+                        <li>Phí Vận Chuyển :<span class="pull-right text-right">Miễn Phí</span></li>
+                        <li>Thanh Toán :<span class="pull-right text-right">$ 189.00</span></li>
+                    </ul>
+                </div><!-- .cart-total-amount end -->
+            </div><!-- .col-md-6 end -->
+        </div><!-- .row end -->
+    </div><!-- .container end -->
+</section><!-- #shopcart end -->
+
+

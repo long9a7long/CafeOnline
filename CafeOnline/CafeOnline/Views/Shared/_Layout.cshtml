@@ -118,8 +118,10 @@
                                 <div class="clearfix">
                                 </div>
                                 <div class="cart--control">
-                                    <a class="btn btn--primary btn--block btn--rounded mb-10" href="#">view cart</a>
-                                    <a class="btn btn--white btn--bordered btn--rounded btn--block" href="#">Checkout</a>
+                                    <a class="btn btn--primary btn--block btn--rounded mb-10" href="~/Home/Cart">view cart</a>
+                                    <a class="btn btn--white btn--bordered btn--rounded btn--block" href="~/Home/Checkout">Checkout</a>
+                                    <!-- Modal -->
+                                       
                                 </div>
                             </div>
                         </div>
@@ -238,12 +240,11 @@
         </header>
 
 
-        <section id="slider" class="slider slide-overlay-dark">
+        
 
             <!-- START REVOLUTION SLIDER 5.0 -->
             @RenderSection("slider", false)
             <!-- END OF SLIDER WRAPPER -->
-        </section>
 
             @RenderBody()
             <hr />
