@@ -9522,6 +9522,7 @@
     <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Assets\Data\Images\" />
     <Folder Include="Assets\display\icons\" />
+    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
