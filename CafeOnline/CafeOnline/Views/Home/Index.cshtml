@@ -1,8 +1,4 @@
-﻿@{
-    ViewBag.Title = "CafeOnline";
-
-    
-}
+﻿@model List<Model.EF.Product> 
 
 @section slider{
 <section id="slider" class="slider slide-overlay-dark">
@@ -224,330 +220,36 @@
         </div>
         <!-- .row end -->
         <div id="shop-all" class="row" style="position: relative; height: 2580px;">
-            <!-- Product #1 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-desserts filter-soup" style="position: absolute; left: 0px; top: 0px;">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="~/Assets/display/images/shop/grid/1.jpg" alt="Product">
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
+            @foreach (var item in Model)
+            {
+                <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-desserts filter-soup" style="position: absolute; left: 0px; top: 0px;">
+                    <div class="product-item">
+                        <div class="product--img">
+                            <img src="@item.ImageUrl" alt="Product">
+                            <div class="product--hover">
+                                <div class="product--action">
+                                    <a href="#">Thêm vào giỏ hàng</a>
+                                </div>
                             </div>
+                            <!-- .product-overlay end -->
                         </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Grilled American Fillet</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$24.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-            <!-- Product #2 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-drinks" style="position: absolute; left: 375px; top: 0px;">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="~/Assets/display/images/shop/grid/2.jpg" alt="Product">
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
+                        <!-- .product-img end -->
+                        <div class="product--content">
+                            <div class="product--title">
+                                <h3><a href="">@item.ProdName</a></h3>
                             </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Roast Sea Trout</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$38.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-            <!-- Product #3 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-desserts" style="position: absolute; left: 0px; top: 430px;">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="~/Assets/display/images/shop/grid/3.jpg" alt="Product">
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
+                            <!-- .product-title end -->
+                            <div class="product--price">
+                                <span>@item.Cost</span>
                             </div>
+                            <!-- .product-price end -->
                         </div>
-                        <!-- .product-overlay end -->
+                        <!-- .product-bio end -->
                     </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Grilled Seafood Paella</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$34.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
                 </div>
-            </div>
             <!-- .productFilter end -->
-            <!-- Product #4 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-main" style="position: absolute; left: 375px; top: 430px;">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="~/Assets/display/images/shop/grid/4.jpg" alt="Product">
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Chicken Breast</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$29.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-            <!-- Product #5 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-salads" style="position: absolute; left: 0px; top: 860px;">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="~/Assets/display/images/shop/grid/5.jpg" alt="Product">
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Roast Sea Trout</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$13.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-            <!-- Product #6-->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter" style="position: absolute; left: 375px; top: 860px;">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="~/Assets/display/images/shop/grid/6.jpg" alt="Product">
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Grilled American Fillet</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$13.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-            <!-- Product #7 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-drinks" style="position: absolute; left: 0px; top: 1290px;">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="~/Assets/display/images/shop/grid/7.jpg" alt="Product">
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Cannoli Cream Cheese</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$24.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-            <!-- Product #8 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-main" style="position: absolute; left: 375px; top: 1290px;">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="~/Assets/display/images/shop/grid/8.jpg" alt="Product">
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Spain Tapas</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$23.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-            <!-- Product #9 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-salads" style="position: absolute; left: 0px; top: 1720px;">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="~/Assets/display/images/shop/grid/9.jpg" alt="Product">
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Grilled Seafood Paella</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$34.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-            <!-- Product #10 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-main" style="position: absolute; left: 375px; top: 1720px;">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="~/Assets/display/images/shop/grid/10.jpg" alt="Product">
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Cannoli Cream Cheese</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$34.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-            <!-- Product #11 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-main" style="position: absolute; left: 0px; top: 2150px;">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="~/Assets/display/images/shop/grid/11.jpg" alt="Product">
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Grilled American Fillet</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$54.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
-            <!-- Product #12 -->
-            <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-main" style="position: absolute; left: 375px; top: 2150px;">
-                <div class="product-item">
-                    <div class="product--img">
-                        <img src="~/Assets/display/images/shop/grid/12.jpg" alt="Product">
-                        <div class="product--hover">
-                            <div class="product--action">
-                                <a href="#">Add To Cart</a>
-                            </div>
-                        </div>
-                        <!-- .product-overlay end -->
-                    </div>
-                    <!-- .product-img end -->
-                    <div class="product--content">
-                        <div class="product--title">
-                            <h3><a href="#">Roasted Steak Roulade</a></h3>
-                        </div>
-                        <!-- .product-title end -->
-                        <div class="product--price">
-                            <span>$14.95</span>
-                        </div>
-                        <!-- .product-price end -->
-                    </div>
-                    <!-- .product-bio end -->
-                </div>
-            </div>
-            <!-- .productFilter end -->
+
+            }
 
         </div>
         <!-- .row end -->

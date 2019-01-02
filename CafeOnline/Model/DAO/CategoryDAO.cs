@@ -113,5 +113,10 @@ namespace Model.DAO
             return true;
         }
 
+        public object ViewDetail(int _key)
+        {
+            return db.Category.Find(_key);
+        }
+
     }
 }

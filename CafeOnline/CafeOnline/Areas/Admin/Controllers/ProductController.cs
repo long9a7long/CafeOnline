@@ -97,7 +97,19 @@ namespace CafeOnline.Areas.Admin.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        
         #endregion
+
+        public ActionResult Detail(int id)
+        {
+            var product = new ProductDao().ViewDetail(id);
+            return View(product);
+        }
+        public ActionResult Category(int cateId)
+        {
+            var category = new CategoryDAO().ViewDetail(cateId);
+            ViewBag.Category = category;
+            var model = new ProductDao().ListByCategoryId(cateId); 
+            return View(model);
+        }
     }
 }

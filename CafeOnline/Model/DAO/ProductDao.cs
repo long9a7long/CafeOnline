@@ -121,6 +121,7 @@ namespace Model.DAO
                 return true;
         }
 
+       
 
         public IEnumerable<Product> ListAllPaging(string searchString, int page)
         {
@@ -132,6 +133,8 @@ namespace Model.DAO
             return model.OrderByDescending(x => x.CreatedAt).ToPagedList(page, Constants.PageSize);
 
         }
+
+
 
         /**
          * @description -- get products list by search key
@@ -175,6 +178,20 @@ namespace Model.DAO
                 return count_one > Constants.zeroNumber;
             }
             return Constants.falseValue;
+        }
+
+        public object ViewDetail(int _key)
+        {
+            return db.Product.Find(_key);
+        }
+        /// <summary>
+        /// Get product by category
+        /// </summary>
+        /// <param name="categoryId"></param>
+        /// <returns></returns>
+        public List<Product> ListByCategoryId(int categoryId)
+        {
+            return db.Product.Where(x => x.CateID == categoryId).ToList();
         }
     }
 }
