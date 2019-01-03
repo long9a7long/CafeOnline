@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CafeOnline.Models;
+using Model.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -36,6 +38,16 @@ namespace CafeOnline.Controllers
         {
             ViewBag.Message = "Your checkout page.";
             return View();
+        }
+        public PartialViewResult HeaderCart()
+        {
+            var cart = Session[CommonConstants.CartSession];
+            var list = new List<CartItem>();
+            if (cart != null)
+            {
+                list = (List<CartItem>)cart;
+            }
+            return PartialView(list);
         }
     }
 }
