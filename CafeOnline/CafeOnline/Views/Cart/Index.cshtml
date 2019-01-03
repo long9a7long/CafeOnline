@@ -1,0 +1,47 @@
+﻿@model List<CafeOnline.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+<script src="/Assets/display/js/controller/cartController.js"></script>
+    }
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Mã Sản Phẩm</td>
+                <td>Tên Sản Phẩm</td>
+                <td>Ảnh</td>
+                <td>Số lượng</td>
+                <td>Đơn Giá</td>
+                <td>Thành Tiền</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Product.ProdID</td>
+                    <td>@item.Product.ProdName</td>
+                    <td><img src="@item.Product.ImageUrl" /></td>
+                    <td><input type="text" class="" value="@item.Count" /></td>
+                    <td>@item.Product.Cost</td>
+                    <td>@(item.Product.Cost * item.Count)</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
+    <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+    <button id="btnDeleteAll" class="btn">Xóa giỏ hàng</button>
+    <button id="btnPayment" class="btn">Thanh toán</button>
+}
+else
+{
+    <span class="alert-danger">Chưa có sản phẩm thêm vào giỏ hàng</span>
+}
+
+

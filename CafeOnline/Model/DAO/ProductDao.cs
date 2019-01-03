@@ -176,5 +176,10 @@ namespace Model.DAO
             }
             return Constants.falseValue;
         }
+        public List<Product> ListRelateProduct(int productID)
+        {
+            var product = db.Product.Find(productID);
+            return db.Product.Where(x => x.ProdID != productID && x.CateID == product.CateID).ToList();
+        }
     }
 }

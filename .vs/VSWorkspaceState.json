@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CafeOnline"
+    "\\CafeOnline",
+    "\\CafeOnline\\CafeOnline",
+    "\\CafeOnline\\CafeOnline\\Views",
+    "\\CafeOnline\\CafeOnline\\Views\\Product"
   ],
-  "SelectedNode": "\\CafeOnline\\CafeOnline.sln",
+  "SelectedNode": "\\CafeOnline\\CafeOnline\\Views\\Shared",
   "PreviewInSolutionExplorer": false
 }

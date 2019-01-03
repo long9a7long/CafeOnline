@@ -217,12 +217,15 @@
     <Compile Include="Areas\Admin\Models\Common.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -8200,6 +8203,7 @@
     <Content Include="Assets\display\images\testimonial\icon2.png" />
     <Content Include="Assets\display\images\testimonial\icon3.png" />
     <Content Include="Assets\display\images\testimonial\icon4.png" />
+    <Content Include="Assets\display\js\controller\cartController.js" />
     <Content Include="Assets\display\js\functions.js" />
     <Content Include="Assets\display\js\html5shiv.js" />
     <Content Include="Assets\display\js\jquery-2.2.4.min.js" />
@@ -9516,6 +9520,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Shared\ProductCategories.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
