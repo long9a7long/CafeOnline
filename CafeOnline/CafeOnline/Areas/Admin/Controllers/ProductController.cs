@@ -99,18 +99,6 @@ namespace CafeOnline.Areas.Admin.Controllers
 
         #endregion
 
-        public ActionResult Detail()
-        {
-            var product = new ProductDao().getByID(5);
-            ViewBag.Relateproduct = new ProductDao().ListRelateProduct(5);
-            return View(product);
-        }
-        public ActionResult Category(int cateId)
-        {
-            var category = new CategoryDAO().ViewDetail(cateId);
-            ViewBag.Category = category;
-            var model = new ProductDao().ListByCategoryId(cateId); 
-            return View(model);
-        }
+        
     }
 }

@@ -29,6 +29,10 @@ namespace Model.DAO
                 return instance;
             }
         }
+        public List<Category> ListAll()
+        {
+            return db.Category.Where(x => x.isActive == true).OrderBy(x => x.CateID).ToList();
+        }
         public IEnumerable<Category> ListAllPaging(string searchString, int page)
         {
             IQueryable<Category> model = db.Category;

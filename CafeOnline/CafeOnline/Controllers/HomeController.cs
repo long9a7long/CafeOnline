@@ -1,4 +1,5 @@
 ﻿using System;
+using Model.DAO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,12 @@ namespace CafeOnline.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
+            var totalproduct = 100;
+            var productDao = new ProductDao();
+            ViewBag.pageIndex = page;
+            ViewBag.product = productDao.ListNewProduct(totalproduct);
             return View();
         }
 

@@ -1,0 +1,88 @@
+﻿@{
+    Layout = null;
+    //var listNewProduct = (List<Model.EF.Product>)ViewBag.produ;~/Views/Shared/_Layout.cshtml
+    var category = (Model.EF.Category)ViewBag.Category;
+}
+
+    @foreach (var item in Model)
+    {
+        var url = "/ chi-tiet /" + @item.ProdID;
+        <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-@item.CateID" style="position: absolute; left: 0px; top: 0px;">
+            <div class="product-item">
+                <div class="product--img">
+                    <img src="@item.ImageUrl" alt="Product" style="width:500px;height:300px">
+                    <div class="product--hover">
+                        <div class="product--action">
+                            <a href="them-gio-hang/@item.ProdID">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                    <!-- .product-overlay end -->
+                </div>
+                <!-- .product-img end -->
+                <div class="product--content">
+                    <div class="product--title">
+                        <h3><a href="@url">@item.ProdName</a></h3>
+                    </div>
+                    <!-- .product-title end -->
+                    <div class="product--price">
+                        <span>@item.Cost VNĐ</span>
+                    </div>
+                    <!-- .product-price end -->
+                </div>
+                <!-- .product-bio end -->
+            </div>
+        </div>
+        <!-- .productFilter end -->
+    }
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-12  col-md-12 clearfix  text--center">
+        @if (ViewBag.TotalPage > 1)
+        {
+            var pageDisplay = ViewBag.MaxPage;<!-- hien thi tong toi da 3 trang -->
+            int totalPage = ViewBag.TotalPage;<!-- tong trang 2 -->
+            int currentPage = ViewBag.Page;<!-- trang hien tai 1-->
+
+            var starPageIndex = Math.Max(1, currentPage - pageDisplay / 2);
+            var endPageIndex = Math.Min(totalPage, currentPage + pageDisplay / 2);
+
+            var link = "/Home/Index";
+
+        <ul class="pagination mt-20">
+            @if (currentPage > ViewBag.First)
+            {
+                <li>
+                    <a href="@link?page=@ViewBag.Prev" aria-label="Prevous">
+                        <span aria-hidden="true"><i class="fa fa-long-arrow-left"></i></span>
+                    </a>
+                </li>
+            }
+
+            @for (int i = starPageIndex; i <= endPageIndex; i++)
+            {
+                if (currentPage == i)
+                {
+                    <li class="active"><a href="@link?page=@i">@i</a></li>
+                }
+                else
+                {
+                    <li><a href="@link?page=@i">@i</a></li>
+                }
+            }
+            @if (currentPage < totalPage)
+            {
+                <li>
+                    <a href="@link?page=@ViewBag.Next" aria-label="Next">
+                        <span aria-hidden="true"><i class="fa fa-long-arrow-right"></i></span>
+                    </a>
+                </li>
+            }
+
+        </ul>
+        }
+        else
+        {
+            <p>Không có sản phẩm nào</p>
+        }
+    </div>
+</div>

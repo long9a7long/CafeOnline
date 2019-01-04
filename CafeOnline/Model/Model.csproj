@@ -69,7 +69,6 @@
     <Compile Include="EF\Grant.cs" />
     <Compile Include="EF\Order.cs" />
     <Compile Include="EF\Product.cs" />
-    <Compile Include="EF\ProductCategory.cs" />
     <Compile Include="EF\ShopDbContext.cs" />
     <Compile Include="EF\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -37,6 +37,7 @@ namespace Model.DAO
             }
         }
 
+
         /**
          * @description -- get Product by ProdID
          * @param _key: int -- is field ProdID
@@ -121,7 +122,6 @@ namespace Model.DAO
                 return true;
         }
 
-       
 
         public IEnumerable<Product> ListAllPaging(string searchString, int page)
         {
@@ -133,8 +133,6 @@ namespace Model.DAO
             return model.OrderByDescending(x => x.CreatedAt).ToPagedList(page, Constants.PageSize);
 
         }
-
-
 
         /**
          * @description -- get products list by search key
@@ -179,19 +177,18 @@ namespace Model.DAO
             }
             return Constants.falseValue;
         }
-
-        public object ViewDetail(int _key)
+        public List<Product> ListRelateProduct(int productID)
         {
-            return db.Product.Find(_key);
+            var product = db.Product.Find(productID);
+            return db.Product.Where(x => x.ProdID != productID && x.CateID == product.CateID).ToList();
         }
-        /// <summary>
-        /// Get product by category
-        /// </summary>
-        /// <param name="categoryId"></param>
-        /// <returns></returns>
-        public List<Product> ListByCategoryId(int categoryId)
+ 
+        public List<Product> ListByCategoryId(ref int totalRecord, int pageIndex=1)
         {
-            return db.Product.Where(x => x.CateID == categoryId).ToList();
+            var model=db.Product.OrderBy(x=>x.ProdID).ToList();
+            totalRecord = model.Count();//nghi nó bằng 0 chỗ này
+            model = model.Skip((pageIndex - 1) * Constants.PageSize).Take(Constants.PageSize).ToList();
+            return model;
         }
     }
 }

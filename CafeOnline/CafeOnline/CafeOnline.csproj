@@ -217,12 +217,16 @@
     <Compile Include="Areas\Admin\Models\Common.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -7722,6 +7726,16 @@
     <Content Include="Assets\admin\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Assets\admin\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Assets\admin\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Assets\Data\Images\bingsudualuoi.jpg" />
+    <Content Include="Assets\Data\Images\bingsuxoai.jpg" />
+    <Content Include="Assets\Data\Images\den.jpg" />
+    <Content Include="Assets\Data\Images\epbuoi.jpg" />
+    <Content Include="Assets\Data\Images\epcam.jpg" />
+    <Content Include="Assets\Data\Images\expresso.jpg" />
+    <Content Include="Assets\Data\Images\kem-tra-xanh.jpg" />
+    <Content Include="Assets\Data\Images\kemkhoaimon.jpg" />
+    <Content Include="Assets\Data\Images\sinh-to-dau.jpg" />
+    <Content Include="Assets\Data\Images\sinhtoxoai.jpg" />
     <Content Include="Assets\display\css\bootstrap.min.css" />
     <Content Include="Assets\display\css\external.css" />
     <Content Include="Assets\display\css\style-arabic.css" />
@@ -8200,6 +8214,7 @@
     <Content Include="Assets\display\images\testimonial\icon2.png" />
     <Content Include="Assets\display\images\testimonial\icon3.png" />
     <Content Include="Assets\display\images\testimonial\icon4.png" />
+    <Content Include="Assets\display\js\controller\cartController.js" />
     <Content Include="Assets\display\js\functions.js" />
     <Content Include="Assets\display\js\html5shiv.js" />
     <Content Include="Assets\display\js\jquery-2.2.4.min.js" />
@@ -9516,12 +9531,14 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
-    <Content Include="Views\Product\Category.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Product\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Assets\Data\Images\" />
     <Folder Include="Assets\display\icons\" />
   </ItemGroup>
   <ItemGroup>

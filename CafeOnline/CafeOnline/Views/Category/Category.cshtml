@@ -1,0 +1,14 @@
+﻿@model List<Model.EF.Category>
+@{ 
+    Layout = null;
+}
+<div class="col-xs-12 col-sm-12  col-md-12 shop-filter">
+    <ul class="list-inline">
+        <li><a href="#" data-filter="*" class="active-filter">Tất cả</a></li>
+        @foreach (var item in Model)
+        {
+            <li><a href="#" data-filter=".filter-@item.CateID">@item.CateName</a></li>
+        }
+    </ul>
+</div>
+

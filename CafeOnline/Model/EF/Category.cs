@@ -1,4 +1,4 @@
-namespace Model.EF
+﻿namespace Model.EF
 {
     using System;
     using System.Collections.Generic;
@@ -20,6 +20,7 @@ namespace Model.EF
 
         [Required]
         [StringLength(150)]
+        [Display(Name = "Tên Danh Mục")]
         public string CateName { get; set; }
 
         public bool isActive { get; set; }
