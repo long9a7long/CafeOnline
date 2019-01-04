@@ -121,9 +121,9 @@ namespace CafeOnline.Controllers
             bill.Note = note;
             try
             {
-                var id = new BillDao().Insert(bill);
+                var id = new BillDAO().Insert(bill);
                 var cart = (List<CartItem>)Session[CartSession];
-                var orderDao = new OrderDao();
+                var orderDao = new OrderDAO();
                 foreach(var item in cart)
                 {
                     var order = new Order();
