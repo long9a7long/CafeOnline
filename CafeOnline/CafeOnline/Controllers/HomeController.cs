@@ -1,5 +1,6 @@
-﻿using System;
-using Model.DAO;
+﻿using CafeOnline.Models;
+using Model.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,12 +10,8 @@ namespace CafeOnline.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(int page = 1)
+        public ActionResult Index()
         {
-            var totalproduct = 100;
-            var productDao = new ProductDao();
-            ViewBag.pageIndex = page;
-            ViewBag.product = productDao.ListNewProduct(totalproduct);
             return View();
         }
 
@@ -42,5 +39,16 @@ namespace CafeOnline.Controllers
             ViewBag.Message = "Your checkout page.";
             return View();
         }
+        public PartialViewResult CartDetail()
+        {
+            var cart = Session[CommonConstants.CartSession];
+            var list = new List<CartItem>();
+            if (cart != null)
+            {
+                list = (List<CartItem>)cart;
+            }
+            return PartialView(list);
+        }
+
     }
 }

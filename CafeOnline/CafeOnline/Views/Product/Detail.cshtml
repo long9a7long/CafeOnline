@@ -4,6 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var relatedProduct = (List<Model.EF.Product>)ViewBag.Relateproduct;
 }
+@section jsFooter{
+    <script src="/Assets/display/js/controller/cartController.js"></script>
+}
 <section class="shop shop-cart bg-white">
     <div class="container">
         <div class="row">
@@ -26,36 +29,41 @@
                 <!-- .aret end -->
 
                 <div class="product-img mb-50">
-                    <img class="img-responsive" src="@Model.ImageUrl" alt="product image">
+                    <img class="img-responsive" src="~/Assets/Data/Images/images/@Model.ImageUrl" alt="product image">
                 </div>
                 <!-- .product-img end -->
                 <div class="product-title">
-                    <h3>@Model.ProdName</h3>
+                    <h6>@Model.ProdName</h6>
                 </div>
                 <!-- .product-title end -->
                 <div class="product-meta mb-30">
-                    <div class="product-price pull-left pull-none-xs">
-                        @Model.Cost VNĐ
-                    </div>
+                    <p>
+                        Giá:   @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+"{0:#,#}", Model.Cost) VNĐ
+                    </p>
                 </div>
                 <div class="product-desc">
-                    <p>@Model.Decription</p>
+                    <div><p>@Model.Decription</p></div>
                 </div>
                 <!-- .product-desc end -->
                 <!-- .product-details end -->
-                <div class="product-action clearfix">
-                    <div class="product-quantity pull-left pull-none-xs">
-                        <span class="qua">Số lượng</span>
-                        <span>
-                            <a href="#"><i class="fa fa-minus"></i></a>
-                            <input type="text" value="2" id="pro-qunt" name="sl" readonly>
-                            <a href="#"><i class="fa fa-plus"></i></a>
-                        </span>
+                @using (Html.BeginForm("Detail", "Product", FormMethod.Post))
+                {
+                    <div class="product-action clearfix">
+                        <div class="product-quantity pull-left pull-none-xs">
+                            <span class="qua">Số lượng</span>
+                            <span>
+                                <a href="#" class="minus"><i class="fa fa-minus"></i></a>
+                                <input type="text" value="1" id="pro-qunt" name="sl" />
+                                <a href="#" class="plus"><i class="fa fa-plus"></i></a>
+                                <input type="hidden" value="@Model.ProdID" id="pro-qunt" name="prodId" />
+                            </span>
+                        </div>
+                        <div class="product-cta text-right text-center-xs">
+                            <button type="submit" class="btn btn--primary btn--rounded" >Thêm vào giỏ</button>
+                        </div>
                     </div>
-                    <div class="product-cta text-right text-center-xs">
-                        <a class="btn btn--primary btn--rounded" href="/them-gio-hang?productId=@Model.ProdID&count=1">add to cart</a>
-                    </div>
-                </div>
+                }
                 <!-- .product-action end -->
                 <!-- .product-share end -->
                 <!-- .product-tabs end -->
@@ -68,14 +76,14 @@
                         <!-- Product #1 -->
                         @foreach (var item in relatedProduct)
                         {
-                            var url = "/ chi-tiet /" + item.ProdID;
+                            var url = "/chi-tiet/" + item.ProdID;
                             <div class="col-xs-12 col-sm-6 col-md-4">
                                 <div class="product-item">
                                     <div class="product--img">
-                                        <img src="@item.ImageUrl" alt="Product" />
+                                        <img src="~/Assets/Data/Images/images/@item.ImageUrl" alt="Product" />
                                         <div class="product--hover">
                                             <div class="product--action">
-                                                <a href="@url">Add To Cart</a>
+                                                <a href="/them-gio-hang?productId=@item.ProdID&count=1">Add To Cart</a>
                                             </div>
                                         </div>
                                         <!-- .product-overlay end -->
@@ -83,11 +91,14 @@
                                     <!-- .product-img end -->
                                     <div class="product--content">
                                         <div class="product--title">
-                                            <h3><a href="@url">Honey Pancakes</a></h3>
+                                            <h3><a href="@url">@item.ProdName</a></h3>
                                         </div>
                                         <!-- .product-title end -->
                                         <div class="product--price">
-                                            <span>@item.Cost VNĐ</span>
+                                            <span>
+                                                @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+     "{0:#,#}", item.Cost) VNĐ
+                                            </span>
                                         </div>
                                         <!-- .product-price end -->
                                     </div>

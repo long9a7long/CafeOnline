@@ -23,6 +23,7 @@ namespace Model.EF
         public DateTime? CreatedAt { get; set; }
 
         public DateTime? UpdatedAt { get; set; }
+        public int OrderID { get; set; }
 
         public virtual Bill Bill { get; set; }
 

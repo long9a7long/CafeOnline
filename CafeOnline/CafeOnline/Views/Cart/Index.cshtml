@@ -4,44 +4,74 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section jsFooter{
-<script src="/Assets/display/js/controller/cartController.js"></script>
-    }
-@if (Model.Count > 0)
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <td>Mã Sản Phẩm</td>
-                <td>Tên Sản Phẩm</td>
-                <td>Ảnh</td>
-                <td>Số lượng</td>
-                <td>Đơn Giá</td>
-                <td>Thành Tiền</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
+    <script src="/Assets/display/js/controller/cartController.js"></script>
+}
+@{
+    var tong = 0;
+}
+
+<section class="shop shop-cart bg-white">
+    <div class="container">
+        <div class="row">
+            @if (Model.Count > 0)
             {
-                <tr>
-                    <td>@item.Product.ProdID</td>
-                    <td>@item.Product.ProdName</td>
-                    <td><img src="@item.Product.ImageUrl" /></td>
-                    <td><input type="text" class="" value="@item.Count" /></td>
-                    <td>@item.Product.Cost</td>
-                    <td>@(item.Product.Cost * item.Count)</td>
-                </tr>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Mã Sản Phẩm</td>
+                            <td>Tên Sản Phẩm</td>
+                            <td>Ảnh</td>
+                            <td>Số lượng</td>
+                            <td>Đơn Giá</td>
+                            <td>Thành Tiền</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Product.ProdID</td>
+                                <td>@item.Product.ProdName</td>
+                                <td><img src="~/Assets/Data/Images/images/@item.Product.ImageUrl" style="width: 100px;" /></td>
+                                <td><input type="text" class="txtCount" data-id="@item.Product.ProdID" value="@item.Count" /></td>
+                                <td>
+                                    @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+"{0:#,#}", item.Product.Cost) VNĐ
+                                </td>
+                                <td>
+                                    @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+"{0:#,#}", (item.Product.Cost * item.Count)) VNĐ
+                                </td>
+                                <td><a href="#" data-id="@item.Product.ProdID" class="btn-delete">Xóa</a></td>
+                            </tr>
+                            <div style="display:none">@(tong += item.Product.Cost * item.Count)</div>
+                        }
+
+                    </tbody>
+                </table>
+                <div class="cart-total">
+                    <div class="total-desc">
+                        Tổng tiền:
+                    </div>
+                    <div class="total-price">
+                        @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+"{0:#,#}", tong) VNĐ
+                    </div>
+                </div>
+                <button id="btnContinue" class="btn">Mua thêm hàng</button>
+                <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
+                <button id="btnDeleteAll" class="btn">Xóa giỏ hàng</button>
+                <button id="btnPayment" class="btn">Thanh toán</button>
             }
-
-        </tbody>
-    </table>
-    <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
-    <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
-    <button id="btnDeleteAll" class="btn">Xóa giỏ hàng</button>
-    <button id="btnPayment" class="btn">Thanh toán</button>
+            else
+            {
+                <span class="alert-danger">Chưa có sản phẩm thêm vào giỏ hàng</span>
+            }
+        </div>
+    </div>
+</section>
+@{
+    Session.Add(Models.Common.Constants.TOTALBILL, tong);
 }
-else
-{
-    <span class="alert-danger">Chưa có sản phẩm thêm vào giỏ hàng</span>
-}
-
 

@@ -1,0 +1,64 @@
+﻿@model List<CafeOnline.Models.CartItem>
+@section jsFooter{
+    <script src="/Assets/display/js/controller/cartController.js"></script>
+}
+@{ 
+    var tong = 0;
+}
+    <div class="module module-cart pull-left">
+        <div class="module-icon cart-icon">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="title">shop cart</span>
+            <label class="module-label">@Model.Count</label>
+        </div>
+        <div class="module-content module-box cart-box">
+            <div class="cart-overview">
+                @if (Model.Count > 0)
+                {
+                    <ul class="list-unstyled">
+                        @foreach (var item in Model)
+                        {
+                            <li>
+                                <img class="img-responsive" src="~/Assets/Data/Images/images/@item.Product.ImageUrl" alt="product" />
+                                <div class="product-meta">
+                                    <h5 class="product-title">@item.Product.ProdName</h5>
+                                    <p class="product-price">
+                                        @item.Count x @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                                        "{0:#,#}", item.Product.Cost) VNĐ
+                                    </p>
+                                </div>
+                                <a class="cart-cancel" data-id="@item.Product.ProdID" href="#">cancel</a>
+                            </li>
+                            <p style="display:none">@(tong += item.Count * item.Product.Cost)</p>
+
+                        }
+
+
+
+                    </ul>
+                }
+            </div>
+
+            <div class="cart-total">
+                <div class="total-desc">
+                    Tổng tiền:
+                </div>
+                <div class="total-price">
+                    @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                                        "{0:#,#}", tong) VNĐ
+                    
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+            <div class="cart--control">
+                <a class="btn btn--primary btn--block btn--rounded mb-10" href="/Cart">Xem giỏ hàng</a>
+                <a class="btn btn--white btn--bordered btn--rounded btn--block" href="/Cart/Payment">Thanh toán</a>
+                <!-- Modal -->
+
+            </div>
+        </div>
+    </div>
+@{ 
+    Session.Add(Models.Common.Constants.TOTALBILL, tong);
+}

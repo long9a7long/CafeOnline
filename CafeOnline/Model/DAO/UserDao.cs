@@ -140,7 +140,10 @@ namespace Model.DAO
             db.SaveChanges();
             return true;
         }
-
+        public bool CheckUserID(string userID)
+        {
+            return db.User.Count(x => x.UserID == userID) > 0;
+        }
 
     }
 }
