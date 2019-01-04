@@ -49,5 +49,6 @@ namespace CafeOnline.Controllers
             }
             return PartialView(list);
         }
+
     }
 }
