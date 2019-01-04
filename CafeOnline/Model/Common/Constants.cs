@@ -16,6 +16,8 @@
         public static bool falseValue = false;
         public static string ENCODE_MD5 = "ENCODE_MD5";
         public static string USER_SESSION = "USER_SESSION";
+        public static string TOTALBILL = "TOTALBILL";
+        public static string EDITCOUNT = "EDITCOUNT";
         public static int PageSize = 5;
         public static string MEMBER_GROUP = "User";
         public static string ADMIN_GROUP = "Admin";

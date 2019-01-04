@@ -39,7 +39,7 @@ namespace CafeOnline.Controllers
             ViewBag.Message = "Your checkout page.";
             return View();
         }
-        public PartialViewResult HeaderCart()
+        public PartialViewResult CartDetail()
         {
             var cart = Session[CommonConstants.CartSession];
             var list = new List<CartItem>();

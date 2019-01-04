@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 
@@ -18,6 +19,5 @@ namespace CafeOnline.Models
         [StringLength(50)]
         [Display(Name = "Mật khẩu")]
         public string Password { get; set; }
-
     }
 }

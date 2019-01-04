@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <!-- Document Meta
@@ -76,52 +77,9 @@
                             <!-- li end -->
 
                         </ul>
-                        <!-- Module Cart -->
-                        <div class="module module-cart pull-left">
-                            <div class="module-icon cart-icon">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span class="title">shop cart</span>
-                                <label class="module-label">2</label>
-                            </div>
-                            <div class="module-content module-box cart-box">
-                                <div class="cart-overview">
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <img class="img-responsive" src="~/Assets/display/images/shop/thumb/6.jpg" alt="product" />
-                                            <div class="product-meta">
-                                                <h5 class="product-title">Red Tape Shoes</h5>
-                                                <p class="product-price">1 x $ 34.00</p>
-                                            </div>
-                                            <a class="cart-cancel" href="#">cancel</a>
-                                        </li>
-                                        <li>
-                                            <img class="img-responsive" src="~/Assets/display/images/shop/thumb/7.jpg" alt="product" />
-                                            <div class="product-meta">
-                                                <h5 class="product-title">Brave Sweater</h5>
-                                                <p class="product-price">1 x $ 32.00</p>
-                                            </div>
-                                            <a class="cart-cancel" href="#">cancel</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="cart-total">
-                                    <div class="total-desc">
-                                        Subtotal:
-                                    </div>
-                                    <div class="total-price">
-                                        $73.00
-                                    </div>
-                                </div>
-                                <div class="clearfix">
-                                </div>
-                                <div class="cart--control">
-                                    <a class="btn btn--primary btn--block btn--rounded mb-10" href="~/Home/Cart">view cart</a>
-                                    <a class="btn btn--white btn--bordered btn--rounded btn--block" href="~/Home/Checkout">Checkout</a>
-                                    <!-- Modal -->
 
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Module Cart -->
+                        @{ Html.RenderAction("CartDetail", "Home");}
                         <!-- .module-cart end -->
                         <!-- Module Search -->
                         <div class="module module-search pull-left">
@@ -152,89 +110,88 @@
                         <!-- .module-search end -->
                         <!-- Module Side NAV -->
                         @*<div class="module module-side-nav pull-left">
-                                    <div class="module-icon side-nav-icon">
-                                        <i class="fa fa-bars"></i>
-                                        <span class="title">Side Navigation</span>
-                                    </div>
-                                    <div class="module-content module-hamburger">
-                                        <div class="hamburger-panel module-widgets">
-
-                                            <!-- Recent Posts
-                        ============================================= -->
-                                            <div class="widget widget-recent-posts">
-                                                <div class="widget--title">
-                                                    <h5>recent posts</h5>
-                                                </div>
-                                                <div class="widget--content">
-                                                    <div class="entry">
-                                                        <img src="~/Assets/display/images/blog/thumb/1.jpg" alt="title" />
-                                                        <div class="entry-desc">
-                                                            <div class="entry-meta">
-                                                                <a href="#">Oct 15, 2017</a>
-                                                            </div>
-                                                            <div class="entry-title">
-                                                                <a href="#">The Best Side Dishes for Next Dinner</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- .recent-entry end -->
-
-                                                    <div class="entry">
-                                                        <img src="~/Assets/display/images/blog/thumb/2.jpg" alt="title" />
-                                                        <div class="entry-desc">
-                                                            <div class="entry-meta">
-                                                                <a href="#">sep 15, 2017</a>
-                                                            </div>
-                                                            <div class="entry-title">
-                                                                <a href="#">Cornbread Stuffing Apples and Sausage</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- .recent-entry end -->
-
-                                                </div>
-                                            </div>
-                                            <!-- .widget-recent end -->
-                                            <!-- Instagram Feed
-                        ============================================= -->
-                                            <div class="widget widget-instagram">
-                                                <div class="widget--title">
-                                                    <h5>Instagram</h5>
-                                                </div>
-                                                <div class="widget--content">
-                                                    <div id="instafeedModule" class="instafeed" data-insta-number="8"></div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </div>
-                                            <!-- .widget-instagram end -->
-                                            <!-- Tag Clouds
-                        ============================================= -->
-                                            <div class="widget widget-tags">
-                                                <div class="widget--title">
-                                                    <h5>tag clouds</h5>
-                                                </div>
-                                                <div class="widget--content">
-                                                    <a href="#">responsive</a>
-                                                    <a href="#">modern</a>
-                                                    <a href="#">corporate</a>
-                                                    <a href="#">business</a>
-                                                    <a href="#">awesome</a>
-                                                    <a href="#">fresh</a>
-
-                                                </div>
-                                            </div>
-                                            <!-- .widget-tags end -->
-                                            <a class="module-cancel" href="#"><i class="fa fa-times"></i></a>
+                                        <div class="module-icon side-nav-icon">
+                                            <i class="fa fa-bars"></i>
+                                            <span class="title">Side Navigation</span>
                                         </div>
-                                    </div>
-                                </div>*@
+                                        <div class="module-content module-hamburger">
+                                            <div class="hamburger-panel module-widgets">
+
+                                                <!-- Recent Posts
+                            ============================================= -->
+                                                <div class="widget widget-recent-posts">
+                                                    <div class="widget--title">
+                                                        <h5>recent posts</h5>
+                                                    </div>
+                                                    <div class="widget--content">
+                                                        <div class="entry">
+                                                            <img src="~/Assets/display/images/blog/thumb/1.jpg" alt="title" />
+                                                            <div class="entry-desc">
+                                                                <div class="entry-meta">
+                                                                    <a href="#">Oct 15, 2017</a>
+                                                                </div>
+                                                                <div class="entry-title">
+                                                                    <a href="#">The Best Side Dishes for Next Dinner</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- .recent-entry end -->
+
+                                                        <div class="entry">
+                                                            <img src="~/Assets/display/images/blog/thumb/2.jpg" alt="title" />
+                                                            <div class="entry-desc">
+                                                                <div class="entry-meta">
+                                                                    <a href="#">sep 15, 2017</a>
+                                                                </div>
+                                                                <div class="entry-title">
+                                                                    <a href="#">Cornbread Stuffing Apples and Sausage</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- .recent-entry end -->
+
+                                                    </div>
+                                                </div>
+                                                <!-- .widget-recent end -->
+                                                <!-- Instagram Feed
+                            ============================================= -->
+                                                <div class="widget widget-instagram">
+                                                    <div class="widget--title">
+                                                        <h5>Instagram</h5>
+                                                    </div>
+                                                    <div class="widget--content">
+                                                        <div id="instafeedModule" class="instafeed" data-insta-number="8"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>
+                                                <!-- .widget-instagram end -->
+                                                <!-- Tag Clouds
+                            ============================================= -->
+                                                <div class="widget widget-tags">
+                                                    <div class="widget--title">
+                                                        <h5>tag clouds</h5>
+                                                    </div>
+                                                    <div class="widget--content">
+                                                        <a href="#">responsive</a>
+                                                        <a href="#">modern</a>
+                                                        <a href="#">corporate</a>
+                                                        <a href="#">business</a>
+                                                        <a href="#">awesome</a>
+                                                        <a href="#">fresh</a>
+
+                                                    </div>
+                                                </div>
+                                                <!-- .widget-tags end -->
+                                                <a class="module-cancel" href="#"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>*@
                     </div>
                     <!-- /.navbar-collapse -->
                 </div>
                 <!-- /.container-fluid -->
             </nav>
         </header>
-        @{ Html.RenderAction("HeaderCart", "Home");}
 
 
 
@@ -247,7 +204,7 @@
         <footer id="footer" class="footer footer-1 text-center">
             <div class="divider--shape-dark"></div>
             <!-- Widget Section
-        ============================================= -->
+            ============================================= -->
             <div class="footer--widget text--center">
                 <div class="container">
                     <div class="row">
@@ -284,7 +241,7 @@
             </div>
             <!-- .footer-widget end -->
             <!-- Copyrights
-        ============================================= -->
+            ============================================= -->
             <div class="footer--copyright text-center">
                 <div class="divider--shape-dark2"></div>
                 <div class="container">
@@ -304,25 +261,25 @@
         </footer>
 
     </div>
-                @Scripts.Render("~/bundles/jquery")
-                @Scripts.Render("~/bundles/bootstrap")
-                @RenderSection("scripts", required: false)
-                <script src="~/Assets/display/js/jquery-2.2.4.min.js"></script>
-                <script src="~/Assets/display/js/plugins.js"></script>
-                <script src="~/Assets/display/js/functions.js"></script>
-                <!-- RS5.0 Core JS Files -->
-                <script src="~/Assets/display/revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
-                <script src="~/Assets/display/revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
-                <script src="~/Assets/display/revolution/js/extensions/revolution.extension.video.min.js"></script>
-                <script src="~/Assets/display/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-                <script src="~/Assets/display/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-                <script src="~/Assets/display/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-                <script src="~/Assets/display/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-                <script src="~/Assets/display/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-                <script src="~/Assets/display/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-                <script src="~/Assets/display/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-                <!-- RS Configration JS Files -->
-                <script src="~/Assets/display/js/rsconfig.js"></script>
-    @RenderSection("jsFooter",required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Assets/display/js/jquery-2.2.4.min.js"></script>
+    <script src="~/Assets/display/js/plugins.js"></script>
+    <script src="~/Assets/display/js/functions.js"></script>
+    <!-- RS5.0 Core JS Files -->
+    <script src="~/Assets/display/revolution/js/jquery.themepunch.tools.min.js?rev=5.0"></script>
+    <script src="~/Assets/display/revolution/js/jquery.themepunch.revolution.min.js?rev=5.0"></script>
+    <script src="~/Assets/display/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="~/Assets/display/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/Assets/display/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/Assets/display/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/Assets/display/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/Assets/display/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/Assets/display/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/Assets/display/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <!-- RS Configration JS Files -->
+    <script src="~/Assets/display/js/rsconfig.js"></script>
+    @RenderSection("jsFooter", required: false)
 </body>
 </html>

@@ -1,68 +1,193 @@
 ﻿@model List<CafeOnline.Models.CartItem>
 @{
+    /**/
+
     ViewBag.Title = "Payment";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = (Model.EF.User)ViewBag.user;
 }
-<section class="shop shop-cart bg-white">
-    <div class="container">
-        <div class="row">
-            @if (Model.Count > 0)
-            {
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <td>Mã Sản Phẩm</td>
-                            <td>Tên Sản Phẩm</td>
-                            <td>Ảnh</td>
-                            <td>Số lượng</td>
-                            <td>Đơn Giá</td>
-                            <td>Thành Tiền</td>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>@item.Product.ProdID</td>
-                                <td>@item.Product.ProdName</td>
-                                <td><img src="@item.Product.ImageUrl" /></td>
-                                <td><input type="text" class="txtCount" data-id="@item.Product.ProdID" value="@item.Count" /></td>
-                                <td>@item.Product.Cost</td>
-                                <td>@(item.Product.Cost * item.Count)</td>
-                                <td><a href="#" data-id="@item.Product.ProdID" class="btn-delete">Xóa</a></td>
-                            </tr>
-                        }
+@{
+    var t = Session[Models.Common.Constants.TOTALBILL];
+}
+@using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+{
+    <section id="accordion2" class="bg-gray pb-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+                    <div class="accordion accordion-2" id="accordion02">
+                        <!-- Panel 01 -->
+                        <div class="panel">
+                            <div class="panel--heading">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-1">Thông Tin Khách Hàng</a>
+                            </div>
+                            <div id="collapse02-1" class="panel--body panel-collapse collapse in">
+                                <div class="menu menu-1">
+                                    <div class="container">
+                                        <div class="row">
+                                            @if (Session[Models.Common.Constants.USER_SESSION] != null)
+                                            {
+                                                
+                                                <div class="col-xs-12 col-sm-4 col-md-4">
+                                                    <!-- Dish #6 -->
+                                                    <div class="dish-panel">
+                                                        <h3 class="dish--title">Tên Khách Hàng:</h3>
+                                                        <h3 class="dish--title">Số Điện Thoại:</h3>
+                                                        <h3 class="dish--title">Địa Chỉ Giao:</h3>
+                                                        <h3 class="dish--title">Ghi Chú:</h3>
+                                                    </div>
+                                                    <!-- .dish end -->
+                                                </div>
+                                                <!-- .col-md-4 end -->
+                                                <div class="col-xs-12 col-sm-8 col-md-8">
+                                                    <!-- Dish #7 -->
+                                                    <div class="dish-panel">
+                                                        <h3 class="dish--title">@user.FullName</h3>
+                                                        <h3 class="dish--title">@user.Phone</h3>
+                                                        <h3 class="dish--title">@user.Address</h3>
+                                                        <input name="note" class="form-control" required style="    width: 250px;
+    height: 40px;" />
+                                                    </div>
+                                                    <!-- .dish end -->
+                                                </div>
+                                            }
+                                            else
+                                            {
 
-                    </tbody>
-                </table>
-                <div class="section group">
-                    <div class="col-md-6">
-                        @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
-                        {
-                            <div class="form-group">
-                                <label>Người nhận</label>
-                                <input name="shipName" class="form-control" />
+                                                <div class="form-group">
+                                                    <label>Người nhận</label>
+                                                    <input name="shipName" class="form-control" required style="    width: 50%;"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Điện thoại</label>
+                                                    <input name="phone" class="form-control" required style="    width: 50%;"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Địa chỉ</label>
+                                                    <input name="address" class="form-control" required style="    width: 50%;"/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>góp ý</label>
+                                                    <input name="note" class="form-control" required style="    width: 50%;"/>
+                                                </div>
+                                                
+
+                                            }
+
+                                            <!-- .col-md-4 end -->
+                                        </div>
+                                        <!-- .row end -->
+                                    </div>
+                                    <!-- .container end -->
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Điện thoại</label>
-                                <input name="phone" class="form-control" />
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel--heading">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-2">Hóa Đơn</a>
                             </div>
-                            <div class="form-group">
-                                <label>Địa chỉ</label>
-                                <input name="address" class="form-control" />
+                            <div id="collapse02-2" class="panel--body panel-collapse collapse">
+                                <div class="menu menu-1">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <!-- Dish #6 -->
+                                                <div class="dish-panel">
+                                                    <h3 class="dish--title">Số loại sản phẩm:</h3>
+                                                    <h3 class="dish--title">Ngày Xuất:</h3>
+                                                </div>
+                                                <!-- .dish end -->
+                                            </div>
+                                            <!-- .col-md-4 end -->
+                                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                                <!-- Dish #7 -->
+                                                <div class="dish-panel">
+                                                    <span class="dish--price">@Model.Count</span><br />
+                                                    <span class="dish--price">@DateTime.Now</span><br />
+                                                </div>
+                                                <!-- .dish end -->
+                                            </div>
+                                            <!-- .col-md-4 end -->
+                                        </div>
+                                        <!-- .row end -->
+                                    </div>
+                                    <!-- .container end -->
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input name="email" class="form-control" />
+                        </div>
+                        <div class="panel">
+                            <div class="panel--heading">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion02" href="#collapse02-3">Thành Tiền</a>
                             </div>
-                            <button type="submit" class="btn">Gửi đơn hàng</button>
-                        }
+                            <div id="collapse02-3" class="panel--body panel-collapse collapse">
+                                <div class="menu menu-1">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <!-- Dish #6 -->
+                                                <div class="dish-panel">
+                                                    <h3 class="dish--title">Thành Tiền:</h3>
+                                                </div>
+                                                <!-- .dish end -->
+                                            </div>
+                                            <!-- .col-md-4 end -->
+                                            <div class="col-xs-12 col-sm-8 col-md-8">
+                                                <!-- Dish #7 -->
+                                                <div class="dish-panel">
+                                                    <span class="dish--price">
+                                                        @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                               "{0:#,#}", t) VNĐ</span><br />
+
+                                                </div>
+                                                <!-- .dish end -->
+                                            </div>
+                                            <!-- .col-md-4 end -->
+                                        </div>
+                                        <!-- .row end -->
+                                    </div>
+                                    <!-- .container end -->
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <!-- End .Accordion-->
                 </div>
-            }
+                <!-- .col-md-8 end -->
+
+            </div>
+            <!-- .row end -->
+        </div>
+        <!-- .container end -->
+    </section>
+    <section class="bg-white">
+        <div class="container">
+            <div class="row mb-50">
+                <div class="col-xs-12 col-sm-12 col-md-3">
+
+                </div>
+                <!-- .col-md-3 end -->
+                <div class="col-xs-12 col-sm-12 col-md-2">
+
+                </div>
+                <!-- .col-md-3 end -->
+                <div class="col-xs-12 col-sm-12 col-md-3">
+
+                </div>
+                <!-- .col-md-3 end -->
+                <div class="col-xs-12 col-sm-12 col-md-2">
+                    <button type="submit" class="btn">Xác nhận</button>
+                </div>
+                <!-- .col-md-3 end -->
+                <div class="col-xs-12 col-sm-12 col-md-2">
+
+                </div>
+                <!-- .col-md-3 end -->
+            </div>
+            <!-- .row end -->
 
 
         </div>
-    </div>
-</section>
+        <!-- .container end -->
+    </section>
+}
