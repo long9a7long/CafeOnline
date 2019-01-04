@@ -1,0 +1,94 @@
+﻿@model PagedList.IPagedList<Model.EF.Bill>
+
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Hóa đơn";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section Script_footer{
+
+    <script src="~/Assets/admin/js/JSBillController.js"></script>
+}
+@section header{
+    <h1>Quản lý hóa đơn</h1>
+    <ol class="breadcrumb">
+        <li><a href="/Admin"><i class="fa fa-dashboard"></i>Trang chủ</a></li>
+        <li><a href="/Admin/Category">Hóa đơn</a></li>
+        <li class="active">Danh sách hóa đơn</li>
+    </ol>
+}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Danh sách hóa đơn</h3>
+                @using (Html.BeginForm("Index", "Bill", FormMethod.Get))
+                {
+                    <div class="box-tools pull-right">
+                        <div class="input-group input-group-sm col-md-4 pull-right col-xs-offset-1">
+                            <input type="text" class="form-control pull-right" value="@ViewBag.SearchString" name="searchString" placeholder="Tìm kiếm" />
+                            <div class="input-group-btn">
+                                <button type="submit" id="btn-search" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                }
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <th>
+                            Địa chỉ giao
+                        </th>
+                        <th>
+                            Số điện thoại
+                        </th>
+                        <th>
+                            Tổng giá
+                        </th>
+                        <th>
+                            Ghi chú
+                        </th>                        
+                        <th>
+                            Công cụ
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr id="row_@item.BillID">                          
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DeliveryAddress)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TotalPrice) VNĐ
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Note)
+                            </td> 
+                            <td>
+                                @Html.ActionLink("Chi tiết", "Detail", new { billID = item.BillID }) |
+                                <a href="#" data-id="@item.BillID" class="btn-delete">Xóa</a>
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = ViewBag.SearchString }))
+            </div>
+            <div class="box-footer clearfix">
+                <div class="row">
+                    
+                    <div class="col-xs-6"><ul id="pagination" class=" pagination-sm no-margin pull-right"></ul></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.box -->
+</div>

@@ -1,0 +1,126 @@
+﻿@model Model.EF.Bill
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var dao = new Model.DAO.OrderDAO();
+    var listorder = dao.ListByNameProduct(ViewBag.BillID);
+
+}
+
+@section Script_footer{
+    <script src="~/Assets/admin/js/jsBillController.js"></script>
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Chi tiet hoa don</h3>
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <th>
+                            Bill ID
+                        </th>
+                        <th>
+                            Tên khách hàng
+                        </th>
+                        <th>
+                            Địa chỉ giao
+                        </th>
+                        <th>
+                            SDT
+                        </th>
+                        <th>
+                            Giá
+                        </th>
+                        <th>
+                            Ghi chú
+                        </th>
+                        <th>
+                            Tên người dùng
+                        </th>
+                        <th>
+                            Ngày tạo
+                        </th>
+                        <th>
+                            Ngày cập nhật
+                        </th>
+
+
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.BillID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.CustomerName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.DeliveryAddress)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.TotalPrice) VNĐ
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.Note)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.UserID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.CreatedAt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.UpdatedAt)
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.BillID)
+
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover table-bordered">
+                        <tr>
+                            <td>Sản phẩm</td>
+                            <td>Số lượng</td>
+                        </tr>
+                        @foreach (var item in listorder)
+                        {
+                            
+                            <tr>
+                                <td>
+                                    <div class="col-md-10">
+                                        <input type="text" class='edit' data-id="@item.OrderID" value="@item.ProdName" readonly />
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-md-10">
+                                        <input type="text" class='edit' data-id="@item.OrderID" value="@item.Count" />
+
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+               
+            }
+            <p>
+
+                @Html.ActionLink("Quay lại", "Index")
+            </p>
+        </div>
+    </div>
+</div>

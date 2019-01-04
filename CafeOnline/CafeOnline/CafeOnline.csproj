@@ -208,6 +208,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BillController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\GrantController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
@@ -6527,6 +6528,8 @@
     <Content Include="Assets\admin\dist\js\pages\dashboard.js" />
     <Content Include="Assets\admin\dist\js\pages\dashboard2.js" />
     <Content Include="Assets\admin\js\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Assets\admin\js\JSBillController.js" />
+    <Content Include="Assets\admin\js\jsCategoryController.js" />
     <Content Include="Assets\admin\js\JSGrantController.js" />
     <Content Include="Assets\admin\js\JSProductController.js" />
     <Content Include="Assets\admin\js\JSUserController.js" />
@@ -9486,6 +9489,8 @@
     <Content Include="Assets\display\revolution\revolution-addons\whiteboard\.DS_Store" />
     <Content Include="Assets\display\revolution\revolution-addons\whiteboard\assets\.DS_Store" />
     <Content Include="Assets\display\revolution\revolution-addons\whiteboard\js\.DS_Store" />
+    <Content Include="Areas\Admin\Views\Bill\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\Bill\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
