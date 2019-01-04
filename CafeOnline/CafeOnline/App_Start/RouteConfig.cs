@@ -15,7 +15,7 @@ namespace CafeOnline
 
             routes.MapRoute(
                 name: "Add Cart",
-                url: "them-gio-hang",
+                url: "them-gio-hang/{id}",
                 defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional },
                 namespaces: new string[] { "CafeOnline.Controllers" }
             );
@@ -30,6 +30,12 @@ namespace CafeOnline
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new string[] { "CafeOnline.Controllers" }
+            );
+            routes.MapRoute(
+                name: "phantrangsp",
+                url: "trang",
+                defaults: new { controller = "Home", action = "Index" },
+                namespaces: new[] { "CafeOnline.Controllers" }
             );
             routes.MapRoute(
                 name: "Cart",

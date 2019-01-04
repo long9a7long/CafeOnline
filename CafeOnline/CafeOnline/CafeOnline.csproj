@@ -219,6 +219,7 @@
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -7732,6 +7733,17 @@
     <Content Include="Assets\admin\plugins\timepicker\bootstrap-timepicker.js" />
     <Content Include="Assets\admin\plugins\timepicker\bootstrap-timepicker.min.css" />
     <Content Include="Assets\admin\plugins\timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Assets\Data\Images\images\bingsudualuoi.jpg" />
+    <Content Include="Assets\Data\Images\images\den.jpg" />
+    <Content Include="Assets\Data\Images\images\epbuoi.jpg" />
+    <Content Include="Assets\Data\Images\images\epcam.jpg" />
+    <Content Include="Assets\Data\Images\images\expresso.jpg" />
+    <Content Include="Assets\Data\Images\images\Graph.jpg" />
+    <Content Include="Assets\Data\Images\images\kem-tra-xanh.jpg" />
+    <Content Include="Assets\Data\Images\images\kemkhoaimon.jpg" />
+    <Content Include="Assets\Data\Images\images\pic3.jpg" />
+    <Content Include="Assets\Data\Images\images\sinh-to-dau.jpg" />
+    <Content Include="Assets\Data\Images\images\sinhtoxoai.jpg" />
     <Content Include="Assets\display\css\bootstrap.min.css" />
     <Content Include="Assets\display\css\external.css" />
     <Content Include="Assets\display\css\style-arabic.css" />
@@ -9536,11 +9548,12 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Shared\CartDetail.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Product\Product.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="Assets\Data\Images\" />
     <Folder Include="Assets\display\icons\" />
   </ItemGroup>
   <ItemGroup>
