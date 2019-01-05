@@ -1,15 +1,18 @@
 ﻿using CafeOnline.Models;
+using Model.Common;
 using Model.DAO;
 using Model.DTO;
 using Model.EF;
 using Models.Common;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace CafeOnline.Controllers
 {
     public class UserController : Controller
     {
+        private const string PaySession = "PaySession";
         // GET: User
         public ActionResult Login()
         {
@@ -104,7 +107,47 @@ namespace CafeOnline.Controllers
 
         public ActionResult History()
         {
-            return View();
+            var user = (UserSession)Session[Constants.USER_SESSION];
+            var bill = new BillDAO().GetByIDUser(user.UserName);
+            return View(bill);
         }
+        public PartialViewResult UserDetail()
+        {
+            var billID = (int)Session[Constants.BILLID];
+            var order = new OrderDAO().GetByIDBill(billID);
+            foreach (var item in order)
+            {
+                if (Session[PaySession] != null)
+                {
+                    var listpay = (List<CartItem>)Session[PaySession];
+                    var cartItem = new CartItem();
+                    var product = new ProductDao().getByID(item.ProdID);
+                    cartItem.Count = item.Count;
+                    cartItem.Product = product;
+                    listpay.Add(cartItem);
+                    Session[PaySession] = listpay;
+                }
+                else
+                {
+                    var cartItem = new CartItem();
+                    var listpay = new List<CartItem>();
+                    var product = new ProductDao().getByID(item.ProdID);
+                    cartItem.Count = item.Count;
+                    cartItem.Product = product;
+                    listpay.Add(cartItem);
+                    Session[PaySession] = listpay;
+                }
+
+            }
+            var cart = Session[CommonConstants.PaySession];
+            var list = new List<CartItem>();
+            if (cart != null)
+            {
+                list = (List<CartItem>)cart;
+            }
+            Session[PaySession] = null;
+            return PartialView(list);
+        }
+
     }
 }

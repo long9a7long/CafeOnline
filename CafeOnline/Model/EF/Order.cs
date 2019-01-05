@@ -10,10 +10,12 @@ namespace Model.EF
     public partial class Order
     {
         [Key]
+        public int OrderID { get; set; }
+
         [Column(Order = 0)]
         public int BillID { get; set; }
 
-        [Key]
+        
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ProdID { get; set; }
@@ -23,7 +25,8 @@ namespace Model.EF
         public DateTime? CreatedAt { get; set; }
 
         public DateTime? UpdatedAt { get; set; }
-        public int OrderID { get; set; }
+
+        
 
         public virtual Bill Bill { get; set; }
 

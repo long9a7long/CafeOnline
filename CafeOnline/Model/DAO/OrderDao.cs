@@ -44,6 +44,12 @@ namespace Model.DAO
         {
             return db.Order.SingleOrDefault(x => x.OrderID == orderID);
         }
+        public IEnumerable<Order> GetByIDBill(int IDBill)
+        {
+            IQueryable<Order> model = db.Order;
+            model = model.Where(x => x.BillID == IDBill);
+            return model;
+        }
         public bool Update(int orderID, int count)
         {
             var order = GetByID(orderID);

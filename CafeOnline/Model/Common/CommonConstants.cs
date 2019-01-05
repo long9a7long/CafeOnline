@@ -9,5 +9,6 @@ namespace Model.Common
     public static class CommonConstants
     {
         public static string CartSession = "CartSession";
+        public static string PaySession = "PaySession";
     }
 }

@@ -50,6 +50,7 @@ namespace CafeOnline.Controllers
 
         public JsonResult Update(string cartModel)
         {
+            ViewBag.sl = 0;
             var jsonCart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
             var sessionCart = (List<CartItem>)Session[CartSession];
             foreach (var item in sessionCart)
@@ -61,6 +62,7 @@ namespace CafeOnline.Controllers
                 }
                 else
                 {
+                    ViewBag.sl = item.Product.ProdID;
                 }
             }
             Session[CartSession] = sessionCart;
@@ -72,6 +74,7 @@ namespace CafeOnline.Controllers
 
         public ActionResult AddItem(int productId, int Count)
         {
+            ViewBag.sl = 0;
             var product = new ProductDao().getByID(productId);
             var cart = Session[CartSession];
             if (cart != null)
@@ -81,32 +84,48 @@ namespace CafeOnline.Controllers
                 {
                     foreach (var item in list)
                     {
-                        if (item.Product.ProdID == productId && item.Product.Wantity > (item.Count + Count))
+                        if (item.Product.ProdID == productId && item.Product.Wantity >= (item.Count + Count))
                         {
                             item.Count += Count;
                         }
                         else
                         {
+                            ViewBag.sl = item.Product.ProdID;
                         }
                     }
                 }
                 else
                 {
-                    var item = new CartItem();
-                    item.Product = product;
-                    item.Count = Count;
-                    list.Add(item);
+                    if (product.Wantity >= Count)
+                    {
+                        var item = new CartItem();
+                        item.Product = product;
+                        item.Count = Count;
+                        list.Add(item);
+                    }
+                    else
+                    {
+                        ViewBag.sl = product.ProdID;
+                    }
                 }
                 Session[CartSession] = list;
             }
             else
             {
-                var item = new CartItem();
-                item.Product = product;
-                item.Count = Count;
-                var list = new List<CartItem>();
-                list.Add(item);
-                Session[CartSession] = list;
+                if (product.Wantity >= Count)
+                {
+                    var item = new CartItem();
+                    item.Product = product;
+                    item.Count = Count;
+                    var list = new List<CartItem>();
+                    list.Add(item);
+                    Session[CartSession] = list;
+                }
+                else
+                {
+                    ViewBag.sl = product.ProdID;
+                }
+
             }
             return RedirectToAction("Index");
         }
@@ -210,7 +229,7 @@ namespace CafeOnline.Controllers
                 productdao.UpdateWantity(productadd);
             }
             Session[CartSession] = null;
-            return View();
+            return View(cart);
         }
 
         public JsonResult EditCount()

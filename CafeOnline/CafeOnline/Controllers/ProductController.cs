@@ -20,6 +20,7 @@ namespace CafeOnline.Controllers
         [HttpPost]
         public ActionResult Detail(string sl, string prodId)
         {
+            ViewBag.sl = 0;
             var product = new ProductDao().getByID(Convert.ToInt32(prodId));
             var cart = Session[CartSession];
             if (cart != null)
@@ -29,12 +30,13 @@ namespace CafeOnline.Controllers
                 {
                     foreach (var item in list)
                     {
-                        if (item.Product.ProdID == Convert.ToInt32(prodId) && item.Product.Wantity > (item.Count + Convert.ToInt32(sl)))
+                        if (item.Product.ProdID == Convert.ToInt32(prodId) && item.Product.Wantity >= (item.Count + Convert.ToInt32(sl)))
                         {
                             item.Count += Convert.ToInt32(sl);
                         }
                         else
                         {
+                            ViewBag.sl = item.Product.ProdID;
                         }
                     }
                 }
@@ -49,12 +51,20 @@ namespace CafeOnline.Controllers
             }
             else
             {
-                var item = new CartItem();
-                item.Product = product;
-                item.Count = Convert.ToInt32(sl);
-                var list = new List<CartItem>();
-                list.Add(item);
-                Session[CartSession] = list;
+                if (product.Wantity >= Convert.ToInt32(sl))
+                {
+                    var item = new CartItem();
+                    item.Product = product;
+                    item.Count = Convert.ToInt32(sl);
+                    var list = new List<CartItem>();
+                    list.Add(item);
+                    Session[CartSession] = list;
+                }
+                else
+                {
+                    ViewBag.sl = product.ProdID;
+                }
+
             }
             ViewBag.Relateproduct = new ProductDao().ListRelateProduct(Convert.ToInt32(prodId));
             return View(product);

@@ -9545,7 +9545,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
     <Content Include="Views\Shared\ProductCategories.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\Payment.cshtml" />
     <Content Include="Views\Cart\Success.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
@@ -9555,8 +9554,10 @@
     <Content Include="Views\Category\Category.cshtml" />
     <Content Include="Views\Product\Product.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
-    <Content Include="Views\User\History.cshtml" />
     <Content Include="Views\Product\Search.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\UserDetail.cshtml" />
+    <Content Include="Views\User\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

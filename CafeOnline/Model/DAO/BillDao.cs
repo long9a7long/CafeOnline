@@ -62,5 +62,11 @@ namespace Model.DAO
         {
             return db.Bill.SingleOrDefault(x => x.BillID == billID);
         }
+        public IEnumerable<Bill> GetByIDUser(string IDUser)
+        {
+            IQueryable<Bill> model = db.Bill;
+            model = model.Where(x => x.UserID.Contains(IDUser));
+            return model;
+        }
     }
 }
