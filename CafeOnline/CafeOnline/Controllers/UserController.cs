@@ -102,7 +102,7 @@ namespace CafeOnline.Controllers
         public ActionResult Logout()
         {
             Session[Constants.USER_SESSION] = null;
-            return Redirect("/Admin");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult History()

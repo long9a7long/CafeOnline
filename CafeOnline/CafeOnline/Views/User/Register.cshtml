@@ -21,7 +21,7 @@
 </style>
 <h3>@ViewBag.Success</h3>
 <div class="a">
-    <p align="center" style="color:tomato; font-size:x-large;"><b>ĐĂNG KÝ NGAY</b></p>
+    <p align="center" style="color:tomato; font-size:large;"><b>ĐĂNG KÝ NGAY</b></p>
     @using (Html.BeginForm("Register", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()

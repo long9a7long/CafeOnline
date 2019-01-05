@@ -2959,7 +2959,7 @@ table tbody tr td {
 }
 
 .header-transparent {
-	background-color: transparent;
+    background-color: #a13e2b;
 }
 
 .header-transparent + .mtop-100,
@@ -4085,10 +4085,10 @@ Header Customaztion
 
 /* Header Fixed */
 .header-fixed .affix {
-	background-color: #ffffff;
-	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
-	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
+    background-color: #a13e2b;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.09);
 }
 
 .header-fixed:not(.header-light) .navbar .logo-dark {
