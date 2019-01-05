@@ -52,15 +52,31 @@
                                         </td>
                                         <td class="cart-product-price" style="padding-top:50px">
                                             @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-"{0:#,#}", item.Product.Cost) VNĐ
+    "{0:#,#}", item.Product.Cost) VNĐ
                                         </td>
                                         <td class="cart-product-total" style="padding-top:50px">
                                             @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-"{0:#,#}", (item.Product.Cost * item.Count)) VNĐ
+    "{0:#,#}", (item.Product.Cost * item.Count)) VNĐ
                                         </td>
                                         <td class="cart-product-price" style="padding-top:50px"><a href="#" data-id="@item.Product.ProdID" class="btn-delete">Xóa</a></td>
+                                        <div style="display:none">@(tong += item.Product.Cost * item.Count)</div>
                                     </tr>
                                 }
+                                <tr class="cart-product-action">
+                                    <td colspan="4">
+                                        <div class="cart-product">
+                                           <ul class="cart-product-item"  style="font-size:20px;color:red; text-align: center ">Tổng Thành Tiền</ul>    
+                                        </div>
+                                    </td>
+                                    <td colspan="2">
+                                        <div class="cart-product">
+                                            <ul class="cart-product-item" style="font-size:20px;color:red; text-align: center ">
+                                                @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+              "{0:#,#}", tong) VNĐ
+                                                                                    </ul>
+                                        </div>
+                                    </td>
+                                </tr>
                                 <tr class="cart-product-action">
                                     <td colspan="6">
                                         <div class="row clearfix">
