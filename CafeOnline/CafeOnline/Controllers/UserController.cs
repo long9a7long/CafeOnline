@@ -4,15 +4,7 @@ using Model.DTO;
 using Model.EF;
 using Models.Common;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-using System.Xml.Linq;
-using System.Configuration;
-
-
 
 namespace CafeOnline.Controllers
 {
@@ -21,9 +13,7 @@ namespace CafeOnline.Controllers
         // GET: User
         public ActionResult Login()
         {
-
             return View();
-
         }
 
         [HttpPost]
@@ -59,23 +49,21 @@ namespace CafeOnline.Controllers
             }
             return View("Login");
         }
-       
+
         public ActionResult Register()
         {
             ViewBag.Success = "";
             return View();
         }
 
-
         // POST: /Account/Register
         [HttpPost]
-   
         public ActionResult Register(RegisterModels model)
         {
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                if(dao.CheckUserID(model.UserID))
+                if (dao.CheckUserID(model.UserID))
                 {
                     ViewBag.Success = "";
                     ModelState.AddModelError("", "Tên đăng nhập đã tồn tại");
@@ -93,26 +81,31 @@ namespace CafeOnline.Controllers
                     user.isActive = true;
                     user.CreatedAt = DateTime.Now;
                     var result = dao.Insert(user);
-                    if (result !=null)
+                    if (result != null)
                     {
                         ViewBag.Success = "Đăng ký thành công";
                         model = new RegisterModels();
                     }
                     else
                     {
-
                         ViewBag.Success = "";
                         ModelState.AddModelError("", "Đăng ký không thành công.");
                     }
-
                 }
             }
-
-            
 
             return View(model);
         }
 
+        public ActionResult Logout()
+        {
+            Session[Constants.USER_SESSION] = null;
+            return Redirect("/Admin");
+        }
 
+        public ActionResult History()
+        {
+            return View();
+        }
     }
 }

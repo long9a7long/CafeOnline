@@ -5,8 +5,14 @@
     var relatedProduct = (List<Model.EF.Product>)ViewBag.Relateproduct;
 }
 @section jsFooter{
+
     <script src="/Assets/display/js/controller/cartController.js"></script>
 }
+    <style>
+        #primary-menu a{
+            color:#333;
+        }
+    </style>
 <section class="shop shop-cart bg-white">
     <div class="container">
         <div class="row">
@@ -28,7 +34,7 @@
                 <!-- .aret end -->
 
                 <div class="product-img mb-50">
-                    <img class="img-responsive" src="~/Assets/Data/Images/images/@Model.ImageUrl" alt="product image">
+                    <img class="img-responsive" src="@Model.ImageUrl" alt="product image">
                 </div>
                 <!-- .product-img end -->
                 <div class="product-title">
@@ -82,7 +88,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-12">
                                 <div class="product-item">
                                     <div class="product--img">
-                                        <img src="~/Assets/Data/Images/images/@item.ImageUrl" alt="Product" />
+                                        <img src="@item.ImageUrl" alt="Product" />
                                         <div class="product--hover">
                                             <div class="product--action">
                                                 <a href="/them-gio-hang?productId=@item.ProdID&count=1">Thêm vào giỏ</a>

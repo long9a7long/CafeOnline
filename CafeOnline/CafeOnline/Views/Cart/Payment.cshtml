@@ -9,6 +9,11 @@
 @{
     var t = Session[Models.Common.Constants.TOTALBILL];
 }
+<style>
+    #primary-menu a {
+        color: #333;
+    }
+</style>
 @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
 {
     <section id="accordion2" class="bg-gray pb-0">
@@ -27,7 +32,7 @@
                                         <div class="row">
                                             @if (Session[Models.Common.Constants.USER_SESSION] != null)
                                             {
-                                                
+
                                                 <div class="col-xs-12 col-sm-4 col-md-4">
                                                     <!-- Dish #6 -->
                                                     <div class="dish-panel">
@@ -56,21 +61,21 @@
 
                                                 <div class="form-group">
                                                     <label>Người nhận</label>
-                                                    <input name="shipName" class="form-control" required style="    width: 50%;"/>
+                                                    <input name="shipName" class="form-control" required style="    width: 50%;" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Điện thoại</label>
-                                                    <input name="phone" class="form-control" required style="    width: 50%;"/>
+                                                    <input name="phone" class="form-control" required style="    width: 50%;" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Địa chỉ</label>
-                                                    <input name="address" class="form-control" required style="    width: 50%;"/>
+                                                    <input name="address" class="form-control" required style="    width: 50%;" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>góp ý</label>
-                                                    <input name="note" class="form-control" required style="    width: 50%;"/>
+                                                    <input name="note" class="form-control" required style="    width: 50%;" />
                                                 </div>
-                                                
+
 
                                             }
 
@@ -137,7 +142,8 @@
                                                 <div class="dish-panel">
                                                     <span class="dish--price">
                                                         @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-                               "{0:#,#}", t) VNĐ</span><br />
+                               "{0:#,#}", t) VNĐ
+                                                    </span><br />
 
                                                 </div>
                                                 <!-- .dish end -->

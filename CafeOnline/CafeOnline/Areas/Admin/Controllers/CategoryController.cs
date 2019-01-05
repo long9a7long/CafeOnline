@@ -10,6 +10,7 @@ namespace CafeOnline.Areas.Admin.Controllers
 {
     public class CategoryController : BaseController
     {
+
         // GET: Admin/Category
         public ActionResult Index(string searchString, int page = 1)
         {

@@ -6,7 +6,6 @@ using Models.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
@@ -15,6 +14,7 @@ namespace CafeOnline.Controllers
     public class CartController : Controller
     {
         private const string CartSession = "CartSession";
+
         // GET: Cart
         public ActionResult Index()
         {
@@ -27,6 +27,7 @@ namespace CafeOnline.Controllers
 
             return View(list);
         }
+
         public JsonResult DeleteAll()
         {
             Session[CartSession] = null;
@@ -35,6 +36,7 @@ namespace CafeOnline.Controllers
                 status = true
             });
         }
+
         public JsonResult Delete(int id)
         {
             var sessionCart = (List<CartItem>)Session[CartSession];
@@ -45,6 +47,7 @@ namespace CafeOnline.Controllers
                 status = true
             });
         }
+
         public JsonResult Update(string cartModel)
         {
             var jsonCart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
@@ -58,7 +61,6 @@ namespace CafeOnline.Controllers
                 }
                 else
                 {
-
                 }
             }
             Session[CartSession] = sessionCart;
@@ -67,6 +69,7 @@ namespace CafeOnline.Controllers
                 status = true
             });
         }
+
         public ActionResult AddItem(int productId, int Count)
         {
             var product = new ProductDao().getByID(productId);
@@ -84,7 +87,6 @@ namespace CafeOnline.Controllers
                         }
                         else
                         {
-
                         }
                     }
                 }
@@ -108,6 +110,7 @@ namespace CafeOnline.Controllers
             }
             return RedirectToAction("Index");
         }
+
         [HttpGet]
         public ActionResult Payment()
         {
@@ -124,6 +127,7 @@ namespace CafeOnline.Controllers
             }
             return View(list);
         }
+
         [HttpPost]
         public ActionResult Payment(string shipName, string phone, string address, string note)
         {
@@ -186,13 +190,13 @@ namespace CafeOnline.Controllers
                 }
                 catch (Exception ex)
                 {
-
                     throw ex;
                 }
             }
 
             return Redirect("/Cart/Success");
         }
+
         public ActionResult Success()
         {
             var cart = (List<CartItem>)Session[CartSession];
@@ -205,20 +209,19 @@ namespace CafeOnline.Controllers
                 productadd.Wantity = product.Wantity - item.Count;
                 productdao.UpdateWantity(productadd);
             }
-                Session[CartSession] = null;
+            Session[CartSession] = null;
             return View();
         }
+
         public JsonResult EditCount()
         {
             if (Session[Constants.EDITCOUNT] != null)
             {
-
             }
             return Json(new
             {
                 status = true
             });
         }
-
     }
 }

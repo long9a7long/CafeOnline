@@ -9,7 +9,11 @@
 @{
     var tong = 0;
 }
-
+    <style>
+        #primary-menu a {
+            color: #333;
+        }
+    </style>
 <section class="shop shop-cart bg-white">
     <div class="container">
         <div class="row">
@@ -33,7 +37,7 @@
                             <tr>
                                 <td>@item.Product.ProdID</td>
                                 <td>@item.Product.ProdName</td>
-                                <td><img src="~/Assets/Data/Images/images/@item.Product.ImageUrl" style="width: 100px;" /></td>
+                                <td><img src="@item.Product.ImageUrl" style="width: 100px;" /></td>
                                 <td><input type="text" class="txtCount" data-id="@item.Product.ProdID" value="@item.Count" /></td>
                                 <td>
                                     @String.Format(System.Globalization.CultureInfo.InvariantCulture,

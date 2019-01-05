@@ -3,7 +3,11 @@
     ViewBag.Title = "Đăng Nhập";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    #primary-menu a {
+        color: #333;
+    }
+</style>
     <p class="login-box-msg"><b>Đăng nhập ngay</b></p>
     @using (Html.BeginForm("Login", "User", FormMethod.Post))
     {

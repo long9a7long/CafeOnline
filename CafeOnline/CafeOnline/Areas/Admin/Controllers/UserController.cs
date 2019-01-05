@@ -1,28 +1,28 @@
-﻿using System.Web.Mvc;
+﻿using Model.DAO;
 using Model.EF;
-using Model.DAO;
-using System;
 using Models.Common;
-using Model.DTO;
+using System;
+using System.Web.Mvc;
 
 namespace CafeOnline.Areas.Admin.Controllers
 {
     public class UserController : BaseController
     {
         // GET: Admin/User
-        public ActionResult Index(string searchString,int page =1 )
+        public ActionResult Index(string searchString, int page = 1)
         {
             var dao = new UserDao();
             var model = dao.ListAllPaging(searchString, page);
             ViewBag.SearchString = searchString;
             return View(model);
         }
-        
+
         public ActionResult Create()
         {
             SetViewBag();
             return View();
-        } 
+        }
+
         [HttpPost]
         public ActionResult Create(User user)
         {
@@ -47,8 +47,8 @@ namespace CafeOnline.Areas.Admin.Controllers
                 }
             }
             return View("Index");
-            
         }
+
         public void SetViewBag(long? selectedID = null)
         {
             var dao = new GrantDao();
@@ -69,12 +69,13 @@ namespace CafeOnline.Areas.Admin.Controllers
 
             return Json(result, JsonRequestBehavior.AllowGet);
         }
+
         public JsonResult Delete(string userID)
         {
             var sess = (Model.DTO.UserSession)Session[Constants.USER_SESSION];
             string session = sess.UserName;
             bool result = false;
-            if (string.Compare(session, userID,true)==0)
+            if (string.Compare(session, userID, true) == 0)
             {
                 return Json(result, JsonRequestBehavior.AllowGet);
             }
@@ -89,10 +90,10 @@ namespace CafeOnline.Areas.Admin.Controllers
                     return Json(new { message = ex.Message }, JsonRequestBehavior.AllowGet);
                 }
                 return Json(result, JsonRequestBehavior.AllowGet);
-            }    
+            }
         }
 
-        public JsonResult EditName(string userID,string column, string name)
+        public JsonResult EditName(string userID, string column, string name)
         {
             var result = UserDao.Instance.UpdateName(userID, column, name);
             return Json(result, JsonRequestBehavior.AllowGet);

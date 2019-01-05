@@ -55,6 +55,9 @@
                             Giá
                         </th>
                         <th>
+                            Số lượng trong kho
+                        </th>
+                        <th>
                             Ngày tạo
                         </th>
                         <th>
@@ -73,31 +76,34 @@
                         if (item.isActive) { classkh = "label label-success"; } else { classkh = "label label-danger"; }
                         string stringkh = "";
                         if (item.isActive) { stringkh = "Kích hoạt"; } else { stringkh = "Khóa"; }
-                        <tr id="row_@item.ProdID">
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Category.CateName)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.ProdName)
-                            </td>
-                            <td>
-                                <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width="100px" height="100px" />
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Cost)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CreatedAt)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.UpdatedAt)
-                            </td>
-                            <td> <a href="#" data-id="@item.ProdID " class="btn-status @classkh">@stringkh</a> </td>
-                            <td>
-                                @Html.ActionLink("Sửa", "Edit", new { id = item.ProdID }) |
-                                <a href="#" data-id="@item.ProdID " class="btn-delete">Xóa</a>
-                            </td>
-                        </tr>
+                    <tr id="row_@item.ProdID">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category.CateName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProdName)
+                        </td>
+                        <td>
+                            <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" width="100px" height="100px" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cost)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Wantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreatedAt)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UpdatedAt)
+                        </td>
+                        <td> <a href="#" data-id="@item.ProdID " class="btn-status @classkh">@stringkh</a> </td>
+                        <td>
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.ProdID }) |
+                            <a href="#" data-id="@item.ProdID " class="btn-delete">Xóa</a>
+                        </td>
+                    </tr>
                     }
 
                 </table>

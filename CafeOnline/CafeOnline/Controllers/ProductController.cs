@@ -3,8 +3,6 @@ using Model.DAO;
 using Models.Common;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CafeOnline.Controllers
@@ -12,13 +10,13 @@ namespace CafeOnline.Controllers
     public class ProductController : Controller
     {
         private const string CartSession = "CartSession";
+
         // GET: Product
         public ActionResult Index()
         {
-           
-
             return View();
         }
+
         [HttpPost]
         public ActionResult Detail(string sl, string prodId)
         {
@@ -37,7 +35,6 @@ namespace CafeOnline.Controllers
                         }
                         else
                         {
-
                         }
                     }
                 }
@@ -62,13 +59,14 @@ namespace CafeOnline.Controllers
             ViewBag.Relateproduct = new ProductDao().ListRelateProduct(Convert.ToInt32(prodId));
             return View(product);
         }
-       
+
         public ActionResult Detail(int id)
         {
             var product = new ProductDao().getByID(id);
             ViewBag.Relateproduct = new ProductDao().ListRelateProduct(id);
             return View(product);
         }
+
         public ActionResult Product(int pageIndex = 1)
         {
             //var category = new CategoryDAO().ViewDetail(productId);

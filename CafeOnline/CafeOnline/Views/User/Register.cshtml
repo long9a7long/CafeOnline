@@ -3,8 +3,12 @@
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-        @ViewBag.Success;
+<style>
+    #primary-menu a {
+        color: #333;
+    }
+</style>
+<h3>@ViewBag.Success;</h3>
             @using (Html.BeginForm("Register", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()

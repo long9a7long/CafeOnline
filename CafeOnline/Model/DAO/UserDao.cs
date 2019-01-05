@@ -33,6 +33,7 @@ namespace Model.DAO
         public string Insert(User entity)
         {
             entity.Password = Encrypt.Encrypt_Code(entity.Password);
+            entity.GrantID = 2;
             entity.CreatedAt = DateTime.Now;
             db.User.Add(entity);
             db.SaveChanges();

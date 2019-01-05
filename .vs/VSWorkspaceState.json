@@ -1,15 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\CafeOnline",
-    "\\CafeOnline\\CafeOnline",
-    "\\CafeOnline\\CafeOnline\\Assets",
-    "\\CafeOnline\\CafeOnline\\Assets\\display",
-    "\\CafeOnline\\CafeOnline\\Assets\\display\\js",
-    "\\CafeOnline\\CafeOnline\\Assets\\display\\js\\controller",
-    "\\CafeOnline\\CafeOnline\\Content",
-    "\\CafeOnline\\CafeOnline\\Models",
-    "\\CafeOnline\\Model"
+    "\\CafeOnline"
   ],
+  "SelectedNode": "\\CafeOnline\\CafeOnline.sln",
   "PreviewInSolutionExplorer": false
 }

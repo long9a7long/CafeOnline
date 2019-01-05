@@ -1,17 +1,21 @@
 ﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
+@{ 
+    var session = new Model.DTO.UserSession();
+    if (Session[Models.Common.Constants.USER_SESSION] != null) { session = (Model.DTO.UserSession)Session[Models.Common.Constants.USER_SESSION]; }
+}
+@if (session.UserName!="")
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
+
+    
 @Html.AntiForgeryToken()
 
 <ul class="nav navbar-nav navbar-right">
     <li>
-        @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        <a href="/User/History">Hello - @session.UserName</a>
     </li>
-    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    <li><a href="/User/Logout">Đăng xuất</a></li>
 </ul>
-    }
+    
 }
 else
 {

@@ -1,11 +1,8 @@
-﻿using System;
+﻿using CafeOnline.Models;
+using Model.Common;
 using Model.DAO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using CafeOnline.Models;
-using Model.Common;
 
 namespace CafeOnline.Controllers
 {
@@ -33,6 +30,7 @@ namespace CafeOnline.Controllers
 
             return View();
         }
+
         public ActionResult Cart()
         {
             ViewBag.Message = "Your cart page.";
@@ -44,6 +42,7 @@ namespace CafeOnline.Controllers
             ViewBag.Message = "Your checkout page.";
             return View();
         }
+
         public PartialViewResult CartDetail()
         {
             var cart = Session[CommonConstants.CartSession];

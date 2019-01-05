@@ -117,6 +117,7 @@ namespace Model.DAO
                 product.Cost = _request.Cost;
                 product.ImageUrl = _request.ImageUrl;
                 product.UpdatedAt = DateTime.Now;
+                product.Wantity = _request.Wantity;
                 product.isActive = _request.isActive;
                 db.SaveChanges();
                 return true;
