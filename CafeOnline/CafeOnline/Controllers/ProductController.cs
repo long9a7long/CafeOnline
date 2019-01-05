@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Models.Common;
 
 namespace CafeOnline.Controllers
 {
@@ -32,9 +31,13 @@ namespace CafeOnline.Controllers
                 {
                     foreach (var item in list)
                     {
-                        if (item.Product.ProdID == Convert.ToInt32(prodId))
+                        if (item.Product.ProdID == Convert.ToInt32(prodId) && item.Product.Wantity > (item.Count + Convert.ToInt32(sl)))
                         {
                             item.Count += Convert.ToInt32(sl);
+                        }
+                        else
+                        {
+
                         }
                     }
                 }
@@ -66,9 +69,7 @@ namespace CafeOnline.Controllers
             ViewBag.Relateproduct = new ProductDao().ListRelateProduct(id);
             return View(product);
         }
-
-
-        public ActionResult Product (int pageIndex=1)
+        public ActionResult Product(int pageIndex = 1)
         {
             //var category = new CategoryDAO().ViewDetail(productId);
             //ViewBag.Category = category;
@@ -79,7 +80,7 @@ namespace CafeOnline.Controllers
 
             int maxPage = 3;//so trang hien thi toi da treng trang
             int totalPage = 0; //tong so trang tính ra
-            totalPage = (int)Math.Ceiling((double)(totalRecord / Constants.PageSize))+1;//chia tong ban ghi cho so luong tren trang, làm tron len
+            totalPage = (int)Math.Ceiling((double)(totalRecord / Constants.PageSize)) + 1;//chia tong ban ghi cho so luong tren trang, làm tron len
             ViewBag.TotalPage = totalPage;
             ViewBag.MaxPage = maxPage;
             ViewBag.First = 1;
@@ -88,7 +89,5 @@ namespace CafeOnline.Controllers
             ViewBag.Prev = pageIndex - 1;
             return View(product);
         }
-
-       
     }
 }

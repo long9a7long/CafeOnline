@@ -51,10 +51,14 @@ namespace CafeOnline.Controllers
             var sessionCart = (List<CartItem>)Session[CartSession];
             foreach (var item in sessionCart)
             {
-                var jsonItem = jsonCart.SingleOrDefault(x => x.Product.ProdID == item.Product.ProdID);
+                var jsonItem = jsonCart.SingleOrDefault(x => x.Product.ProdID == item.Product.ProdID && x.Count <= item.Product.Wantity);
                 if (jsonItem != null)
                 {
                     item.Count = jsonItem.Count;
+                }
+                else
+                {
+
                 }
             }
             Session[CartSession] = sessionCart;
@@ -74,9 +78,13 @@ namespace CafeOnline.Controllers
                 {
                     foreach (var item in list)
                     {
-                        if (item.Product.ProdID == productId)
+                        if (item.Product.ProdID == productId && item.Product.Wantity > (item.Count + Count))
                         {
                             item.Count += Count;
+                        }
+                        else
+                        {
+
                         }
                     }
                 }
@@ -130,9 +138,9 @@ namespace CafeOnline.Controllers
                 bill.TotalPrice = (int)Session[Constants.TOTALBILL];
                 try
                 {
-                    var id = new BillDao().Insert(bill);
+                    var id = new BillDAO().Insert(bill);
                     var cart = (List<CartItem>)Session[CartSession];
-                    var orderDao = new OrderDao();
+                    var orderDao = new OrderDAO();
                     foreach (var item in cart)
                     {
                         var order = new Order();
@@ -145,7 +153,7 @@ namespace CafeOnline.Controllers
                 }
                 catch (Exception ex)
                 {
-                    throw;
+                    throw ex;
                 }
             }
             else
@@ -163,9 +171,9 @@ namespace CafeOnline.Controllers
 
                 try
                 {
-                    var id = new BillDao().Insert(bill);
+                    var id = new BillDAO().Insert(bill);
                     var cart = (List<CartItem>)Session[CartSession];
-                    var orderDao = new OrderDao();
+                    var orderDao = new OrderDAO();
                     foreach (var item in cart)
                     {
                         var order = new Order();
@@ -178,7 +186,8 @@ namespace CafeOnline.Controllers
                 }
                 catch (Exception ex)
                 {
-                    throw;
+
+                    throw ex;
                 }
             }
 

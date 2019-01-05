@@ -6,14 +6,14 @@
 
     @foreach (var item in Model)
     {
-        var url = "/ chi-tiet /" + @item.ProdID;
+        var url = "/chi-tiet/" + @item.ProdID;
         <div class="col-xs-12 col-sm-6 col-md-3 productFilter filter-@item.CateID" style="position: absolute; left: 0px; top: 0px;">
             <div class="product-item">
                 <div class="product--img">
-                    <img src="@item.ImageUrl" alt="Product" style="width:500px;height:300px">
+                    <img src="~/Assets/Data/Images/images/@item.ImageUrl" alt="Product" style="width:500px;height:300px">
                     <div class="product--hover">
                         <div class="product--action">
-                            <a href="them-gio-hang/@item.ProdID">Thêm vào giỏ hàng</a>
+                            <a href="/them-gio-hang?productId=@item.ProdID&count=1">Thêm vào giỏ hàng</a>
                         </div>
                     </div>
                     <!-- .product-overlay end -->

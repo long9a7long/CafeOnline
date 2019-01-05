@@ -7739,6 +7739,7 @@
     <Content Include="Assets\Data\Images\images\epcam.jpg" />
     <Content Include="Assets\Data\Images\images\expresso.jpg" />
     <Content Include="Assets\Data\Images\images\Graph.jpg" />
+    <Content Include="Assets\Data\Images\images\hinh-nen-dep-112.jpg" />
     <Content Include="Assets\Data\Images\images\kem-tra-xanh.jpg" />
     <Content Include="Assets\Data\Images\images\kemkhoaimon.jpg" />
     <Content Include="Assets\Data\Images\images\pic3.jpg" />
@@ -9539,7 +9540,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
-    <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Shared\ProductCategories.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\Payment.cshtml" />
@@ -9550,6 +9550,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Category\Category.cshtml" />
     <Content Include="Views\Product\Product.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
