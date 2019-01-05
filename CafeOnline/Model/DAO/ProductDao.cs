@@ -111,16 +111,16 @@ namespace Model.DAO
 
         public bool Update(Product _request)
         {
-                var product = getByID(_request.ProdID);
-                product.ProdName = _request.ProdName;
-                product.Decription = _request.Decription;
-                product.Cost = _request.Cost;
-                product.ImageUrl = _request.ImageUrl;
-                product.UpdatedAt = DateTime.Now;
-                product.Wantity = _request.Wantity;
-                product.isActive = _request.isActive;
-                db.SaveChanges();
-                return true;
+            var product = getByID(_request.ProdID);
+            product.ProdName = _request.ProdName;
+            product.Decription = _request.Decription;
+            product.Cost = _request.Cost;
+            product.ImageUrl = _request.ImageUrl;
+            product.UpdatedAt = DateTime.Now;
+            product.Wantity = _request.Wantity;
+            product.isActive = _request.isActive;
+            db.SaveChanges();
+            return true;
         }
         public bool UpdateWantity(Product _request)
         {
@@ -172,9 +172,10 @@ namespace Model.DAO
          */
 
 
-        public List<Product> ListNewProduct(int top)
+        public List<Product> ListNewProduct(int top,string _keysearch)
         {
-            return db.Product.OrderByDescending(x => x.CreatedAt).Take(top).ToList();
+            return db.Product.OrderByDescending(x => x.CreatedAt).Where(x => x.ProdName.Contains(_keysearch)).Take(top).ToList();
+            //return db.Product.OrderByDescending(x => x.CreatedAt).Take(top).ToList();
         }
 
         private bool hasReference(int _key)
@@ -192,11 +193,22 @@ namespace Model.DAO
             var product = db.Product.Find(productID);
             return db.Product.Where(x => x.ProdID != productID && x.CateID == product.CateID).ToList();
         }
- 
-        public List<Product> ListByCategoryId(ref int totalRecord, int pageIndex=1)
+
+        public List<Product> ListByCategoryId(ref int totalRecord, int pageIndex = 1,string key_search="")
         {
-            var model=db.Product.OrderBy(x=>x.ProdID).ToList();
+            var model = db.Product.OrderBy(x => x.ProdID).Where(x=>x.ProdName.Contains(key_search)).ToList();
             totalRecord = model.Count();//nghi nó bằng 0 chỗ này
+            model = model.Skip((pageIndex - 1) * Constants.PageSize).Take(Constants.PageSize).ToList();
+            return model;
+        }
+        public List<string> ListName(string keyword)
+        {
+            return db.Product.Where(x => x.ProdName.Contains(keyword)).Select(x => x.ProdName).ToList();
+        }
+        public List<Product> Search(string search_kw, ref int totalRecord, int pageIndex = 1)
+        {
+            var model = db.Product.Where(x => x.ProdName.Contains(search_kw)).ToList();
+            totalRecord = db.Product.Where(x=>x.ProdName.Contains(search_kw)).Count();//nghi nó bằng 0 chỗ này
             model = model.Skip((pageIndex - 1) * Constants.PageSize).Take(Constants.PageSize).ToList();
             return model;
         }

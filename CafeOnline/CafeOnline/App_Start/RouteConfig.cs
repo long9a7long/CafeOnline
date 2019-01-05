@@ -51,6 +51,12 @@ namespace CafeOnline
                 defaults: new { controller = "Cart", action = "Success", id = UrlParameter.Optional },
                 namespaces: new string[] { "CafeOnline.Controllers" }
             );
+            routes.MapRoute(
+                name: "Search",
+                url: "tim-kiem",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "CafeOnline.Controllers" }
+            );
         }
     }
 }

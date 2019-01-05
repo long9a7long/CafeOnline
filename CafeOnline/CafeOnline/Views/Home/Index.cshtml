@@ -213,7 +213,7 @@
             @{ Html.RenderAction("Category", "Category");}
         </div>
         <div id="shop-all" class="row" style="position: relative; height: 2580px;">
-            @{ Html.RenderAction("Product", "Product", new { pageIndex = ViewBag.pageIndex });}
+            @{ Html.RenderAction("Product", "Product", new { search_kw= ViewBag.keyword, pageIndex = ViewBag.pageIndex });}
         </div>
     </div>
 </section>

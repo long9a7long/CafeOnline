@@ -8,13 +8,14 @@ namespace CafeOnline.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index(int page = 1)
+        public ActionResult Index(string search_kw="", int page = 1)
         {
-            var totalproduct = 100;
-            var productDao = new ProductDao();
-            ViewBag.pageIndex = page;
-            ViewBag.product = productDao.ListNewProduct(totalproduct);
-            return View();
+                var totalproduct = 100;
+                var productDao = new ProductDao();
+                ViewBag.pageIndex = page;
+                ViewBag.keyword = search_kw;
+                ViewBag.product = productDao.ListNewProduct(totalproduct,search_kw);
+                return View();
         }
 
         public ActionResult About()

@@ -6527,6 +6527,7 @@
     <Content Include="Assets\admin\dist\js\demo.js" />
     <Content Include="Assets\admin\dist\js\pages\dashboard.js" />
     <Content Include="Assets\admin\dist\js\pages\dashboard2.js" />
+    <Content Include="Assets\admin\js\Controller\basecontroller.js" />
     <Content Include="Assets\admin\js\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Assets\admin\js\JSBillController.js" />
     <Content Include="Assets\admin\js\jsCategoryController.js" />
@@ -9549,6 +9550,7 @@
     <Content Include="Views\Product\Product.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\User\History.cshtml" />
+    <Content Include="Views\Product\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
