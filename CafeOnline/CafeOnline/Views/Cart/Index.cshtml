@@ -9,73 +9,102 @@
 @{
     var tong = 0;
 }
-    <style>
-        #primary-menu a {
-            color: #333;
-        }
-    </style>
-<section class="shop shop-cart bg-white">
+<style>
+    #primary-menu a {
+        color: #333;
+    }
+</style>
+<section id="shopcart" class="shop shop-cart bg-white">
     <div class="container">
         <div class="row">
             @if (Model.Count > 0)
             {
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <td>Mã Sản Phẩm</td>
-                            <td>Tên Sản Phẩm</td>
-                            <td>Ảnh</td>
-                            <td>Số lượng</td>
-                            <td>Đơn Giá</td>
-                            <td>Thành Tiền</td>
-                            <td></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>@item.Product.ProdID</td>
-                                <td>@item.Product.ProdName</td>
-                                <td><img src="@item.Product.ImageUrl" style="width: 100px;" /></td>
-                                <td><input type="text" class="txtCount" data-id="@item.Product.ProdID" value="@item.Count" /></td>
-                                <td>
-                                    @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-"{0:#,#}", item.Product.Cost) VNĐ
-                                </td>
-                                <td>
-                                    @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-"{0:#,#}", (item.Product.Cost * item.Count)) VNĐ
-                                </td>
-                                <td><a href="#" data-id="@item.Product.ProdID" class="btn-delete">Xóa</a></td>
-                            </tr>
-                            <div style="display:none">@(tong += item.Product.Cost * item.Count)</div>
-                        }
-
-                    </tbody>
-                </table>
-                <div class="cart-total">
-                    <div class="total-desc">
-                        Tổng tiền:
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="cart-table table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="cart-product">
+                                    <th class="cart-product-item">Mã Sản Phẩm</th>
+                                    <th class="cart-product-item">Sản Phẩm</th>
+                                    <th class="cart-product-quantity">Số Lượng</th>
+                                    <th class="cart-product-quantity">Đơn Giá</th>
+                                    <th class="cart-product-total">Thành Tiền</th>
+                                    <th class="cart-product-total">Công Cụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="cart-product" style="text-align:center;">
+                                        <td class="cart-product-price" style="padding-top:50px">@item.Product.ProdID</td>
+                                        <td class="cart-product-item">
+                                            <div class="cart-product-img">
+                                                <img src="@item.Product.ImageUrl" alt="product" style="width:80px; height:100px;" />
+                                            </div>
+                                            <div class="cart-product-name" style="padding-top:30px">
+                                                <h6>@item.Product.ProdName</h6>
+                                            </div>
+                                        </td>
+                                        <td class="cart-product-quantity" style="padding-top:50px">
+                                            <div class="product-quantity">
+                                                <input type="text" class="txtCount" data-id="@item.Product.ProdID" id="pro1-qunt" value="@item.Count" />
+                                            </div>
+                                        </td>
+                                        <td class="cart-product-price" style="padding-top:50px">
+                                            @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+    "{0:#,#}", item.Product.Cost) VNĐ
+                                        </td>
+                                        <td class="cart-product-total" style="padding-top:50px">
+                                            @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+    "{0:#,#}", (item.Product.Cost * item.Count)) VNĐ
+                                        </td>
+                                        <td class="cart-product-price" style="padding-top:50px"><a href="#" data-id="@item.Product.ProdID" class="btn-delete">Xóa</a></td>
+                                        <div style="display:none">@(tong += item.Product.Cost * item.Count)</div>
+                                    </tr>
+                                }
+                                <tr class="cart-product-action">
+                                    <td colspan="4">
+                                        <div class="cart-product">
+                                           <ul class="cart-product-item"  style="font-size:20px;color:red; text-align: center ">Tổng Thành Tiền</ul>    
+                                        </div>
+                                    </td>
+                                    <td colspan="2">
+                                        <div class="cart-product">
+                                            <ul class="cart-product-item" style="font-size:20px;color:red; text-align: center ">
+                                                @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+              "{0:#,#}", tong) VNĐ
+                                                                                    </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="cart-product-action">
+                                    <td colspan="6">
+                                        <div class="row clearfix">
+                                            <!-- .col-md-6 end -->
+                                            <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+                                                <a id="btnContinue" class="btn btn--secondary btn--rounded" href="#">Mua Thêm</a>
+                                                <a id="btnDeleteAll" class="btn btn--secondary btn--rounded" href="#">Xóa Giỏ Hàng</a>
+                                                <a id="btnUpdate" class="btn btn--secondary btn--rounded" href="#">Cập nhật</a>
+                                                <a id="btnPayment" class="btn btn--primary btn--rounded" href="#">Thanh Toán</a>
+                                            </div><!-- .col-md-6 end -->
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="total-price">
-                        @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-"{0:#,#}", tong) VNĐ
-                    </div>
+                    <!-- .cart-table end -->
                 </div>
-                <button id="btnContinue" class="btn">Mua thêm hàng</button>
-                <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
-                <button id="btnDeleteAll" class="btn">Xóa giỏ hàng</button>
-                <button id="btnPayment" class="btn">Thanh toán</button>
+                <!-- .col-md-12 end -->
             }
             else
             {
-                <span class="alert-danger">Chưa có sản phẩm thêm vào giỏ hàng</span>
+               <span class="alert-danger">Chưa có sản phẩm thêm vào giỏ hàng</span>
             }
+            <!-- .row end -->
         </div>
-    </div>
-</section>
+    </div><!-- .container end -->
+</section><!-- #shopcart end -->
 @{
     Session.Add(Models.Common.Constants.TOTALBILL, tong);
 }
-

@@ -108,10 +108,6 @@ D:\Net\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.dll
 D:\Net\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.SqlServer.dll
 D:\Net\CafeOnline\CafeOnline\Model\bin\Debug\PagedList.dll
 D:\Net\CafeOnline\CafeOnline\Model\bin\Debug\PagedList.Mvc.dll
-D:\Net\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.WebPages.dll
-D:\Net\CafeOnline\CafeOnline\Model\bin\Debug\Microsoft.Web.Infrastructure.dll
-D:\Net\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.Razor.dll
-D:\Net\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.WebPages.Deployment.dll
 D:\Net\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.xml
 D:\Net\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.SqlServer.xml
 D:\Net\CafeOnline\CafeOnline\Model\bin\Debug\PagedList.xml
