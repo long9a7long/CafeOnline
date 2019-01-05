@@ -7,8 +7,14 @@
     #primary-menu a {
         color: #333;
     }
+    .a{
+        width:30%;
+        margin:0 auto;
+        color: tomato;
+    }
 </style>
-    <p class="login-box-msg"><b>Đăng nhập ngay</b></p>
+<div class="a">
+    <p align="center" style="color:tomato;font-size:x-large;"><b>ĐĂNG NHẬP NGAY</b></p>
     @using (Html.BeginForm("Login", "User", FormMethod.Post))
     {
         @Html.ValidationSummary(false, "", new { @class = "text-danger" });
@@ -25,8 +31,6 @@
             <!-- Change this to a button or input when using this as a form -->
             <button type="submit" class="btn btn-lg btn-success btn-block">Đăng nhập</button>
         </fieldset>
-        <a href="User/Register">Đăng ký thành viên.</a>
+        <a href="Register">Đăng ký thành viên.</a>
     }
-
-
-
+</div>

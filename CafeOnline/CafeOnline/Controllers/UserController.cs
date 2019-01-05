@@ -83,8 +83,7 @@ namespace CafeOnline.Controllers
                     var result = dao.Insert(user);
                     if (result != null)
                     {
-                        ViewBag.Success = "Đăng ký thành công";
-                        model = new RegisterModels();
+                        return RedirectToAction("Login", "User");
                     }
                     else
                     {
