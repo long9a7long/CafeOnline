@@ -121,6 +121,15 @@ namespace Model.DAO
                 db.SaveChanges();
                 return true;
         }
+        public bool UpdateWantity(Product _request)
+        {
+            var product = getByID(_request.ProdID);
+            product.UpdatedAt = DateTime.Now;
+            product.isActive = _request.isActive;
+            product.Wantity = _request.Wantity;
+            db.SaveChanges();
+            return true;
+        }
 
 
         public IEnumerable<Product> ListAllPaging(string searchString, int page)

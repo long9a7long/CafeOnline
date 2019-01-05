@@ -195,7 +195,17 @@ namespace CafeOnline.Controllers
         }
         public ActionResult Success()
         {
-            Session[CartSession] = null;
+            var cart = (List<CartItem>)Session[CartSession];
+            var productdao = new ProductDao();
+            foreach (var item in cart)
+            {
+                var product = new ProductDao().getByID(item.Product.ProdID);
+                var productadd = new Product();
+                productadd.ProdID = item.Product.ProdID;
+                productadd.Wantity = product.Wantity - item.Count;
+                productdao.UpdateWantity(productadd);
+            }
+                Session[CartSession] = null;
             return View();
         }
         public JsonResult EditCount()
