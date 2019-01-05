@@ -8,11 +8,11 @@
 
     <script src="/Assets/display/js/controller/cartController.js"></script>
 }
-    <style>
-        #primary-menu a{
-            color:#333;
-        }
-    </style>
+<style>
+    #primary-menu a {
+        color: #333;
+    }
+</style>
 <section class="shop shop-cart bg-white">
     <div class="container">
         <div class="row">
@@ -37,90 +37,92 @@
                     <img class="img-responsive" src="@Model.ImageUrl" alt="product image">
                 </div>
                 <!-- .product-img end -->
-                <div class="product-title">
-                    <h6>@Model.ProdName</h6>
-                </div>
-                <!-- .product-title end -->
-                <div class="product-meta mb-30">
-                    <p>
-                        Giá:   @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-"{0:#,#}", Model.Cost) VNĐ
-                    </p>
-                </div>
-                <div class="product-desc">
-                    <div><p>@Model.Decription</p></div>
-                </div>
-                <!-- .product-desc end -->
-                <!-- .product-details end -->
-                @using (Html.BeginForm("Detail", "Product", FormMethod.Post))
-                {
-                    <div class="product-action clearfix">
-                        <div class="product-quantity pull-left pull-none-xs">
-                            <span class="qua">Số lượng</span>
+                <div class="product-item">
+                    <div class="product--content">
+                        <div class="product-title">
+                            <h6>@Model.ProdName</h6>
+                        </div>
+                        <!-- .product-title end -->
+                        <div class="product-desc">
+                            <span>@Model.Decription </span>
+                        </div>
+                        <div class="product--price" style="padding-top:7px;">
                             <span>
+                                Giá:   @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+"{0:#,#}", Model.Cost) VNĐ
+                            </span>
+                        </div>
+                        <!-- .product-desc end -->
+                        <!-- .product-details end -->
+                        <div class="product--price"  style="padding-top:7px;">
+                            <span>Số lượng: </span>
+                            <span style="padding-left:10px">
                                 <a href="#" class="minus"><i class="fa fa-minus"></i></a>
-                                <input type="text" value="1" id="pro-qunt" name="sl" style="    width: 30%;"/>
+                                <input type="text" value="1" id="pro-qunt" name="sl" style="width:25px;border:0px;padding-left:5px" />
                                 <a href="#" class="plus"><i class="fa fa-plus"></i></a>
                                 <input type="hidden" value="@Model.ProdID" id="pro-qunt" name="prodId" />
                             </span>
                         </div>
-                        <div class="product-cta text-right text-center-xs">
-                            <button type="submit" class="btn btn--primary btn--rounded">Thêm vào giỏ</button>
-                        </div>
                     </div>
-                }
-                <!-- .product-action end -->
-                <!-- .product-share end -->
-                <!-- .product-tabs end -->
-                <!-- .row end -->
-
-            </div>
-            <div class="col-xs-12 col-sm-12  col-md-3 sidebar-full">
-                <div class="widget widget-recent-products">
-                    <div class="widget--title">
-                        <h5>TIN LIÊN QUAN</h5>
-                    </div>
-                    <div class="widget--content">
-                        <!-- Product #1 -->
-                        @foreach (var item in relatedProduct)
+                </div>
+                        @using (Html.BeginForm("Detail", "Product", FormMethod.Post))
                         {
-                            var url = "/chi-tiet/" + item.ProdID;
-                            <div class="col-xs-12 col-sm-6 col-md-12">
-                                <div class="product-item">
-                                    <div class="product--img">
-                                        <img src="@item.ImageUrl" alt="Product" />
-                                        <div class="product--hover">
-                                            <div class="product--action">
-                                                <a href="/them-gio-hang?productId=@item.ProdID&count=1">Thêm vào giỏ</a>
-                                            </div>
-                                        </div>
-                                        <!-- .product-overlay end -->
-                                    </div>
-                                    <!-- .product-img end -->
-                                    <div class="product--content">
-                                        <div class="product--title">
-                                            <h3><a href="@url">@item.ProdName</a></h3>
-                                        </div>
-                                        <!-- .product-title end -->
-                                        <div class="product--price">
-                                            <span>
-                                                @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-     "{0:#,#}", item.Cost) VNĐ
-                                            </span>
-                                        </div>
-                                        <!-- .product-price end -->
-                                    </div>
-                                    <!-- .product-bio end -->
+                            <div class="product-action clearfix">
+                                <div class="product-cta text-right text-center-xs">
+                                    <button type="submit" class="btn btn--primary btn--rounded">Thêm vào giỏ</button>
                                 </div>
                             </div>
                         }
+                        <!-- .product-action end -->
+                        <!-- .product-share end -->
+                        <!-- .product-tabs end -->
+                        <!-- .row end -->
+
                     </div>
-                    <!-- .row end -->
+                    <div class="col-xs-12 col-sm-12  col-md-3 sidebar-full">
+                        <div class="widget widget-recent-products">
+                            <div class="widget--title">
+                                <h5>TIN LIÊN QUAN</h5>
+                            </div>
+                            <div class="widget--content">
+                                <!-- Product #1 -->
+                                @foreach (var item in relatedProduct)
+                                {
+                                    var url = "/chi-tiet/" + item.ProdID;
+                                    <div class="col-xs-12 col-sm-6 col-md-12">
+                                        <div class="product-item">
+                                            <div class="product--img">
+                                                <img src="@item.ImageUrl" alt="Product" />
+                                                <div class="product--hover">
+                                                    <div class="product--action">
+                                                        <a href="/them-gio-hang?productId=@item.ProdID&count=1">Thêm vào giỏ</a>
+                                                    </div>
+                                                </div>
+                                                <!-- .product-overlay end -->
+                                            </div>
+                                            <!-- .product-img end -->
+                                            <div class="product--content">
+                                                <div class="product--title">
+                                                    <h3><a href="@url">@item.ProdName</a></h3>
+                                                </div>
+                                                <!-- .product-title end -->
+                                                <div class="product--price">
+                                                    <span>
+                                                        @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+             "{0:#,#}", item.Cost) VNĐ
+                                                    </span>
+                                                </div>
+                                                <!-- .product-price end -->
+                                            </div>
+                                            <!-- .product-bio end -->
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <!-- .row end -->
+                        </div>
+                    </div>
+                    <!-- .product-related end  -->
                 </div>
             </div>
-            <!-- .product-related end  -->
-        </div>
-    </div>
 </section>
-
-
