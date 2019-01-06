@@ -19,6 +19,7 @@
         public static string TOTALBILL = "TOTALBILL";
         public static string EDITCOUNT = "EDITCOUNT";
         public static string BILLID = "BILLID";
+        public static string SL = "SL";
         public static int PageSize = 8;
         public static string MEMBER_GROUP = "User";
         public static string ADMIN_GROUP = "Admin";

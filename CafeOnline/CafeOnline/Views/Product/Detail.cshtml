@@ -1,9 +1,11 @@
 ﻿@model Model.EF.Product
 @{
-    ViewBag.Title = "Detail";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    var relatedProduct = (List<Model.EF.Product>)ViewBag.Relateproduct;
-    var sl = ViewBag.sl;
+                /**/
+
+                ViewBag.Title = "Detail";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+                var relatedProduct = (List<Model.EF.Product>)ViewBag.Relateproduct;
+                var sl = ViewBag.sl;
 }
 }
 @section jsFooter{
@@ -15,144 +17,147 @@
         color: #333;
     }
 </style>
-<section id="product" class="shop shop-product pb-60 bg-white">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12  col-md-8">
-                <div class="content_top">
-                    <div>
-                        <p><a href="/">Trang chủ</a>><a href="/chi-tiet/@Model.ProdID">@Model.ProdName</a></p>
+@using (Html.BeginForm("Detail", "Product", FormMethod.Post))
+{
+    <section id="product" class="shop shop-product pb-60 bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12  col-md-8">
+                    <div class="content_top">
+                        <div>
+                            <p><a href="/">Trang chủ</a>><a href="/chi-tiet/@Model.ProdID">@Model.ProdName</a></p>
+                        </div>
                     </div>
-                </div>
-                @if (sl != 0)
-                {
-                    <p>chỉ còn @Model.Wantity sản phẩm </p>
-                }
-                <!-- Alert Message -->
-                <div class="alerts">
-                    <div class="alert-icon">
-                        <i class="fa fa-check-circle"></i>
-                    </div>
-                    <div class="alert-content">
-                        <h4 style="padding-top:13px;text-align:center">Chi tiết đồ uống thêm vào giỏ hàng của bạn</h4>
-                    </div>
-                </div>
-                <!-- .aret end -->
-
-                <div class="product-img mb-50">
-                    <img class="img-responsive" src="@Model.ImageUrl" alt="product image">
-                </div>
-                <!-- .product-img end -->
-                <div class="product-title">
-                    <h3>@Model.ProdName</h3>
-                </div>
-                <!-- .product-title end -->
-                <div class="product-meta mb-30">
-                    <div class="product-price pull-left pull-none-xs">
-                        Giá:   @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-"{0:#,#}", Model.Cost) VNĐ
-                    </div>
-                    <!-- .product-price end -->
-                    <div class="product-review text-right text-center-xs">
-                        <span class="product-rating">
-                        </span>
-                        <span></span>
-                        <span>
-                            <a href="#"></a>
-                        </span>
-                    </div>
-                    <!--- .product-review end -->
-                </div>
-                <div class="product-desc">
-                    <p> </p>
-                </div>
-                <!-- .product-desc end -->
-                <hr>
-                <div class="product-details">
-                    <h5>Mô tả :</h5>
-                    <ul class="list-unstyled">
-                        <li>@Model.Decription</li>
-                    </ul>
-                </div>
-                <!-- .product-details end -->
-                <hr>
-                <div class="product-action clearfix">
-                    <div class="product-quantity pull-left pull-none-xs">
-                        <span class="qua">Số Lượng:</span>
-                        <span>
-                            <a href="#" class="minus"><i class="fa fa-minus"></i></a>
-                            <input type="text" value="1" id="pro-qunt" name="sl" readonly>
-                            <a href="#" class="plus"><i class="fa fa-plus"></i></a>
-                            <input type="hidden" value="@Model.ProdID" id="pro-qunt" name="prodId" />
-                        </span>
-                    </div>
-                    @using (Html.BeginForm("Detail", "Product", FormMethod.Post))
+                    @if (sl != 0)
                     {
-                    <div class="product-cta text-right text-center-xs">
-                        @if (Model.Wantity > 0)
-                        {
-                            <button type="submit" class="btn btn--primary btn--rounded">Thêm vào giỏ</button>
-
-                        }
-                        else
-                        {
-                            <a>Tạm thời hết hàng</a>
-                        }
-                    </div>
+                        <p><h3 style="    color: red;">chỉ còn @Model.Wantity sản phẩm </h3></p>
                     }
-                </div>
-            </div>                   
-            <div class="col-xs-12 col-sm-12  col-md-4 sidebar-full">
-                <div class="widget widget-recent-products">
-                    <div class="widget--title">
-                        <h5>SẢN PHẨM LIÊN QUAN</h5>
+                    <!-- Alert Message -->
+                    <div class="alerts">
+                        <div class="alert-icon">
+                            <i class="fa fa-check-circle"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4 style="padding-top:13px;text-align:center">Chi tiết đồ uống thêm vào giỏ hàng của bạn</h4>
+                        </div>
                     </div>
-                    <div class="widget--content">
-                        <!-- Product #1 -->
-                        @foreach (var item in relatedProduct)
+                    <!-- .aret end -->
+
+                    <div class="product-img mb-50">
+                        <img class="img-responsive" src="@Model.ImageUrl" alt="product image">
+                    </div>
+                    <!-- .product-img end -->
+                    <div class="product-title">
+                        <h3>@Model.ProdName</h3>
+                    </div>
+                    <!-- .product-title end -->
+                    <div class="product-meta mb-30">
+                        <div class="product-price pull-left pull-none-xs">
+                            Giá:   @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+"{0:#,#}", Model.Cost) VNĐ
+                        </div>
+                        <!-- .product-price end -->
+                        <div class="product-review text-right text-center-xs">
+                            <span class="product-rating">
+                            </span>
+                            <span></span>
+                            <span>
+                                <a href="#"></a>
+                            </span>
+                        </div>
+                        <!--- .product-review end -->
+                    </div>
+                    <div class="product-desc">
+                        <p> </p>
+                    </div>
+                    <!-- .product-desc end -->
+                    <hr>
+                    <div class="product-details">
+                        <h5>Mô tả :</h5>
+                        <ul class="list-unstyled">
+                            <li>@Model.Decription</li>
+                        </ul>
+                    </div>
+                    <!-- .product-details end -->
+                    <hr>
+                    <div class="product-action clearfix">
+                        <div class="product-quantity pull-left pull-none-xs">
+                            <span class="qua">Số Lượng:</span>
+                            <span>
+                                <a href="#" class="minus"><i class="fa fa-minus"></i></a>
+                                <input type="text" value="1" id="pro-qunt" name="sl" readonly>
+                                <a href="#" class="plus"><i class="fa fa-plus"></i></a>
+                                <input type="hidden" value="@Model.ProdID" id="pro-qunt" name="prodId" />
+                            </span>
+                        </div>
+                        @using (Html.BeginForm("Detail", "Product", FormMethod.Post))
                         {
-                            var url = "/chi-tiet/" + item.ProdID;
-                            <div class="col-xs-12 col-sm-6 col-md-12">
-                                <div class="product-item">
-                                    <div class="product--img">
-                                        <img src="@item.ImageUrl" alt="Product" style="width:720px; height450px" />
-                                        <div class="product--hover">
-                                            <div class="product--action">
-                                                @if (item.Wantity > 0)
-                                                {
-                                                    <a href="/them-gio-hang?productId=@item.ProdID&count=1">Thêm vào giỏ</a>
-                                                }
-                                                else
-                                                {
-                                                    <a>Tạm thời hết hàng</a>
-                                                }
-                                            </div>
-                                        </div>
-                                        <!-- .product-overlay end -->
-                                    </div>
-                                    <!-- .product-img end -->
-                                    <div class="product--content">
-                                        <div class="product--title">
-                                            <h3><a href="@url">@item.ProdName</a></h3>
-                                        </div>
-                                        <!-- .product-title end -->
-                                        <div class="product--price">
-                                            <span>
-                                                @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-     "{0:#,#}", item.Cost) VNĐ
-                                            </span>
-                                        </div>
-                                        <!-- .product-price end -->
-                                    </div>
-                                    <!-- .product-bio end -->
-                                </div>
+                            <div class="product-cta text-right text-center-xs">
+                                @if (Model.Wantity > 0)
+                                {
+                                    <button type="submit" class="btn btn--primary btn--rounded">Thêm vào giỏ</button>
+
+                                }
+                                else
+                                {
+                                    <a>Tạm thời hết hàng</a>
+                                }
                             </div>
                         }
                     </div>
-                    <!-- .row end -->
                 </div>
+                <div class="col-xs-12 col-sm-12  col-md-4 sidebar-full">
+                    <div class="widget widget-recent-products">
+                        <div class="widget--title">
+                            <h5>TIN LIÊN QUAN</h5>
+                        </div>
+                        <div class="widget--content">
+                            <!-- Product #1 -->
+                            @foreach (var item in relatedProduct)
+                            {
+                                var url = "/chi-tiet/" + item.ProdID;
+                                <div class="col-xs-12 col-sm-6 col-md-12">
+                                    <div class="product-item">
+                                        <div class="product--img">
+                                            <img src="@item.ImageUrl" alt="Product" style="width:720px; height450px" />
+                                            <div class="product--hover">
+                                                <div class="product--action">
+                                                    @if (item.Wantity > 0)
+                                                    {
+                                                        <a href="/them-gio-hang?productId=@item.ProdID&count=1">Thêm vào giỏ</a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a>Tạm thời hết hàng</a>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <!-- .product-overlay end -->
+                                        </div>
+                                        <!-- .product-img end -->
+                                        <div class="product--content">
+                                            <div class="product--title">
+                                                <h3><a href="@url">@item.ProdName</a></h3>
+                                            </div>
+                                            <!-- .product-title end -->
+                                            <div class="product--price">
+                                                <span>
+                                                    @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+         "{0:#,#}", item.Cost) VNĐ
+                                                </span>
+                                            </div>
+                                            <!-- .product-price end -->
+                                        </div>
+                                        <!-- .product-bio end -->
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <!-- .row end -->
+                    </div>
+                </div>
+                <!-- .product-related end  -->
             </div>
-            <!-- .product-related end  -->
         </div>
-    </div>
-</section>
+    </section>
+}

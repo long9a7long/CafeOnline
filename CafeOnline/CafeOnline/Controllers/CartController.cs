@@ -14,10 +14,12 @@ namespace CafeOnline.Controllers
     public class CartController : Controller
     {
         private const string CartSession = "CartSession";
-
+        int sl;
+        private Product prod;
         // GET: Cart
         public ActionResult Index()
         {
+                ViewBag.sl = Session[Constants.SL];
             var cart = Session[CartSession];
             var list = new List<CartItem>();
             if (cart != null)
@@ -50,7 +52,7 @@ namespace CafeOnline.Controllers
 
         public JsonResult Update(string cartModel)
         {
-            ViewBag.sl = 0;
+            sl = 0;
             var jsonCart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
             var sessionCart = (List<CartItem>)Session[CartSession];
             foreach (var item in sessionCart)
@@ -62,7 +64,8 @@ namespace CafeOnline.Controllers
                 }
                 else
                 {
-                    ViewBag.sl = item.Product.ProdID;
+                    sl = item.Product.ProdID;
+                   
                 }
             }
             Session[CartSession] = sessionCart;
@@ -74,7 +77,7 @@ namespace CafeOnline.Controllers
 
         public ActionResult AddItem(int productId, int Count)
         {
-            ViewBag.sl = 0;
+            sl = 0;
             var product = new ProductDao().getByID(productId);
             var cart = Session[CartSession];
             if (cart != null)
@@ -90,7 +93,7 @@ namespace CafeOnline.Controllers
                         }
                         else
                         {
-                            ViewBag.sl = item.Product.ProdID;
+                            sl = item.Product.ProdID;
                         }
                     }
                 }
@@ -105,7 +108,7 @@ namespace CafeOnline.Controllers
                     }
                     else
                     {
-                        ViewBag.sl = product.ProdID;
+                        sl = product.ProdID;
                     }
                 }
                 Session[CartSession] = list;
@@ -123,10 +126,11 @@ namespace CafeOnline.Controllers
                 }
                 else
                 {
-                    ViewBag.sl = product.ProdID;
+                    sl = product.ProdID;
                 }
 
             }
+            Session.Add(Constants.SL, sl);
             return RedirectToAction("Index");
         }
 

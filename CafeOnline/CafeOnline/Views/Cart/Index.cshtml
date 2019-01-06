@@ -3,6 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var sl = ViewBag.sl;
+    var prod = (Model.EF.Product)ViewBag.prod;
 }
 @section jsFooter{
     <script src="/Assets/display/js/controller/cartController.js"></script>
@@ -20,16 +21,16 @@
         <div class="row">
             @if (Model.Count > 0)
             {
-                if (sl != 0)
-                {
-                    foreach (var item in Model)
+                    if (sl != 0)
                     {
-                        if (item.Product.ProdID == sl)
+                        foreach (var item in Model)
                         {
-                            <p> chỉ còn @item.Product.Wantity sản phẩm @item.Product.ProdName</p>
+                            if (item.Product.ProdID == sl)
+                            {
+                                <p> <h3 style="    color: red;">chỉ còn @item.Product.Wantity sản phẩm @item.Product.ProdName</h3></p>
+                            }
                         }
                     }
-                }
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="cart-table table-responsive">
                             <table class="table table-bordered">
@@ -112,8 +113,8 @@
                 {
                     <span class="alert-danger">Chưa có sản phẩm thêm vào giỏ hàng</span>
                 }
-            <!-- .row end -->
-        </div>
+                <!-- .row end -->
+            </div>
     </div><!-- .container end -->
 </section><!-- #shopcart end -->
 @{

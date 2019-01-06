@@ -9588,11 +9588,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Category\Category.cshtml" />
     <Content Include="Views\Product\Product.cshtml" />
-    <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Product\Search.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Shared\UserDetail.cshtml" />
     <Content Include="Views\User\History.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

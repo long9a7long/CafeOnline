@@ -16,7 +16,6 @@ namespace CafeOnline.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult Detail(string sl, string prodId)
         {
