@@ -145,3 +145,7 @@ D:\CafeOnline\CafeOnline\Model\obj\Debug\Model.csproj.CopyComplete
 D:\CafeOnline\CafeOnline\Model\obj\Debug\Model.dll
 D:\CafeOnline\CafeOnline\Model\obj\Debug\Model.pdb
 D:\CafeShop\CafeOnline\Model\obj\Debug\Model.csprojAssemblyReference.cache
+D:\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.WebPages.dll
+D:\CafeOnline\CafeOnline\Model\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.Razor.dll
+D:\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.WebPages.Deployment.dll
