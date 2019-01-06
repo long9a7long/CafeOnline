@@ -1,8 +1,57 @@
-﻿
+﻿@model IEnumerable<Model.EF.Bill>
 @{
-    ViewBag.Title = "History";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  ViewBag.Title = "History";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+  var oder = new Model.DAO.OrderDAO();
+  var product = new Model.DAO.ProductDao();
 }
+<style>
+    #primary-menu a {
+        color: #333;
+    }
 
-<h2>History</h2>
+    .menu menu-1 {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .list-unstyled {
+        width: 50%;
+        margin: 0 auto;
+    }
+</style>
+
+    <section class="shop shop-cart bg-white">
+        <div class="menu menu-1">
+            <div class="container">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <!-- Dish #6 -->
+                            <div class="dish-panel">
+                                <h3 class="dish--title">Tổng hóa đơn:</h3>
+                                <h3 class="dish--title">Ngày Xuất:</h3>
+                            </div>
+                            <!-- .dish end -->
+                        </div>
+                        <!-- .col-md-4 end -->
+                        <div class="col-xs-12 col-sm-8 col-md-8">
+                            <!-- Dish #7 -->
+                            <div class="dish-panel">
+                                <span class="dish--price">
+                                    @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+        "{0:#,#}", item.TotalPrice) VNĐ
+                                </span><br />
+                                <span class="dish--price">@item.CreatedAt</span><br />
+                            </div>
+                            <!-- .dish end -->
+                        </div>
+                        Session.Add(Models.Common.Constants.BILLID, item.BillID);
+                         Html.RenderAction("UserDetail", "User");
+                    }
+                </div>
+            </div>
+        </div>
+</section>
 

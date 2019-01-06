@@ -15,7 +15,14 @@
                     <img src="@item.ImageUrl" alt="Product" style="width:500px;height:300px">
                     <div class="product--hover">
                         <div class="product--action">
-                            <a href="/them-gio-hang?productId=@item.ProdID&count=1">Thêm vào giỏ hàng</a>
+                            @if ((item.Wantity < 0) || (item.Wantity == 0))
+                            {
+                                <a>Tạm hết hàng</a>
+                            }
+                            else
+                            {
+                                <a href="/them-gio-hang?productId=@item.ProdID&count=1">Thêm vào giỏ hàng</a>
+                            }
                         </div>
                     </div>
                     <!-- .product-overlay end -->

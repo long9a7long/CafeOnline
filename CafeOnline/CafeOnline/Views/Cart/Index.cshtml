@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var sl = ViewBag.sl;
 }
 @section jsFooter{
     <script src="/Assets/display/js/controller/cartController.js"></script>
@@ -19,88 +20,98 @@
         <div class="row">
             @if (Model.Count > 0)
             {
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="cart-table table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr class="cart-product">
-                                    <th class="cart-product-item">Mã Sản Phẩm</th>
-                                    <th class="cart-product-item">Sản Phẩm</th>
-                                    <th class="cart-product-quantity">Số Lượng</th>
-                                    <th class="cart-product-quantity">Đơn Giá</th>
-                                    <th class="cart-product-total">Thành Tiền</th>
-                                    <th class="cart-product-total">Công Cụ</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr class="cart-product" style="text-align:center;">
-                                        <td class="cart-product-price" style="padding-top:50px">@item.Product.ProdID</td>
-                                        <td class="cart-product-item">
-                                            <div class="cart-product-img">
-                                                <img src="@item.Product.ImageUrl" alt="product" style="width:80px; height:100px;" />
-                                            </div>
-                                            <div class="cart-product-name" style="padding-top:30px">
-                                                <h6>@item.Product.ProdName</h6>
-                                            </div>
-                                        </td>
-                                        <td class="cart-product-quantity" style="padding-top:50px">
-                                            <div class="product-quantity">
-                                                <input type="text" class="txtCount" data-id="@item.Product.ProdID" id="pro1-qunt" value="@item.Count" />
-                                            </div>
-                                        </td>
-                                        <td class="cart-product-price" style="padding-top:50px">
-                                            @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-    "{0:#,#}", item.Product.Cost) VNĐ
-                                        </td>
-                                        <td class="cart-product-total" style="padding-top:50px">
-                                            @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-    "{0:#,#}", (item.Product.Cost * item.Count)) VNĐ
-                                        </td>
-                                        <td class="cart-product-price" style="padding-top:50px"><a href="#" data-id="@item.Product.ProdID" class="btn-delete">Xóa</a></td>
-                                        <div style="display:none">@(tong += item.Product.Cost * item.Count)</div>
+                if (sl != 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        if (item.Product.ProdID == sl)
+                        {
+                            <p> chỉ còn @item.Product.Wantity sản phẩm @item.Product.ProdName</p>
+                        }
+                    }
+                }
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="cart-table table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="cart-product">
+                                        <th class="cart-product-item">Mã Sản Phẩm</th>
+                                        <th class="cart-product-item">Sản Phẩm</th>
+                                        <th class="cart-product-quantity">Số Lượng</th>
+                                        <th class="cart-product-quantity">Đơn Giá</th>
+                                        <th class="cart-product-total">Thành Tiền</th>
+                                        <th class="cart-product-total">Công Cụ</th>
                                     </tr>
-                                }
-                                <tr class="cart-product-action">
-                                    <td colspan="4">
-                                        <div class="cart-product">
-                                           <ul class="cart-product-item"  style="font-size:20px;color:red; text-align: center ">Tổng Thành Tiền</ul>    
-                                        </div>
-                                    </td>
-                                    <td colspan="2">
-                                        <div class="cart-product">
-                                            <ul class="cart-product-item" style="font-size:20px;color:red; text-align: center ">
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="cart-product" style="text-align:center;">
+                                            <td class="cart-product-price" style="padding-top:50px">@item.Product.ProdID</td>
+                                            <td class="cart-product-item">
+                                                <div class="cart-product-img">
+                                                    <img src="@item.Product.ImageUrl" alt="product" style="width:80px; height:100px;" />
+                                                </div>
+                                                <div class="cart-product-name" style="padding-top:30px">
+                                                    <h6>@item.Product.ProdName</h6>
+                                                </div>
+                                            </td>
+                                            <td class="cart-product-quantity" style="padding-top:50px">
+                                                <div class="product-quantity">
+                                                    <input type="text" class="txtCount" data-id="@item.Product.ProdID" id="pro1-qunt" value="@item.Count" />
+                                                </div>
+                                            </td>
+                                            <td class="cart-product-price" style="padding-top:50px">
                                                 @String.Format(System.Globalization.CultureInfo.InvariantCulture,
-              "{0:#,#}", tong) VNĐ
-                                                                                    </ul>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr class="cart-product-action">
-                                    <td colspan="6">
-                                        <div class="row clearfix">
-                                            <!-- .col-md-6 end -->
-                                            <div class="col-xs-12 col-sm-12 col-md-12 text-right">
-                                                <a id="btnContinue" class="btn btn--secondary btn--rounded" href="#">Mua Thêm</a>
-                                                <a id="btnDeleteAll" class="btn btn--secondary btn--rounded" href="#">Xóa Giỏ Hàng</a>
-                                                <a id="btnUpdate" class="btn btn--secondary btn--rounded" href="#">Cập nhật</a>
-                                                <a id="btnPayment" class="btn btn--primary btn--rounded" href="#">Thanh Toán</a>
-                                            </div><!-- .col-md-6 end -->
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+        "{0:#,#}", item.Product.Cost) VNĐ
+                                            </td>
+                                            <td class="cart-product-total" style="padding-top:50px">
+                                                @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+        "{0:#,#}", (item.Product.Cost * item.Count)) VNĐ
+                                            </td>
+                                            <td class="cart-product-price" style="padding-top:50px"><a href="#" data-id="@item.Product.ProdID" class="btn-delete">Xóa</a></td>
+                                            <div style="display:none">@(tong += item.Product.Cost * item.Count)</div>
+                                        </tr>
+                                    }
+                                    <tr class="cart-product-action">
+                                        <td colspan="4">
+                                            <div class="cart-product">
+                                                <ul class="cart-product-item" style="font-size:20px;color:red; text-align: center ">Tổng Thành Tiền</ul>
+                                            </div>
+                                        </td>
+                                        <td colspan="2">
+                                            <div class="cart-product">
+                                                <ul class="cart-product-item" style="font-size:20px;color:red; text-align: center ">
+                                                    @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+                  "{0:#,#}", tong) VNĐ
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="cart-product-action">
+                                        <td colspan="6">
+                                            <div class="row clearfix">
+                                                <!-- .col-md-6 end -->
+                                                <div class="col-xs-12 col-sm-12 col-md-12 text-right">
+                                                    <a id="btnContinue" class="btn btn--secondary btn--rounded" href="#">Mua Thêm</a>
+                                                    <a id="btnDeleteAll" class="btn btn--secondary btn--rounded" href="#">Xóa Giỏ Hàng</a>
+                                                    <a id="btnUpdate" class="btn btn--secondary btn--rounded" href="#">Cập nhật</a>
+                                                    <a id="btnPayment" class="btn btn--primary btn--rounded" href="#">Thanh Toán</a>
+                                                </div><!-- .col-md-6 end -->
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- .cart-table end -->
                     </div>
-                    <!-- .cart-table end -->
-                </div>
-                <!-- .col-md-12 end -->
-            }
-            else
-            {
-               <span class="alert-danger">Chưa có sản phẩm thêm vào giỏ hàng</span>
-            }
+                    <!-- .col-md-12 end -->
+                }
+                else
+                {
+                    <span class="alert-danger">Chưa có sản phẩm thêm vào giỏ hàng</span>
+                }
             <!-- .row end -->
         </div>
     </div><!-- .container end -->

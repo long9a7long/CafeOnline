@@ -134,10 +134,6 @@ D:\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.dll
 D:\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.SqlServer.dll
 D:\CafeOnline\CafeOnline\Model\bin\Debug\PagedList.dll
 D:\CafeOnline\CafeOnline\Model\bin\Debug\PagedList.Mvc.dll
-D:\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.WebPages.dll
-D:\CafeOnline\CafeOnline\Model\bin\Debug\Microsoft.Web.Infrastructure.dll
-D:\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.Razor.dll
-D:\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.WebPages.Deployment.dll
 D:\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.xml
 D:\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.SqlServer.xml
 D:\CafeOnline\CafeOnline\Model\bin\Debug\PagedList.xml
@@ -148,3 +144,7 @@ D:\CafeOnline\CafeOnline\Model\obj\Debug\Model.csproj.CopyComplete
 D:\CafeOnline\CafeOnline\Model\obj\Debug\Model.dll
 D:\CafeOnline\CafeOnline\Model\obj\Debug\Model.pdb
 D:\CafeShop\CafeOnline\Model\obj\Debug\Model.csprojAssemblyReference.cache
+D:\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.WebPages.dll
+D:\CafeOnline\CafeOnline\Model\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.Razor.dll
+D:\CafeOnline\CafeOnline\Model\bin\Debug\System.Web.WebPages.Deployment.dll

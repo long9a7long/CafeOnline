@@ -1,0 +1,28 @@
+﻿@model List<CafeOnline.Models.CartItem>
+@{
+    Layout = null;
+}
+<style>
+    .cart-total-amount {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .list-unstyled {
+        width: 50%;
+        margin: 0 auto;
+    }
+</style>
+<div class="cart-total-amount">
+    <h6 align="center">HÓA ĐƠN</h6>
+    <ul class="list-unstyled">
+        <li>Tên đồ uống:<span class="pull-right text-right">Giá</span></li>
+        @foreach (var prod in Model)
+        {
+            <li>@prod.Product.ProdName<span class="pull-right text-right">
+    @prod.Count X @String.Format(System.Globalization.CultureInfo.InvariantCulture,
+"{0:#,#}", prod.Product.Cost) VNĐ
+</span></li>
+        }
+    </ul>
+</div>

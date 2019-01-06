@@ -3,6 +3,8 @@
     ViewBag.Title = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var relatedProduct = (List<Model.EF.Product>)ViewBag.Relateproduct;
+    var sl = ViewBag.sl;
+}
 }
 @section jsFooter{
 
@@ -22,6 +24,10 @@
                         <p><a href="/">Trang chủ</a>><a href="/chi-tiet/@Model.ProdID">@Model.ProdName</a></p>
                     </div>
                 </div>
+                @if (sl != 0)
+                {
+                    <p>chỉ còn @Model.Wantity sản phẩm </p>
+                }
                 <!-- Alert Message -->
                 <div class="alerts">
                     <div class="alert-icon">
@@ -82,16 +88,24 @@
                     </div>
                     @using (Html.BeginForm("Detail", "Product", FormMethod.Post))
                     {
-                        <div class="product-cta text-right text-center-xs">
-                            <a class="btn btn--secondary btn--rounded" href="#">Thêm vào giỏ</a>
-                        </div>
+                    <div class="product-cta text-right text-center-xs">
+                        @if (Model.Wantity > 0)
+                        {
+                            <button type="submit" class="btn btn--primary btn--rounded">Thêm vào giỏ</button>
+
+                        }
+                        else
+                        {
+                            <a>Tạm thời hết hàng</a>
+                        }
+                    </div>
                     }
                 </div>
             </div>                   
             <div class="col-xs-12 col-sm-12  col-md-4 sidebar-full">
                 <div class="widget widget-recent-products">
                     <div class="widget--title">
-                        <h5>TIN LIÊN QUAN</h5>
+                        <h5>SẢN PHẨM LIÊN QUAN</h5>
                     </div>
                     <div class="widget--content">
                         <!-- Product #1 -->
@@ -104,7 +118,14 @@
                                         <img src="@item.ImageUrl" alt="Product" style="width:720px; height450px" />
                                         <div class="product--hover">
                                             <div class="product--action">
-                                                <a href="/them-gio-hang?productId=@item.ProdID&count=1">Thêm vào giỏ</a>
+                                                @if (item.Wantity > 0)
+                                                {
+                                                    <a href="/them-gio-hang?productId=@item.ProdID&count=1">Thêm vào giỏ</a>
+                                                }
+                                                else
+                                                {
+                                                    <a>Tạm thời hết hàng</a>
+                                                }
                                             </div>
                                         </div>
                                         <!-- .product-overlay end -->

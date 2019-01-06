@@ -7754,6 +7754,7 @@
     <Content Include="Assets\Data\Images\sinhtoxoai.jpg" />
     <Content Include="Assets\display\css\bootstrap.min.css" />
     <Content Include="Assets\display\css\external.css" />
+    <Content Include="Assets\display\css\fonts\OFL.txt" />
     <Content Include="Assets\display\css\style-arabic.css" />
     <Content Include="Assets\display\css\style-dark.css" />
     <Content Include="Assets\display\css\style-rtl.css" />
@@ -7766,6 +7767,7 @@
     <Content Include="Assets\display\css\vendors\font-awesome.min.css" />
     <Content Include="Assets\display\css\vendors\magnific-popup.css" />
     <Content Include="Assets\display\css\vendors\stroke-gap-icons.css" />
+    <Content Include="Assets\display\fonts\OFL.txt" />
     <Content Include="Assets\display\images\background\1.jpg" />
     <Content Include="Assets\display\images\background\10.jpg" />
     <Content Include="Assets\display\images\background\11.jpg" />
@@ -9511,6 +9513,36 @@
     <Content Include="Assets\display\revolution\revolution-addons\whiteboard\js\.DS_Store" />
     <Content Include="Areas\Admin\Views\Bill\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\Bill\Index.cshtml" />
+    <Content Include="Assets\display\fonts\PlayfairDisplay-Black.ttf" />
+    <Content Include="Assets\display\fonts\PlayfairDisplay-BlackItalic.ttf" />
+    <Content Include="Assets\display\fonts\PlayfairDisplay-Bold.ttf" />
+    <Content Include="Assets\display\fonts\PlayfairDisplay-BoldItalic.ttf" />
+    <Content Include="Assets\display\fonts\PlayfairDisplay-Italic.ttf" />
+    <Content Include="Assets\display\fonts\PlayfairDisplay-Regular.ttf" />
+    <Content Include="Assets\display\fonts\Pacifico-Regular.ttf" />
+    <Content Include="Assets\display\fonts\Oswald-Bold.ttf" />
+    <Content Include="Assets\display\fonts\Oswald-ExtraLight.ttf" />
+    <Content Include="Assets\display\fonts\Oswald-Light.ttf" />
+    <Content Include="Assets\display\fonts\Oswald-Medium.ttf" />
+    <Content Include="Assets\display\fonts\Oswald-Regular.ttf" />
+    <Content Include="Assets\display\fonts\Oswald-SemiBold.ttf" />
+    <Content Include="Assets\display\fonts\DancingScript-Bold.ttf" />
+    <Content Include="Assets\display\fonts\DancingScript-Regular.ttf" />
+    <Content Include="Assets\display\css\fonts\PlayfairDisplay-Regular.ttf" />
+    <Content Include="Assets\display\css\fonts\Oswald-Bold.ttf" />
+    <Content Include="Assets\display\css\fonts\Oswald-ExtraLight.ttf" />
+    <Content Include="Assets\display\css\fonts\Oswald-Light.ttf" />
+    <Content Include="Assets\display\css\fonts\Oswald-Medium.ttf" />
+    <Content Include="Assets\display\css\fonts\Oswald-Regular.ttf" />
+    <Content Include="Assets\display\css\fonts\Oswald-SemiBold.ttf" />
+    <Content Include="Assets\display\css\fonts\Pacifico-Regular.ttf" />
+    <Content Include="Assets\display\css\fonts\PlayfairDisplay-Black.ttf" />
+    <Content Include="Assets\display\css\fonts\PlayfairDisplay-BlackItalic.ttf" />
+    <Content Include="Assets\display\css\fonts\PlayfairDisplay-Bold.ttf" />
+    <Content Include="Assets\display\css\fonts\PlayfairDisplay-BoldItalic.ttf" />
+    <Content Include="Assets\display\css\fonts\PlayfairDisplay-Italic.ttf" />
+    <Content Include="Assets\display\css\fonts\DancingScript-Bold.ttf" />
+    <Content Include="Assets\display\css\fonts\DancingScript-Regular.ttf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -9548,7 +9580,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Checkout.cshtml" />
     <Content Include="Views\Shared\ProductCategories.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\Payment.cshtml" />
     <Content Include="Views\Cart\Success.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
@@ -9558,8 +9589,10 @@
     <Content Include="Views\Category\Category.cshtml" />
     <Content Include="Views\Product\Product.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
-    <Content Include="Views\User\History.cshtml" />
     <Content Include="Views\Product\Search.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Shared\UserDetail.cshtml" />
+    <Content Include="Views\User\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
