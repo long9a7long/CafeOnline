@@ -21,7 +21,6 @@ D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.xml
 D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\EntityFramework.SqlServer.xml
 D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\PagedList.xml
 D:\CafeShop\CafeOnline\CafeOnline\Model\bin\Debug\PagedList.Mvc.xml
-D:\CafeShop\CafeOnline\CafeOnline\Model\obj\Debug\Model.csprojAssemblyReference.cache
 D:\CafeShop\CafeOnline\CafeOnline\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 D:\CafeShop\CafeOnline\CafeOnline\Model\obj\Debug\Model.csproj.CopyComplete
 D:\CafeShop\CafeOnline\CafeOnline\Model\obj\Debug\Model.dll
